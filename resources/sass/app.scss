@@ -4,4 +4,57 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-@import 'main';
+@import 'loader';
+
+/* Global */
+body {
+  font-family: $font-family-sans-serif;
+  color: #8E8E8E;
+  scroll-behavior: smooth;
+}
+
+.btn {
+  width: max-content;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem 1.25rem;
+  border-width: 0;
+  border-radius: 2px;
+}
+
+.dark-button,
+.dark-button:visited,
+.dark-button:active {
+  position: relative;
+  z-index: 2;
+  padding: 10px 25px;
+  background-color: $dark-color;
+  border-radius: 0;
+  color: $white-color  !important;
+  font-weight: 400;
+  border: 1px solid #0d8e88;
+
+  &:hover {
+    background-color: $primary  !important;
+    background-image: -webkit-linear-gradient(45deg, $secondary 15%, $primary 65%) !important;
+    background-image: linear-gradient(45deg, $secondary 15%, $primary 65%) !important;
+    color: $white-color  !important;
+  }
+}
+
+
+/* Page Styles */
+header {
+  .nav-link {
+    font-size: 1em !important;
+    font-weight: 600 !important;
+
+    &:hover {
+      color: $primary  !important;
+      transition: all 1s ease-in-out !important;
+    }
+  }
+}
