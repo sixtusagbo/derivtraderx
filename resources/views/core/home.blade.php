@@ -63,6 +63,9 @@
     </div>
     <!-- TradingView Widget END -->
 
+    <!-- Google Translate -->
+    <div id="google_translate_element"></div>
+
     <div>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi quam dicta nesciunt sit. Itaque optio ducimus
         consectetur quas suscipit sunt, vero est facere fugit sapiente voluptatum voluptates repellat similique delectus.
@@ -136,4 +139,18 @@
         Libero quidem voluptatem deleniti, minus, non maxime iusto provident aperiam dolores velit aliquam, officia
         temporibus voluptas illo nulla ab reiciendis eum delectus! Eos esse nisi ab, quos suscipit porro deleniti?
     </div>
+@endsection
+
+@section('scripts')
+    <!-- Google Translate Scripts -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
 @endsection
