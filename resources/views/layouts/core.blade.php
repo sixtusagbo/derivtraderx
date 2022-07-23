@@ -29,6 +29,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('plugin/icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugin/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css?v=') . time() }}">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -36,11 +37,11 @@
     <![endif]-->
 </head>
 
-<body>
+<body data-aos-easing="ease">
     @include('shared.loader')
     <div class="container-fluid header px-5">
-        <header class="d-flex flex-wrap justify-content-center py-4 px-5 mb-4">
-            <a href="../../../../index.html"
+        <header class="d-flex flex-wrap justify-content-center py-4 px-5" data-aos="zoom-out" data-aos-delay="800">
+            <a href="{{ url('/') }}"
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <img src="{{ asset('images/logo.png') }}" alt="" width="35px">
                 <span class="fs-4 text-light ms-2 fw-bold">Deriv Traderx</span>
@@ -62,7 +63,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('plugin/jquery.js') }}"></script>
+    <script src="{{ asset('plugin/particles.min.js') }}"></script>
+    <script src="{{ asset('plugin/aos.js') }}"></script>
     <script src="{{ asset('js/app.js?v=') . time() }}"></script>
+    @yield('scripts')
 </body>
 
 </html>

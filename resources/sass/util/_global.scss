@@ -1,0 +1,16 @@
+@import 'loader';
+@import 'buttons';
+
+body {
+  font-family: $font-family-sans-serif;
+  color: #8E8E8E;
+  scroll-behavior: smooth;
+}
+
+.border-primary {
+  border: 1px solid $primary  !important;
+}
+
+.goog-te-combo {
+  @extend .btn, .btn-light;
+}

@@ -1,21 +1,31 @@
 @extends('layouts.core')
 
 @section('content')
-    <div
-        class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-        @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
-                    <a href="{{ url('/home') }}" class="">Home</a>
-                @else
-                    <a href="{{ route('login') }}" class="btn btn-outline-light">Log in</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="btn btn-light">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
+    <div class="hero">
+        <!-- Node Particles -->
+        <div id="particles-js">
+        </div>
+
+        <div class="hero-content">
+            <h2 class="fw-bold text-light">Professional</h2>
+            <h1 class="fw-bold text-primary">Asset Management</h1>
+            <p class="fs-4">Up to 20% daily earnings, Instant withdrawal. Payments are in your account regularly!.</p>
+            @if (Route::has('login'))
+                <div class="auth-buttons">
+                    @auth
+                        <a href="{{ url('/home') }}" class="btn btn-primary">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-outline-primary">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+        </div>
+
     </div>
 
     <div>
@@ -92,3 +102,4 @@
         temporibus voluptas illo nulla ab reiciendis eum delectus! Eos esse nisi ab, quos suscipit porro deleniti?
     </div>
 @endsection
+

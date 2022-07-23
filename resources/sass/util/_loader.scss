@@ -2,9 +2,11 @@
   display: grid;
   place-items: center;
   text-align: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background: #000;
+  z-index: 100;
+  position: absolute;
 
   .loading {
     $colors: #7ef9ff,

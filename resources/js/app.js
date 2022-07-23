@@ -1,10 +1,12 @@
 import './bootstrap';
 
 (function () {
+  //- Loader
   $(window).on('load', function () {
-    setTimeout(() => $('.loader-wrapper').fadeOut(), 3000);
+    setTimeout(() => $('.loader-wrapper').fadeOut(), 500);
   });
 
+  //- Header scroll effect
   let lastScrollTop = 0;
   $(window).scroll(function (event) {
     var st = $(this).scrollTop();
@@ -19,4 +21,11 @@ import './bootstrap';
     }
     lastScrollTop = st;
   });
+
+  /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+  particlesJS.load('particles-js', 'plugin/particles.json', function () {
+    console.log('callback - particles.js config loaded');
+  });
+
+  AOS.init();
 })();
