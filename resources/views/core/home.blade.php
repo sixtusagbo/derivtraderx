@@ -2,6 +2,7 @@
 
 @section('content')
 
+    <!-- Hero -->
     <div class="hero">
         <!-- Node Particles -->
         <div id="particles-js">
@@ -25,8 +26,42 @@
                 </div>
             @endif
         </div>
-
     </div>
+    <!-- Hero END -->
+
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+            {
+                "symbols": [{
+                    "description": "BTC/USD",
+                    "proName": "BITSTAMP:BTCUSD"
+                }, {
+                    "description": "ETH/USD",
+                    "proName": "KRAKEN:ETHUSD"
+                }, {
+                    "description": "LTC/USD",
+                    "proName": "KRAKEN:LTCUSD"
+                }, {
+                    "description": "BNB/USD",
+                    "proName": "BINANCE:BNBUSD"
+                }, {
+                    "description": "DOGE/USD",
+                    "proName": "BITTREX:DOGEUSD"
+                }, {
+                    "description": "TRX/USDT",
+                    "proName": "BINGX:TRXUSDT"
+                }],
+                "showSymbolLogo": true,
+                "colorTheme": "dark",
+                "isTransparent": true,
+                "displayMode": "adaptive",
+                "locale": "en"
+            }
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
 
     <div>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi quam dicta nesciunt sit. Itaque optio ducimus
@@ -102,4 +137,3 @@
         temporibus voluptas illo nulla ab reiciendis eum delectus! Eos esse nisi ab, quos suscipit porro deleniti?
     </div>
 @endsection
-
