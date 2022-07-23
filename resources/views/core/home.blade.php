@@ -11,7 +11,7 @@
         <div class="hero-content">
             <h2 class="fw-bold text-light">Professional</h2>
             <h1 class="fw-bold text-primary">Asset Management</h1>
-            <p class="fs-4">Up to 20% daily earnings, Instant withdrawal. Payments are in your account regularly!.</p>
+            <p class="fs-4">Up to 20% daily earnings, Instant withdrawal. Payments are in your account regularly!</p>
             @if (Route::has('login'))
                 <div class="auth-buttons">
                     @auth
@@ -153,4 +153,20 @@
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
     </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/62018946b9e4e21181bdeb32/1frb00fok';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 @endsection

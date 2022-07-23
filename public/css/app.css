@@ -2333,7 +2333,7 @@ textarea.form-control-lg {
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
 }
-.btn-check[disabled] + .btn, .btn-check[disabled] + .goog-te-combo, .btn-check:disabled + .btn, .btn-check:disabled + .goog-te-combo {
+.btn-check[disabled] + .btn, #google_translate_element .btn-check[disabled] + .goog-te-combo, .btn-check:disabled + .btn, #google_translate_element .btn-check:disabled + .goog-te-combo {
   pointer-events: none;
   filter: none;
   opacity: 0.65;
@@ -2511,11 +2511,11 @@ textarea.form-control-lg {
 .input-group > .form-select:focus {
   z-index: 3;
 }
-.input-group .btn, .input-group .goog-te-combo {
+.input-group .btn, .input-group #google_translate_element .goog-te-combo, #google_translate_element .input-group .goog-te-combo {
   position: relative;
   z-index: 2;
 }
-.input-group .btn:focus, .input-group .goog-te-combo:focus {
+.input-group .btn:focus, .input-group #google_translate_element .goog-te-combo:focus, #google_translate_element .input-group .goog-te-combo:focus {
   z-index: 3;
 }
 
@@ -2538,7 +2538,7 @@ textarea.form-control-lg {
 .input-group-lg > .form-select,
 .input-group-lg > .input-group-text,
 .input-group-lg > .btn,
-.input-group-lg > .goog-te-combo {
+#google_translate_element .input-group-lg > .goog-te-combo {
   padding: 0.5rem 1rem;
   font-size: 1.125rem;
   border-radius: 0.3rem;
@@ -2548,7 +2548,7 @@ textarea.form-control-lg {
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
 .input-group-sm > .btn,
-.input-group-sm > .goog-te-combo {
+#google_translate_element .input-group-sm > .goog-te-combo {
   padding: 0.25rem 0.5rem;
   font-size: 0.7875rem;
   border-radius: 0.2rem;
@@ -2753,7 +2753,7 @@ textarea.form-control-lg {
   z-index: 3;
 }
 
-.btn, .goog-te-combo {
+.btn, #google_translate_element .goog-te-combo {
   display: inline-block;
   font-weight: 400;
   line-height: 1.6;
@@ -2773,18 +2773,18 @@ textarea.form-control-lg {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn, .goog-te-combo {
+  .btn, #google_translate_element .goog-te-combo {
     transition: none;
   }
 }
-.btn:hover, .goog-te-combo:hover {
+.btn:hover, #google_translate_element .goog-te-combo:hover {
   color: #212529;
 }
-.btn-check:focus + .btn, .btn-check:focus + .goog-te-combo, .btn:focus, .goog-te-combo:focus {
+.btn-check:focus + .btn, #google_translate_element .btn-check:focus + .goog-te-combo, .btn:focus, #google_translate_element .goog-te-combo:focus {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(5, 160, 160, 0.25);
 }
-.btn:disabled, .goog-te-combo:disabled, .btn.disabled, .disabled.goog-te-combo, fieldset:disabled .btn, fieldset:disabled .goog-te-combo {
+.btn:disabled, #google_translate_element .goog-te-combo:disabled, .btn.disabled, #google_translate_element .disabled.goog-te-combo, fieldset:disabled .btn, fieldset:disabled #google_translate_element .goog-te-combo, #google_translate_element fieldset:disabled .goog-te-combo {
   pointer-events: none;
   opacity: 0.65;
 }
@@ -2969,31 +2969,31 @@ textarea.form-control-lg {
   border-color: #dc3545;
 }
 
-.btn-light, .goog-te-combo {
+.btn-light, #google_translate_element .goog-te-combo {
   color: #000;
   background-color: #f8f9fa;
   border-color: #f8f9fa;
 }
-.btn-light:hover, .goog-te-combo:hover {
+.btn-light:hover, #google_translate_element .goog-te-combo:hover {
   color: #000;
   background-color: #f9fafb;
   border-color: #f9fafb;
 }
-.btn-check:focus + .btn-light, .btn-check:focus + .goog-te-combo, .btn-light:focus, .goog-te-combo:focus {
+.btn-check:focus + .btn-light, #google_translate_element .btn-check:focus + .goog-te-combo, .btn-light:focus, #google_translate_element .goog-te-combo:focus {
   color: #000;
   background-color: #f9fafb;
   border-color: #f9fafb;
   box-shadow: 0 0 0 0.25rem rgba(211, 212, 213, 0.5);
 }
-.btn-check:checked + .btn-light, .btn-check:checked + .goog-te-combo, .btn-check:active + .btn-light, .btn-check:active + .goog-te-combo, .btn-light:active, .goog-te-combo:active, .btn-light.active, .active.goog-te-combo, .show > .btn-light.dropdown-toggle, .show > .dropdown-toggle.goog-te-combo {
+.btn-check:checked + .btn-light, #google_translate_element .btn-check:checked + .goog-te-combo, .btn-check:active + .btn-light, #google_translate_element .btn-check:active + .goog-te-combo, .btn-light:active, #google_translate_element .goog-te-combo:active, .btn-light.active, #google_translate_element .active.goog-te-combo, .show > .btn-light.dropdown-toggle, #google_translate_element .show > .dropdown-toggle.goog-te-combo {
   color: #000;
   background-color: #f9fafb;
   border-color: #f9fafb;
 }
-.btn-check:checked + .btn-light:focus, .btn-check:checked + .goog-te-combo:focus, .btn-check:active + .btn-light:focus, .btn-check:active + .goog-te-combo:focus, .btn-light:active:focus, .goog-te-combo:active:focus, .btn-light.active:focus, .active.goog-te-combo:focus, .show > .btn-light.dropdown-toggle:focus, .show > .dropdown-toggle.goog-te-combo:focus {
+.btn-check:checked + .btn-light:focus, #google_translate_element .btn-check:checked + .goog-te-combo:focus, .btn-check:active + .btn-light:focus, #google_translate_element .btn-check:active + .goog-te-combo:focus, .btn-light:active:focus, #google_translate_element .goog-te-combo:active:focus, .btn-light.active:focus, #google_translate_element .active.goog-te-combo:focus, .show > .btn-light.dropdown-toggle:focus, #google_translate_element .show > .dropdown-toggle.goog-te-combo:focus {
   box-shadow: 0 0 0 0.25rem rgba(211, 212, 213, 0.5);
 }
-.btn-light:disabled, .goog-te-combo:disabled, .btn-light.disabled, .disabled.goog-te-combo {
+.btn-light:disabled, #google_translate_element .goog-te-combo:disabled, .btn-light.disabled, #google_translate_element .disabled.goog-te-combo {
   color: #000;
   background-color: #f8f9fa;
   border-color: #f8f9fa;
@@ -3241,13 +3241,13 @@ textarea.form-control-lg {
   color: #6c757d;
 }
 
-.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .goog-te-combo {
+.btn-lg, .btn-group-lg > .btn, #google_translate_element .btn-group-lg > .goog-te-combo {
   padding: 0.5rem 1rem;
   font-size: 1.125rem;
   border-radius: 0.3rem;
 }
 
-.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .goog-te-combo {
+.btn-sm, .btn-group-sm > .btn, #google_translate_element .btn-group-sm > .goog-te-combo {
   padding: 0.25rem 0.5rem;
   font-size: 0.7875rem;
   border-radius: 0.2rem;
@@ -3597,35 +3597,35 @@ textarea.form-control-lg {
   display: inline-flex;
   vertical-align: middle;
 }
-.btn-group > .btn, .btn-group > .goog-te-combo,
+.btn-group > .btn, #google_translate_element .btn-group > .goog-te-combo,
 .btn-group-vertical > .btn,
-.btn-group-vertical > .goog-te-combo {
+#google_translate_element .btn-group-vertical > .goog-te-combo {
   position: relative;
   flex: 1 1 auto;
 }
-.btn-group > .btn-check:checked + .btn, .btn-group > .btn-check:checked + .goog-te-combo,
+.btn-group > .btn-check:checked + .btn, #google_translate_element .btn-group > .btn-check:checked + .goog-te-combo,
 .btn-group > .btn-check:focus + .btn,
-.btn-group > .btn-check:focus + .goog-te-combo,
+#google_translate_element .btn-group > .btn-check:focus + .goog-te-combo,
 .btn-group > .btn:hover,
-.btn-group > .goog-te-combo:hover,
+#google_translate_element .btn-group > .goog-te-combo:hover,
 .btn-group > .btn:focus,
-.btn-group > .goog-te-combo:focus,
+#google_translate_element .btn-group > .goog-te-combo:focus,
 .btn-group > .btn:active,
-.btn-group > .goog-te-combo:active,
+#google_translate_element .btn-group > .goog-te-combo:active,
 .btn-group > .btn.active,
-.btn-group > .active.goog-te-combo,
+#google_translate_element .btn-group > .active.goog-te-combo,
 .btn-group-vertical > .btn-check:checked + .btn,
-.btn-group-vertical > .btn-check:checked + .goog-te-combo,
+#google_translate_element .btn-group-vertical > .btn-check:checked + .goog-te-combo,
 .btn-group-vertical > .btn-check:focus + .btn,
-.btn-group-vertical > .btn-check:focus + .goog-te-combo,
+#google_translate_element .btn-group-vertical > .btn-check:focus + .goog-te-combo,
 .btn-group-vertical > .btn:hover,
-.btn-group-vertical > .goog-te-combo:hover,
+#google_translate_element .btn-group-vertical > .goog-te-combo:hover,
 .btn-group-vertical > .btn:focus,
-.btn-group-vertical > .goog-te-combo:focus,
+#google_translate_element .btn-group-vertical > .goog-te-combo:focus,
 .btn-group-vertical > .btn:active,
-.btn-group-vertical > .goog-te-combo:active,
+#google_translate_element .btn-group-vertical > .goog-te-combo:active,
 .btn-group-vertical > .btn.active,
-.btn-group-vertical > .active.goog-te-combo {
+#google_translate_element .btn-group-vertical > .active.goog-te-combo {
   z-index: 1;
 }
 
@@ -3638,21 +3638,21 @@ textarea.form-control-lg {
   width: auto;
 }
 
-.btn-group > .btn:not(:first-child), .btn-group > .goog-te-combo:not(:first-child),
+.btn-group > .btn:not(:first-child), #google_translate_element .btn-group > .goog-te-combo:not(:first-child),
 .btn-group > .btn-group:not(:first-child) {
   margin-left: -1px;
 }
-.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .goog-te-combo:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), #google_translate_element .btn-group > .goog-te-combo:not(:last-child):not(.dropdown-toggle),
 .btn-group > .btn-group:not(:last-child) > .btn,
-.btn-group > .btn-group:not(:last-child) > .goog-te-combo {
+#google_translate_element .btn-group > .btn-group:not(:last-child) > .goog-te-combo {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.btn-group > .btn:nth-child(n+3), .btn-group > .goog-te-combo:nth-child(n+3),
+.btn-group > .btn:nth-child(n+3), #google_translate_element .btn-group > .goog-te-combo:nth-child(n+3),
 .btn-group > :not(.btn-check) + .btn,
-.btn-group > :not(.btn-check) + .goog-te-combo,
+#google_translate_element .btn-group > :not(.btn-check) + .goog-te-combo,
 .btn-group > .btn-group:not(:first-child) > .btn,
-.btn-group > .btn-group:not(:first-child) > .goog-te-combo {
+#google_translate_element .btn-group > .btn-group:not(:first-child) > .goog-te-combo {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -3668,12 +3668,12 @@ textarea.form-control-lg {
   margin-right: 0;
 }
 
-.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .btn-group-sm > .goog-te-combo + .dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, #google_translate_element .btn-group-sm > .goog-te-combo + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem;
 }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .btn-group-lg > .goog-te-combo + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, #google_translate_element .btn-group-lg > .goog-te-combo + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
@@ -3683,23 +3683,23 @@ textarea.form-control-lg {
   align-items: flex-start;
   justify-content: center;
 }
-.btn-group-vertical > .btn, .btn-group-vertical > .goog-te-combo,
+.btn-group-vertical > .btn, #google_translate_element .btn-group-vertical > .goog-te-combo,
 .btn-group-vertical > .btn-group {
   width: 100%;
 }
-.btn-group-vertical > .btn:not(:first-child), .btn-group-vertical > .goog-te-combo:not(:first-child),
+.btn-group-vertical > .btn:not(:first-child), #google_translate_element .btn-group-vertical > .goog-te-combo:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child) {
   margin-top: -1px;
 }
-.btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), .btn-group-vertical > .goog-te-combo:not(:last-child):not(.dropdown-toggle),
+.btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), #google_translate_element .btn-group-vertical > .goog-te-combo:not(:last-child):not(.dropdown-toggle),
 .btn-group-vertical > .btn-group:not(:last-child) > .btn,
-.btn-group-vertical > .btn-group:not(:last-child) > .goog-te-combo {
+#google_translate_element .btn-group-vertical > .btn-group:not(:last-child) > .goog-te-combo {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.btn-group-vertical > .btn ~ .btn, .btn-group-vertical > .goog-te-combo ~ .btn, .btn-group-vertical > .btn ~ .goog-te-combo, .btn-group-vertical > .goog-te-combo ~ .goog-te-combo,
+.btn-group-vertical > .btn ~ .btn, #google_translate_element .btn-group-vertical > .goog-te-combo ~ .btn, #google_translate_element .btn-group-vertical > .btn ~ .goog-te-combo, #google_translate_element .btn-group-vertical > .goog-te-combo ~ .goog-te-combo,
 .btn-group-vertical > .btn-group:not(:first-child) > .btn,
-.btn-group-vertical > .btn-group:not(:first-child) > .goog-te-combo {
+#google_translate_element .btn-group-vertical > .btn-group:not(:first-child) > .goog-te-combo {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -4676,7 +4676,7 @@ textarea.form-control-lg {
   display: none;
 }
 
-.btn .badge, .goog-te-combo .badge {
+.btn .badge, #google_translate_element .goog-te-combo .badge {
   position: relative;
   top: -1px;
 }
@@ -6144,7 +6144,7 @@ textarea.form-control-lg {
   background-color: currentColor;
   opacity: 0.5;
 }
-.placeholder.btn::before, .placeholder.goog-te-combo::before {
+.placeholder.btn::before, #google_translate_element .placeholder.goog-te-combo::before {
   display: inline-block;
   content: "";
 }
@@ -6658,7 +6658,7 @@ textarea.form-control-lg {
   border-left: 0 !important;
 }
 
-.border-primary, .auth-buttons .btn, .auth-buttons .goog-te-combo {
+.border-primary, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   border-color: #05a0a0 !important;
 }
 
@@ -10352,7 +10352,7 @@ textarea.form-control-lg {
   }
 }
 
-.btn, .goog-te-combo {
+.btn, #google_translate_element .goog-te-combo {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -10392,10 +10392,15 @@ body {
   scroll-behavior: smooth;
 }
 
-.border-primary, .auth-buttons .btn, .auth-buttons .goog-te-combo {
+.border-primary, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   border: 1px solid #05a0a0 !important;
 }
 
+#google_translate_element {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
 /* Page Styles */
 header .nav-link {
   font-size: 1em !important;
@@ -10431,7 +10436,7 @@ header .nav-link:hover {
   padding-top: 2em;
 }
 
-.auth-buttons .btn, .auth-buttons .goog-te-combo {
+.auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   color: #ffffff !important;
   display: inline-block !important;
   margin-right: 14px !important;

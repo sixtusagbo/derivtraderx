@@ -11,6 +11,12 @@ body {
   border: 1px solid $primary  !important;
 }
 
-.goog-te-combo {
-  @extend .btn, .btn-light;
+#google_translate_element {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  .goog-te-combo {
+    @extend .btn, .btn-light;
+  }
 }
