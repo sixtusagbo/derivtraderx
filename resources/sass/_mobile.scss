@@ -1,0 +1,14 @@
+@media (max-width: 990px) {
+  .investment {
+    display: block !important;
+    text-align: center !important;
+
+    &-head {
+      display: block !important;
+
+      span {
+        display: block !important;
+      }
+    }
+  }
+}

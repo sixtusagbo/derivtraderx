@@ -29,6 +29,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('plugin/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugin/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugin/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css?v=') . time() }}">
     <!--[if lt IE 9]>
@@ -38,7 +40,7 @@
 </head>
 
 <body data-aos-easing="ease">
-    {{-- @include('shared.loader') --}}
+    @include('shared.loader')
     @include('shared.header')
 
     @yield('content')
@@ -46,6 +48,7 @@
     <!-- Scripts -->
     <script src="{{ asset('plugin/jquery.js') }}"></script>
     <script src="{{ asset('plugin/particles.min.js') }}"></script>
+    <script src="{{ asset('plugin/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('plugin/aos.js') }}"></script>
     <script src="{{ asset('js/app.js?v=') . time() }}"></script>
     @yield('scripts')

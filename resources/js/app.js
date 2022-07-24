@@ -23,9 +23,23 @@ import './bootstrap';
   });
 
   /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-  particlesJS.load('particles-js', 'plugin/particles.json', function () {
-    console.log('callback - particles.js config loaded');
-  });
+  particlesJS.load('particles-js', 'plugin/particles.json', function () { });
 
   AOS.init();
+
+  $(".owl-carousel").owlCarousel({
+    margin: 35,
+
+    dots: false,
+    loop: true,
+
+    responsive: {
+      0: { items: 1 },
+      800: { items: 2 },
+      1170: { items: 3 },
+    },
+    autoplay: true,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true
+  });
 })();

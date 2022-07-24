@@ -85,3 +85,42 @@ header {
     border-bottom: 1px solid $primary;
   }
 }
+
+.investment {
+  width: 100%;
+  background-color: #097e7d;
+  border-radius: 22px 0;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  &-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-weight: 500;
+    font-size: 22px;
+    color: #efede8;
+    line-height: 0.9;
+    margin-right: 25px;
+
+    span {
+      font-weight: 700;
+      font-size: 55px;
+      text-transform: uppercase;
+    }
+  }
+
+  &-desc {
+    font-weight: 400;
+    font-size: 16px;
+    color: #131419;
+  }
+}
+
+@import 'pricing';
+
+@import 'mobile';

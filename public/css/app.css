@@ -10469,3 +10469,180 @@ header {
   word-wrap: break-word;
   border-bottom: 1px solid #05a0a0;
 }
+
+.investment {
+  width: 100%;
+  background-color: #097e7d;
+  border-radius: 22px 0;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.investment-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-weight: 500;
+  font-size: 22px;
+  color: #efede8;
+  line-height: 0.9;
+  margin-right: 25px;
+}
+.investment-head span {
+  font-weight: 700;
+  font-size: 55px;
+  text-transform: uppercase;
+}
+.investment-desc {
+  font-weight: 400;
+  font-size: 16px;
+  color: #131419;
+}
+
+:root {
+  --pricing-color: #036A6A;
+}
+
+.pricingTable {
+  background: rgba(204, 204, 204, 0.137254902);
+  text-align: center;
+  padding: 0 0 30px;
+  margin: 0 3em;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.pricingTable:before {
+  content: "";
+  border: 10px solid var(--pricing-color);
+  border-top: none;
+  border-bottom: none;
+  border-radius: 10px;
+  position: absolute;
+  top: 55px;
+  bottom: 55px;
+  left: -10px;
+  right: -10px;
+  z-index: -1;
+}
+
+.pricingTable .pricingTable-header {
+  color: var(--pricing-color);
+  text-transform: capitalize;
+  position: relative;
+  margin: 0 0 30px;
+}
+
+.pricingTable .title {
+  color: #fff;
+  background: var(--pricing-color);
+  font-size: 33px;
+  font-weight: 500;
+  width: 80%;
+  padding: 10px 0;
+  margin: 0 auto 30px;
+  border-radius: 0 0 50px 50px;
+}
+
+.pricingTable .price-value .amount {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 53px;
+}
+
+.pricingTable .duration {
+  font-size: 17px;
+  line-height: 17px;
+  display: block;
+}
+
+.pricingTable .pricing-content {
+  text-align: left;
+  padding: 0;
+  margin: 0 0 30px;
+  list-style: none;
+  display: inline-block;
+}
+
+.pricingTable .pricing-content li {
+  color: #666363;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 30px;
+  padding: 0 15px 0 30px;
+  margin: 0 0 10px;
+  position: relative;
+}
+
+.pricingTable .pricing-content li:last-child {
+  margin: 0;
+}
+
+.pricingTable .pricing-content li:before {
+  content: "\e174";
+  color: #349008;
+  font-family: "Material Icons";
+  font-weight: 900;
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+
+.pricingTable .pricing-content li.disable:before {
+  content: "\e5c9";
+  color: #FF3A39;
+}
+
+.pricingTable .pricingTable-signup a {
+  color: #fff;
+  background: var(--pricing-color);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 20px 5px;
+  border-radius: 50px 50px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.pricingTable .pricingTable-signup a:hover {
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
+}
+
+.pricingTable.blue {
+  --pricing-color: #226AFF;
+}
+
+.pricingTable.orange {
+  --pricing-color: #FF6616;
+}
+
+.pricingTable.goldie {
+  --pricing-color: #ffaf02;
+}
+
+@media only screen and (max-width: 990px) {
+  .pricingTable {
+    margin: 0 10px 40px;
+  }
+}
+@media (max-width: 990px) {
+  .investment {
+    display: block !important;
+    text-align: center !important;
+  }
+  .investment-head {
+    display: block !important;
+  }
+  .investment-head span {
+    display: block !important;
+  }
+}
