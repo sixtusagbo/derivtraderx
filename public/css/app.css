@@ -10402,14 +10402,21 @@ body {
   left: 0;
 }
 /* Page Styles */
+.menu-canvas {
+  height: 100vh !important;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+}
+
 header {
   display: flex;
 }
-header .nav-link {
+
+.nav-link {
   font-size: 1em !important;
   font-weight: 600 !important;
 }
-header .nav-link:hover {
+.nav-link:hover {
   color: #05a0a0 !important;
   transition: all 1s ease-in-out !important;
 }
