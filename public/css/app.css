@@ -10634,6 +10634,33 @@ header {
     margin: 0 10px 40px;
   }
 }
+.profit-checker-title {
+  font-size: 2.2em;
+  letter-spacing: 0.2em;
+  display: inline-block;
+  line-height: 1.2;
+  word-wrap: break-word;
+  text-transform: uppercase;
+}
+.profit-checker-title span {
+  color: #05a0a0;
+}
+.profit-checker-form .form-select,
+.profit-checker-form .form-control {
+  outline: none !important;
+  box-shadow: none !important;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.profit-checker .results-table {
+  text-align: center;
+}
+.profit-checker .results-table td {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #05a0a0;
+}
+
 @media (max-width: 990px) {
   .investment {
     display: block !important;

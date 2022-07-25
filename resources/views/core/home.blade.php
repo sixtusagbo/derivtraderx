@@ -183,6 +183,49 @@
             </div>
         </section>
 
+        <section class="profit-checker py-5 text-light">
+            <h3 class="profit-checker-title fw-bold text-left"> Check your <span>profit</span> </h3>
+
+            <form class="row g-5 profit-checker-form">
+                <div class="col">
+                    <label for="plan">Pick a plan</label>
+                    <select class="form-select plan-select" id="plan">
+                        <option data-duration="24" data-min="50" data-max="499" data-percent="20" selected>Starter</option>
+                        <option data-duration="48" data-min="500" data-max="999" data-percent="50">Elite</option>
+                        <option data-duration="72" data-min="1000" data-max="4999" data-percent="80">Premium</option>
+                        <option data-duration="168" data-min="5000" data-max="100000" data-percent="150">Platinum</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="amount">Deposit amount</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" id="plan-amount" value="50">
+                        <span class="input-group-text">.00</span>
+                        <div class="invalid-feedback">Please enter a valid amount.</div>
+                    </div>
+                </div>
+            </form>
+
+            <table class="table table-dark table-responsive results-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Profit</th>
+                        <th scope="col">Monthly Profit</th>
+                        <th scope="col">Annual Profit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="profit-result">$10.00</td>
+                        <td id="monthly-result">$300.00</td>
+                        <td id="annual-result">$3,650.00</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </section>
+
     </div>
 @endsection
 

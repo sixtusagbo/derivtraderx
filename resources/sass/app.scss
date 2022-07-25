@@ -123,4 +123,41 @@ header {
 
 @import 'pricing';
 
+.profit-checker {
+
+  &-title {
+    font-size: 2.2em;
+    letter-spacing: .2em;
+    display: inline-block;
+    line-height: 1.2;
+    word-wrap: break-word;
+    text-transform: uppercase;
+
+    span {
+      color: $primary;
+    }
+  }
+
+  &-form {
+
+    .form-select,
+    .form-control {
+      outline: none !important;
+      box-shadow: none !important;
+      color: $white-color;
+      text-transform: uppercase;
+    }
+  }
+
+  .results-table {
+    text-align: center;
+
+    td {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: $primary;
+    }
+  }
+}
+
 @import 'mobile';

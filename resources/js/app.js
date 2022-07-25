@@ -1,6 +1,6 @@
 import './bootstrap';
 
-(function () {
+(function ($) {
   //- Loader
   $(window).on('load', function () {
     setTimeout(() => $('.loader-wrapper').fadeOut(), 500);
@@ -22,11 +22,13 @@ import './bootstrap';
     lastScrollTop = st;
   });
 
-  /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+  //- particlesJS
   particlesJS.load('particles-js', 'plugin/particles.json', function () { });
 
+  //- Animate on Scroll initialize
   AOS.init();
 
+  //- Owl Carousel configs
   $(".owl-carousel").owlCarousel({
     margin: 35,
 
@@ -42,4 +44,50 @@ import './bootstrap';
     autoplayTimeout: 4000,
     autoplayHoverPause: true
   });
-})();
+
+  //- Profit checker
+  $('#plan-amount').on('change keyup', function () {
+    let item = $('#plan option:selected');
+    let min = item.data('min');
+    let max = item.data('max');
+    let duration = item.data('duration');
+    var percent = item.data('percent');
+    let str = $(this).val();
+    str = str.replace(',', '.');
+    $(this).val(str);
+    var amount = parseFloat(str);
+    if (amount > max) {
+      if ($(this).hasClass('is-invalid')) {
+        $(this).removeClass('is-invalid');
+      }
+      amount = max;
+      $(this).val(max);
+    }
+    if (amount < min) {
+      $(this).addClass('is-invalid');
+    }
+    if (amount >= min) {
+      if ($(this).hasClass('is-invalid')) {
+        $(this).removeClass('is-invalid');
+      }
+
+      let profit = (percent / 100) * amount;
+
+      let monthlyProfit = profit * (30 / (duration / 24));
+      let annualProfit = profit * (365 / (duration / 24));
+
+      $('#profit-result').text(profit.toLocaleString('en-US', {
+        style: "currency",
+        currency: "USD",
+      }));
+      $('#monthly-result').text(monthlyProfit.toLocaleString('en-US', {
+        style: "currency",
+        currency: "USD",
+      }));
+      $('#annual-result').text(annualProfit.toLocaleString('en-US', {
+        style: "currency",
+        currency: "USD",
+      }));
+    }
+  });
+})(jQuery);
