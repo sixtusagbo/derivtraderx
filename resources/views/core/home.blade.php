@@ -76,6 +76,7 @@
             </div>
         </section>
 
+        <!-- Pricing section -->
         <section class="mt-5">
             <div class="row">
                 <div class="col-12">
@@ -226,7 +227,32 @@
             </table>
         </section>
 
+        <section class="statistics my-3 py-5 px-4" id="stats">
+            <div class="row d-flex justify-content-center align-items-center text-center text-light p-5">
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <span class="material-icons fs-1">network_check</span>
+                    <div id="days" class="fs-1">4302</div>
+                    <p class="text-primary">Days Online</p>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <span class="material-icons fs-1">people</span>
+                    <div id="members" class="fs-1">3049212</div>
+                    <p class="text-primary">Registered Members</p>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <span class="material-icons fs-1">account_balance_wallet</span>
+                    <div id="money" class="fs-1">53600.34</div>
+                    <p class="text-primary">Current Deposits</p>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <span class="material-icons fs-1">payments</span>
+                    <div id="money2" class="fs-1">5432923.85</div>
+                    <p class="text-primary">Total Withdrawals</p>
+                </div>
+            </div>
+        </section>
     </div>
+
 @endsection
 
 @section('scripts')

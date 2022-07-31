@@ -160,4 +160,10 @@ header {
   }
 }
 
+.statistics {
+  background-color: #17181F;
+  border-radius: 900px 0 900px;
+  box-shadow: rgb(86 156 156 / 50%) 2px 2px 5px 0px, rgb(255 255 255 / 5%) -3px -3px 7px 0px;
+}
+
 @import 'mobile';

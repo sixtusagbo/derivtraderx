@@ -10392,6 +10392,14 @@ body {
   scroll-behavior: smooth;
 }
 
+section {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
 .border-primary, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   border: 1px solid #05a0a0 !important;
 }
@@ -10659,6 +10667,12 @@ header {
   font-weight: bold;
   font-size: 1.2em;
   color: #05a0a0;
+}
+
+.statistics {
+  background-color: #17181F;
+  border-radius: 900px 0 900px;
+  box-shadow: rgba(86, 156, 156, 0.5) 2px 2px 5px 0px, rgba(255, 255, 255, 0.05) -3px -3px 7px 0px;
 }
 
 @media (max-width: 990px) {
