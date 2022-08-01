@@ -16,7 +16,7 @@
   position: relative;
   z-index: 2;
   padding: 10px 25px;
-  background-color: $dark-color;
+  background-color: $dark;
   border-radius: 0;
   color: $white-color  !important;
   font-weight: 400;
@@ -24,8 +24,8 @@
 
   &:hover {
     background-color: $primary  !important;
-    background-image: -webkit-linear-gradient(45deg, $secondary 15%, $primary 65%) !important;
-    background-image: linear-gradient(45deg, $secondary 15%, $primary 65%) !important;
+    background-image: -webkit-linear-gradient(45deg, $darker 15%, $primary 65%) !important;
+    background-image: linear-gradient(45deg, $darker 15%, $primary 65%) !important;
     color: $white-color  !important;
   }
 }

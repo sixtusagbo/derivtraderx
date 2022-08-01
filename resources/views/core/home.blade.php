@@ -252,7 +252,7 @@
             </div>
         </section>
 
-        <section class="structure mt-3">
+        <section class="structure my-3">
             <div class="text-center">
                 <h2 class="text-uppercase text-primary fs-2 fw-bold">Where does it emanate from?</h2>
                 <p class="fs-5">The secret to our success comes from our expert teammates and our advancement in
@@ -291,6 +291,46 @@
                                 professional level as we develop algorithms and trade on cryptocurrency exchanges.</p>
                         </div>
 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features my-3">
+            <div class="text-center mb-3">
+                <h2 class="text-uppercase text-light fs-1 fw-bold features-title">Fe<span
+                        class="text-primary">at</span>ure</h2>
+            </div>
+
+            <div class="row justify-content-center text-center g-5">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature">
+                        <span class="material-icons text-primary display-5">language</span>
+                        <h4 class="text-light fw-bold">Forex Trading</h4>
+                        <p class="text-wrap">We share with you all the income we earn by trading in Forex to grow.</p>
+                        <br>
+                        <a href="{{ route('register') }}" class="stretched-link"><span
+                                class="material-icons">navigate_next</span></a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature">
+                        <span class="material-icons text-primary display-5">insights</span>
+                        <h4 class="text-light fw-bold">Stock Market</h4>
+                        <p class="text-wrap">Our professional team achieves success by being managed by experts.</p>
+                        <a href="{{ route('register') }}" class="stretched-link"><span
+                                class="material-icons">navigate_next</span></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature">
+                        <span class="material-icons text-primary display-5">local_police</span>
+                        <h4 class="text-light fw-bold">Security</h4>
+                        <p class="text-wrap">Our prime brokerage group monitor portfolio, maintain liquidity, manage risk.
+                        </p>
+                        <a href="{{ route('register') }}" class="stretched-link"><span
+                                class="material-icons">navigate_next</span></a>
                     </div>
                 </div>
             </div>
