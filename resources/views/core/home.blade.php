@@ -251,6 +251,50 @@
                 </div>
             </div>
         </section>
+
+        <section class="structure mt-3">
+            <div class="text-center">
+                <h2 class="text-uppercase text-primary fs-2 fw-bold">Where does it emanate from?</h2>
+                <p class="fs-5">The secret to our success comes from our expert teammates and our advancement in
+                    technology.</p>
+            </div>
+
+            <div class="row mt-3 gy-4">
+                <div class="col-lg-6 mx-auto">
+                    <img src="{{ asset('images/inside_dashboard.png') }}" alt="Mobile App Dashboard" class="img-fluid">
+                </div>
+                <div class="col-lg-6">
+                    <div class="row mb-3">
+
+                        <div class="col-1">
+                            <span class="material-icons text-primary">fact_check</span>
+                        </div>
+
+                        <div class="col-xl-10 col-md-11 col-10">
+                            <h5 class="fs-3 fw-bold text-light text-uppercase">Technology</h5>
+                            <p class="fs-5 fw-lighter">Enjoy an impeccable investment experience thanks to the attractive
+                                interface and simple solutions used by microminers.ltd for customer comfort and revenue
+                                protection</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-1">
+                            <span class="material-icons text-primary">fact_check</span>
+                        </div>
+
+                        <div class="col-xl-10 col-md-11 col-10">
+                            <h5 class="fs-3 fw-bold text-light text-uppercase">Finance</h5>
+                            <p class="fs-5 fw-lighter">We administer the platform and manage investor assets at the same
+                                professional level as we develop algorithms and trade on cryptocurrency exchanges.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
 @endsection
