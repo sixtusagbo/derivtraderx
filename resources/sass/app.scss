@@ -161,7 +161,7 @@ header {
 }
 
 .statistics {
-  background-color: #17181F;
+  background-color: $dark-two;
   border-radius: 900px 0 900px;
   box-shadow: rgb(86 156 156 / 50%) 2px 2px 5px 0px, rgb(255 255 255 / 5%) -3px -3px 7px 0px;
 }
@@ -196,6 +196,46 @@ header {
       }
     }
   }
+}
+
+.affiliates {
+  overflow: hidden;
+
+  .bg-shape {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    margin-bottom: -1em !important;
+  }
+
+  &-card {
+    padding: 30px 15px;
+    background-color: $dark-two;
+    border: 1px solid #078585ba;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 9;
+    transition: all 0.3s;
+
+    &:hover {
+      border: none;
+      box-shadow: #05a0a0 0px 0px 15px 0px;
+
+      * {
+        color: $white-color;
+      }
+    }
+
+    * {
+      transition: all 0.3s;
+    }
+  }
+}
+
+.pre-footer {
+  background-color: $dark-two;
 }
 
 @import 'mobile';

@@ -36,7 +36,7 @@
                 <li class="nav-item"><a href="" class="nav-link text-dark">About Us</a></li>
                 <li class="nav-item"><a href="" class="nav-link text-dark">FAQ</a></li>
                 <li class="nav-item"><a href="" class="nav-link text-dark">Contacts</a></li>
-                <li class="nav-item"><a href="" class="nav-link text-dark">Login</a></li>
+                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-dark">Login</a></li>
                 <a href="{{ route('register') }}" class="btn ml-lg-auto dark-button">Register</a>
             </ul>
         </div>

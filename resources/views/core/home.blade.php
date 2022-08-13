@@ -335,8 +335,138 @@
                 </div>
             </div>
         </section>
+
+        <section id="affiliates" class="affiliates mt-4 p-3">
+            <img src="{{ asset('images/affiliate_bg.png') }}" alt="" class="img-fluid bg-shape">
+            <div class="row">
+                <div class="col-xl-6 text-start">
+                    <h2 class="text-primary fw-normal text-uppercase">Affiliate Program</h2>
+                    <h4 class="text-light fw-bold text-uppercase">Increase your profit</h4>
+
+                    <p class="fs-5 fw-lighter">Invite your friends to our project and earn extra money by advertising. We
+                        offer 3-level referral
+                        program with 5%-3%-1% comission.</p>
+                </div>
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <div class="affiliates-card text-center mb-3 lh-lg">
+                                <span class="material-icons text-primary display-5">person_add_alt</span>
+                                <p class="fw-bold text-light fs-6 text-uppercase">Enjoy unlimited</p>
+                                <h3 class="text-primary text-uppercase fs-4 fw-bold">Commissions</h3>
+                                <p>The more User you refer, the more commissions we&apos;ll pay you. Plain and simple.</p>
+                                <a href="{{ route('register') }}" class="stretched-link"><span
+                                        class="material-icons">navigate_next</span></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="affiliates-card text-center lh-lg">
+                                <span class="material-icons text-primary display-5">currency_exchange</span>
+                                <p class="fw-bold text-light fs-6 text-uppercase">Extra Bonus and</p>
+                                <h3 class="text-primary text-uppercase fs-4 fw-bold">Promotions</h3>
+                                <p>Boost your monthly earnings with additional promotional opportunities.</p>
+                                <a href="{{ route('register') }}" class="stretched-link"><span
+                                        class="material-icons">navigate_next</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
+    <section class="pre-footer">
+        <div class="container">
+            <div class="accepted-methods d-flex justify-content-evenly py-4">
+                <img src="{{ asset('images/supported-systems/bitcoin.svg') }}" alt="">
+                <img src="{{ asset('images/supported-systems/ethereum.svg') }}" alt="">
+                <img src="{{ asset('images/supported-systems/litecoin.svg') }}" alt="">
+                <img src="{{ asset('images/supported-systems/bnb.png') }}" alt="" height="24"
+                    width="88">
+                <img src="{{ asset('images/supported-systems/doge.png') }}" alt="" height="24"
+                    width="88">
+                <img src="{{ asset('images/supported-systems/tron.svg') }}" alt="" height="24"
+                    width="88">
+                <img src="{{ asset('images/supported-systems/perfect_money.svg') }}" alt="">
+            </div>
+
+            <div class="more-info mt-3">
+                <div class="row text-left py-4">
+                    <div class="col-lg-3">
+                        <p class="fs-5 lead">Most profitable investment platform.</p>
+                    </div>
+                    <div class="col-lg-3">
+                        <h4 class="fs-2 fw-bold text-light mb-4">Get in Touch</h4>
+
+                        <ul class="navbar-nav d-flex justify-content-center">
+                            <li class="nav-item">
+                                <a href="tel:" class="link-secondary text-decoration-none"> <span
+                                        class="material-icons fs-5">call</span> Whatsapp </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="mailto:support@derivtraderx.com" class="link-secondary text-decoration-none">
+                                    <span class="material-icons fs-5">email</span> support@derivtraderx.com </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="mailto:support@derivtraderx.com" class="link-secondary text-decoration-none">
+                                    <span class="material-icons fs-5">location_on</span> 8564 Sumac Dr
+                                    Baldwinsville, New York(NY), 13027 </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3">
+                        <h4 class="fs-2 fw-bold text-light mb-4">Quick Links</h4>
+
+                        <ul class="navbar-nav d-flex justify-content-center">
+                            <li class="nav-item">
+                                <a href="{{ url('/') }}" class="link-secondary text-decoration-none"> <span
+                                        class="material-icons fs-5">home</span> Home </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('about') }}" class="link-secondary text-decoration-none"> <span
+                                        class="material-icons fs-5">info</span> About Us </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('faq') }}" class="link-secondary text-decoration-none"> <span
+                                        class="material-icons fs-5">help</span> FAQ </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3">
+                        <h4 class="fs-2 fw-bold text-light mb-4">Help Desk</h4>
+
+                        <ul class="navbar-nav d-flex justify-content-center">
+                            <li class="nav-item">
+                                <a href="{{ url('contact') }}" class="link-secondary text-decoration-none"> <span
+                                        class="material-icons fs-5">perm_contact_calendar</span> Contact </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('login') }}" class="link-secondary text-decoration-none"> <span
+                                        class="material-icons fs-5">login</span> Login </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('register') }}" class="link-secondary text-decoration-none"> <span
+                                        class="material-icons fs-5">how_to_reg</span> Sign Up </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="d-flex justify-content-between py-4 bg-dark">
+                <a href="{{ url('terms') }}" class="link-primary text-decoration-none">Terms & conditions</a>
+
+                <p>&copy; 2022 All Rights Reserved | <a href="{{ url('/') }}"
+                        class="link-primary text-decoration-none">DerivTraderx</a>
+                </p>
+            </div>
+        </div>
+    </footer>
 @endsection
 
 @section('scripts')

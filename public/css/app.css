@@ -10702,6 +10702,41 @@ header {
   color: #ffffff !important;
 }
 
+.affiliates {
+  overflow: hidden;
+}
+.affiliates .bg-shape {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  margin-bottom: -1em !important;
+}
+.affiliates-card {
+  padding: 30px 15px;
+  background-color: #17181F;
+  border: 1px solid rgba(7, 133, 133, 0.7294117647);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 9;
+  transition: all 0.3s;
+}
+.affiliates-card:hover {
+  border: none;
+  box-shadow: #05a0a0 0px 0px 15px 0px;
+}
+.affiliates-card:hover * {
+  color: #ffffff;
+}
+.affiliates-card * {
+  transition: all 0.3s;
+}
+
+.pre-footer {
+  background-color: #17181F;
+}
+
 @media (max-width: 990px) {
   .investment {
     display: block !important;
