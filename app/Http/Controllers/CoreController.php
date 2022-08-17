@@ -15,4 +15,14 @@ class CoreController extends Controller
     {
         return view('core.home');
     }
+
+    /**
+     * Show the site about page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function about()
+    {
+        return view('core.about');
+    }
 }

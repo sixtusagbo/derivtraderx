@@ -9,7 +9,7 @@
         <ul class="nav nav-pills d-none d-lg-flex">
             <li class="nav-item"><a href="{{ url('/') }}" class="nav-link text-light" aria-current="page">Home</a>
             </li>
-            <li class="nav-item"><a href="" class="nav-link text-light">About Us</a></li>
+            <li class="nav-item"><a href="{{ route('about') }}" class="nav-link text-light">About Us</a></li>
             <li class="nav-item"><a href="" class="nav-link text-light">FAQ</a></li>
             <li class="nav-item"><a href="" class="nav-link text-light">Contacts</a></li>
             <li class="nav-item"><a href="" class="nav-link text-light">Login</a></li>
@@ -33,7 +33,7 @@
             <ul class="nav d-flex flex-column fw-bold">
                 <li class="nav-item"><a href="{{ url('/') }}" class="nav-link text-dark"
                         aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="" class="nav-link text-dark">About Us</a></li>
+                <li class="nav-item"><a href="{{ route('about') }}" class="nav-link text-dark">About Us</a></li>
                 <li class="nav-item"><a href="" class="nav-link text-dark">FAQ</a></li>
                 <li class="nav-item"><a href="" class="nav-link text-dark">Contacts</a></li>
                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-dark">Login</a></li>
