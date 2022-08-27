@@ -11,7 +11,7 @@
             </li>
             <li class="nav-item"><a href="{{ route('about') }}" class="nav-link text-light">About Us</a></li>
             <li class="nav-item"><a href="" class="nav-link text-light">FAQ</a></li>
-            <li class="nav-item"><a href="" class="nav-link text-light">Contacts</a></li>
+            <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link text-light">Contacts</a></li>
             <li class="nav-item"><a href="" class="nav-link text-light">Login</a></li>
             <a href="{{ route('register') }}" class="btn ml-lg-auto dark-button">Register</a>
         </ul>

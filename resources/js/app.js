@@ -24,7 +24,7 @@ import { CountUp } from "./countUp.min.js";
   });
 
   //- particlesJS
-  particlesJS.load('particles-js', 'plugin/particles.json', function () { });
+  particlesJS.load('particles-js', 'plugins/particles.json', function () { });
 
   //- Animate on Scroll initialize
   AOS.init();

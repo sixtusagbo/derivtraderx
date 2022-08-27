@@ -25,4 +25,14 @@ class CoreController extends Controller
     {
         return view('core.about');
     }
+
+    /**
+     * Testing dashboard
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function test_dash()
+    {
+        return view('home');
+    }
 }

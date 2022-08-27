@@ -12,5 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/dashboard.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .sourceMaps();
+    .sass('resources/sass/dashboard/dashboard.scss', 'public/css')
+    .sourceMaps(true, 'source-map');
+mix.options({
+    processCssUrls: false // Process or optimize relative stylesheet url()'s. Set to false, if you don't want them touched.
+});

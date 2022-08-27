@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 // Core routes
 Route::get('/', [App\Http\Controllers\CoreController::class, 'index']);
 Route::get('/about_us', [App\Http\Controllers\CoreController::class, 'about'])->name('about');
+Route::get('/my', [App\Http\Controllers\CoreController::class, 'test_dash'])->name('dashboard');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

@@ -29,9 +29,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('plugin/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugin/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugin/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css?v=') . time() }}">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -204,10 +204,10 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="{{ asset('plugin/jquery.js') }}"></script>
-    <script src="{{ asset('plugin/particles.min.js') }}"></script>
-    <script src="{{ asset('plugin/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('plugin/aos.js') }}"></script>
+    <script src="{{ asset('plugins/jquery.js') }}"></script>
+    <script src="{{ asset('plugins/particles.min.js') }}"></script>
+    <script src="{{ asset('plugins/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('plugins/aos.js') }}"></script>
     <script src="{{ asset('js/app.js?v=') . time() }}"></script>
     @include('shared.other_scripts')
     @yield('scripts')
