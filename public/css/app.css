@@ -10457,7 +10457,6 @@ header {
 .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   color: #ffffff !important;
   display: inline-block !important;
-  margin-right: 14px !important;
   border-radius: 100px !important;
   padding: 14px 25px !important;
   text-transform: uppercase;

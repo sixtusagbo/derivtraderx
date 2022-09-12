@@ -1,5 +1,5 @@
 @extends('layouts.core')
 
 @section('content')
-    <h1 class="text-primary">About</h1>
+    <h3 class="text-primary mt-3">About</h3>
 @endsection

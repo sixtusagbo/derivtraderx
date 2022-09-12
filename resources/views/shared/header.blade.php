@@ -11,9 +11,20 @@
             </li>
             <li class="nav-item"><a href="{{ route('about') }}" class="nav-link text-light">About Us</a></li>
             <li class="nav-item"><a href="" class="nav-link text-light">FAQ</a></li>
-            <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link text-light">Contacts</a></li>
-            <li class="nav-item"><a href="" class="nav-link text-light">Login</a></li>
-            <a href="{{ route('register') }}" class="btn ml-lg-auto dark-button">Register</a>
+            <li class="nav-item"><a href="" class="nav-link text-light">Contacts</a></li>
+            @if (Route::has('login'))
+                <div class="d-flex">
+                    @auth
+                        <a href="{{ url('/home') }}" class="btn ml-lg-auto dark-button">Dashboard</a>
+                    @else
+                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-light">Login</a></li>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-lg-auto dark-button">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
         </ul>
 
         <a class="nav-link text-light d-lg-none" data-bs-toggle="offcanvas" href="#menuCanvas" role="button"
@@ -36,8 +47,19 @@
                 <li class="nav-item"><a href="{{ route('about') }}" class="nav-link text-dark">About Us</a></li>
                 <li class="nav-item"><a href="" class="nav-link text-dark">FAQ</a></li>
                 <li class="nav-item"><a href="" class="nav-link text-dark">Contacts</a></li>
-                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-dark">Login</a></li>
-                <a href="{{ route('register') }}" class="btn ml-lg-auto dark-button">Register</a>
+                @if (Route::has('login'))
+                    <div class="auth-buttons">
+                        @auth
+                            <a href="{{ url('/home') }}" class="btn ml-lg-auto dark-button">Dashboard</a>
+                        @else
+                            <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-dark">Login</a></li>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="btn ml-lg-auto dark-button">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
             </ul>
         </div>
     </div>

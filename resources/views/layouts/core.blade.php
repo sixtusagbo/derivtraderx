@@ -109,7 +109,9 @@
     <!-- Google Translate -->
     <div id="google_translate_element"></div>
 
-    @yield('content')
+    <div class="d-flex flex-column justify-content-center container">
+        @yield('content')
+    </div>
 
     <section class="pre-footer">
         <div class="container">

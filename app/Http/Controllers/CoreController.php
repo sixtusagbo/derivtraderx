@@ -13,7 +13,7 @@ class CoreController extends Controller
      */
     public function index()
     {
-        return view('core.home');
+        return view('core.welcome');
     }
 
     /**
@@ -24,15 +24,5 @@ class CoreController extends Controller
     public function about()
     {
         return view('core.about');
-    }
-
-    /**
-     * Testing dashboard
-     * 
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function test_dash()
-    {
-        return view('home');
     }
 }
