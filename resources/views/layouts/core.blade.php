@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/aos.css') }}">
+    @yield('styles')
     <link rel="stylesheet" href="{{ asset('css/app.css?v=') . time() }}">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -40,7 +41,7 @@
 </head>
 
 <body data-aos-easing="ease">
-    @include('shared.loader')
+    {{-- @include('shared.loader') --}}
     @include('shared.header')
 
     <!-- Hero -->

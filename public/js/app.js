@@ -5473,21 +5473,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }); //- Count up for statistics section
 
-  var countUpConfigs = {
-    enableScrollSpy: true
-  };
-  var days = new _countUp_min_js__WEBPACK_IMPORTED_MODULE_1__.CountUp('days', $('#days').text(), countUpConfigs);
-  var members = new _countUp_min_js__WEBPACK_IMPORTED_MODULE_1__.CountUp('members', $('#members').text(), _objectSpread(_objectSpread({}, countUpConfigs), {}, {
-    suffix: '+'
-  }));
-  var money = new _countUp_min_js__WEBPACK_IMPORTED_MODULE_1__.CountUp('money', $('#money').text(), _objectSpread(_objectSpread({}, countUpConfigs), {}, {
-    prefix: '$',
-    decimalPlaces: 2
-  }));
-  var money2 = new _countUp_min_js__WEBPACK_IMPORTED_MODULE_1__.CountUp('money2', $('#money2').text(), _objectSpread(_objectSpread({}, countUpConfigs), {}, {
-    prefix: '$',
-    decimalPlaces: 2
-  }));
+  if ($('.statistics').length) {
+    var countUpConfigs = {
+      enableScrollSpy: true
+    };
+    var days = new _countUp_min_js__WEBPACK_IMPORTED_MODULE_1__.CountUp('days', $('#days').text(), countUpConfigs);
+    var members = new _countUp_min_js__WEBPACK_IMPORTED_MODULE_1__.CountUp('members', $('#members').text(), _objectSpread(_objectSpread({}, countUpConfigs), {}, {
+      suffix: '+'
+    }));
+    var money = new _countUp_min_js__WEBPACK_IMPORTED_MODULE_1__.CountUp('money', $('#money').text(), _objectSpread(_objectSpread({}, countUpConfigs), {}, {
+      prefix: '$',
+      decimalPlaces: 2
+    }));
+    var money2 = new _countUp_min_js__WEBPACK_IMPORTED_MODULE_1__.CountUp('money2', $('#money2').text(), _objectSpread(_objectSpread({}, countUpConfigs), {}, {
+      prefix: '$',
+      decimalPlaces: 2
+    }));
+  }
 })(jQuery);
 
 /***/ }),

@@ -93,11 +93,14 @@ import { CountUp } from "./countUp.min.js";
   });
 
   //- Count up for statistics section
-  const countUpConfigs = {
-    enableScrollSpy: true,
+  if ($('.statistics').length) {
+    const countUpConfigs = {
+      enableScrollSpy: true,
+    }
+
+    const days = new CountUp('days', $('#days').text(), countUpConfigs);
+    const members = new CountUp('members', $('#members').text(), { ...countUpConfigs, suffix: '+' });
+    const money = new CountUp('money', $('#money').text(), { ...countUpConfigs, prefix: '$', decimalPlaces: 2 });
+    const money2 = new CountUp('money2', $('#money2').text(), { ...countUpConfigs, prefix: '$', decimalPlaces: 2 });
   }
-  const days = new CountUp('days', $('#days').text(), countUpConfigs);
-  const members = new CountUp('members', $('#members').text(), { ...countUpConfigs, suffix: '+' });
-  const money = new CountUp('money', $('#money').text(), { ...countUpConfigs, prefix: '$', decimalPlaces: 2 });
-  const money2 = new CountUp('money2', $('#money2').text(), { ...countUpConfigs, prefix: '$', decimalPlaces: 2 });
 })(jQuery);

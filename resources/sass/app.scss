@@ -175,7 +175,6 @@ header {
 
   .feature {
     z-index: 1;
-    // opacity: 100%;
     width: 100%;
     padding: 35px;
     border: none;
@@ -236,6 +235,14 @@ header {
 
 .pre-footer {
   background-color: $dark-two;
+}
+
+.office-showcase {
+  &-title {
+    letter-spacing: .4em;
+    text-decoration: underline $primary;
+    text-underline-offset: .3em;
+  }
 }
 
 @import 'mobile';
