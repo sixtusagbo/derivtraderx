@@ -41,7 +41,7 @@
 </head>
 
 <body data-aos-easing="ease">
-    {{-- @include('shared.loader') --}}
+    @include('shared.loader')
     @include('shared.header')
 
     <!-- Hero -->

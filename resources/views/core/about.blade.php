@@ -50,6 +50,31 @@
             <div class="swiper-pagination"></div>
         </div>
     </section>
+
+    <section class="about-ceo my-3">
+        <div class="row">
+            <div class="col-lg-8 text-center">
+                <h3 class="text-light display-6 fw-bold">Our CEO</h3>
+
+                <div class="my-3">
+                    <p class="mb-3">Masako Kato was born in the Canadian province of Saskatchewan due to her family
+                        immigration to Canada. Masako Kato, who settled in Toronto for university education, graduated from
+                        the University of Toronto in the department of economics. She then completed master's degree in risk
+                        management at New York University.
+                        In 2011, she started working in the New York office of Franklin Templeton Company</p>
+                    <p class="mb-3">After working here for 5 years, she started working as a manager in the Netherlands
+                        office of Binance Company in 2016.</p>
+                    <p>Deciding to establish her own company after 3 years, Masako gathered a professional team and founded
+                        microminers.ltd company in 2018. The company, which takes its name from the miners village of
+                        Saskatchewan state where she was born, has been growing for 2 years. Masako Kato is the CEO and
+                        chairman of the board.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <img src="{{ asset('images/ceo.png') }}" alt="dtx_ceo" class="img-fluid">
+            </div>
+        </div>
+    </section>
 @endsection
 
 @section('scripts')
