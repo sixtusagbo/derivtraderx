@@ -25,4 +25,14 @@ class CoreController extends Controller
     {
         return view('core.about');
     }
+
+    /**
+     * Show the frequently asked qusetions (faq) page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function faq()
+    {
+        return view('core.faq');
+    }
 }

@@ -245,4 +245,39 @@ header {
   }
 }
 
+.faq-title {
+  letter-spacing: .4em;
+  text-decoration: underline $primary;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .2em;
+  font-weight: 600;
+}
+
+.accordion {
+  * {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  &-header {
+    @extend .border-primary;
+  }
+
+  &-button {
+    @extend .text-primary;
+  }
+
+  &-body {
+    border: none !important;
+    color: darken($color: $white-color, $amount: 15%) !important;
+  }
+
+  &-button:not(.collapsed),
+  &-button,
+  &-body {
+    background-color: #1F1E1E !important;
+    @extend .p-4;
+  }
+}
+
 @import 'mobile';

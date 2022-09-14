@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -34,14 +34,10 @@
     <link rel="stylesheet" href="{{ asset('plugins/aos.css') }}">
     @yield('styles')
     <link rel="stylesheet" href="{{ asset('css/app.css?v=') . time() }}">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body data-aos-easing="ease">
-    @include('shared.loader')
+    {{-- @include('shared.loader') --}}
     @include('shared.header')
 
     <!-- Hero -->
@@ -207,6 +203,10 @@
     </footer>
 
     <!-- Scripts -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <script src="{{ asset('plugins/jquery.js') }}"></script>
     <script src="{{ asset('plugins/particles.min.js') }}"></script>
     <script src="{{ asset('plugins/owl.carousel.min.js') }}"></script>

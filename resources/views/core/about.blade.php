@@ -65,7 +65,7 @@
                     <p class="mb-3">After working here for 5 years, she started working as a manager in the Netherlands
                         office of Binance Company in 2016.</p>
                     <p>Deciding to establish her own company after 3 years, Masako gathered a professional team and founded
-                        microminers.ltd company in 2018. The company, which takes its name from the miners village of
+                        derivtraderx company in 2018. The company, which takes its name from the miners village of
                         Saskatchewan state where she was born, has been growing for 2 years. Masako Kato is the CEO and
                         chairman of the board.</p>
                 </div>

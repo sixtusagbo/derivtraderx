@@ -6658,7 +6658,7 @@ textarea.form-control-lg {
   border-left: 0 !important;
 }
 
-.border-primary, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
+.border-primary, .accordion-header, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   border-color: #05a0a0 !important;
 }
 
@@ -7200,7 +7200,7 @@ textarea.form-control-lg {
   padding: 1rem !important;
 }
 
-.p-4 {
+.p-4, .accordion-button:not(.collapsed), .accordion-button, .accordion-body {
   padding: 1.5rem !important;
 }
 
@@ -7487,7 +7487,7 @@ textarea.form-control-lg {
 }
 
 /* rtl:end:remove */
-.text-primary {
+.text-primary, .accordion-button {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
 }
@@ -10400,7 +10400,7 @@ section {
   background-position: center;
 }
 
-.border-primary, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
+.border-primary, .accordion-header, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   border: 1px solid #05a0a0 !important;
 }
 
@@ -10797,6 +10797,27 @@ header {
   -webkit-text-decoration: underline #05a0a0;
           text-decoration: underline #05a0a0;
   text-underline-offset: 0.3em;
+}
+
+.faq-title {
+  letter-spacing: 0.4em;
+  -webkit-text-decoration: underline #05a0a0;
+          text-decoration: underline #05a0a0;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  font-weight: 600;
+}
+
+.accordion * {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.accordion-body {
+  border: none !important;
+  color: #d9d9d9 !important;
+}
+.accordion-button:not(.collapsed), .accordion-button, .accordion-body {
+  background-color: #1F1E1E !important;
 }
 
 @media (max-width: 990px) {

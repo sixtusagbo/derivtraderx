@@ -117,7 +117,7 @@
         </div>
     </section>
 
-    <section class="profit-checker py-5 text-light">
+    <section class="profit-checker py-5 text-light" id="profit-checker">
         <h3 class="profit-checker-title fw-bold text-left"> Check your <span>profit</span> </h3>
 
         <form class="row g-5 profit-checker-form">
