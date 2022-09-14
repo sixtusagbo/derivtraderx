@@ -5,7 +5,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Utilities
-@import 'util/global';
+@import './util/global';
 
 /* Page Styles */
 .menu-canvas {
@@ -60,14 +60,10 @@ header {
 .auth-buttons {
 
   .btn {
-    @extend .border-primary;
-    color: $white-color  !important;
+    @extend .border-primary, .fw-bold, .text-uppercase, .text-light;
     display: inline-block !important;
-    // margin-right: 14px !important;
     border-radius: 100px !important;
     padding: 14px 25px !important;
-    text-transform: uppercase;
-    font-weight: bold !important;
   }
 }
 
@@ -277,6 +273,31 @@ header {
   &-body {
     background-color: #1F1E1E !important;
     @extend .p-4;
+  }
+}
+
+.contact-form {
+  background-color: $dark;
+  box-shadow: rgb(5 160 160 / 50%) 7px -4px 16px 1px, rgb(255 255 255 / 5%) -3px -3px 7px 0px;
+
+  .form-control {
+    @extend .border-secondary;
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #00000040 !important;
+    color: darken($color: $white-color, $amount: 20%) !important;
+    border-radius: 0;
+    @extend .p-3;
+
+    &:focus {
+      border-color: darken($color: $white-color, $amount: 20%) !important;
+    }
+  }
+
+  button[type="submit"] {
+    &:hover {
+      color: $white-color  !important;
+    }
   }
 }
 

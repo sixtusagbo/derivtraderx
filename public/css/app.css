@@ -6662,7 +6662,7 @@ textarea.form-control-lg {
   border-color: #05a0a0 !important;
 }
 
-.border-secondary {
+.border-secondary, .contact-form .form-control {
   border-color: #6c757d !important;
 }
 
@@ -7196,7 +7196,7 @@ textarea.form-control-lg {
   padding: 0.5rem !important;
 }
 
-.p-3 {
+.p-3, .contact-form .form-control {
   padding: 1rem !important;
 }
 
@@ -7412,7 +7412,7 @@ textarea.form-control-lg {
   font-weight: 400 !important;
 }
 
-.fw-bold {
+.fw-bold, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   font-weight: 700 !important;
 }
 
@@ -7464,7 +7464,7 @@ textarea.form-control-lg {
   text-transform: lowercase !important;
 }
 
-.text-uppercase {
+.text-uppercase, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   text-transform: uppercase !important;
 }
 
@@ -7517,7 +7517,7 @@ textarea.form-control-lg {
   color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
 }
 
-.text-light {
+.text-light, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-light-rgb), var(--bs-text-opacity)) !important;
 }
@@ -10511,12 +10511,9 @@ header {
 }
 
 .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
-  color: #ffffff !important;
   display: inline-block !important;
   border-radius: 100px !important;
   padding: 14px 25px !important;
-  text-transform: uppercase;
-  font-weight: bold !important;
 }
 
 .how-it-works {
@@ -10818,6 +10815,24 @@ header {
 }
 .accordion-button:not(.collapsed), .accordion-button, .accordion-body {
   background-color: #1F1E1E !important;
+}
+
+.contact-form {
+  background-color: #131419;
+  box-shadow: rgba(5, 160, 160, 0.5) 7px -4px 16px 1px, rgba(255, 255, 255, 0.05) -3px -3px 7px 0px;
+}
+.contact-form .form-control {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: rgba(0, 0, 0, 0.2509803922) !important;
+  color: #cccccc !important;
+  border-radius: 0;
+}
+.contact-form .form-control:focus {
+  border-color: #cccccc !important;
+}
+.contact-form button[type=submit]:hover {
+  color: #ffffff !important;
 }
 
 @media (max-width: 990px) {

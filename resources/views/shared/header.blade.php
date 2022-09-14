@@ -11,7 +11,7 @@
             </li>
             <li class="nav-item"><a href="{{ route('about') }}" class="nav-link text-light">About Us</a></li>
             <li class="nav-item"><a href="{{ route('faq') }}" class="nav-link text-light">FAQ</a></li>
-            <li class="nav-item"><a href="" class="nav-link text-light">Contacts</a></li>
+            <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link text-light">Contact</a></li>
             @if (Route::has('login'))
                 <div class="d-flex">
                     @auth
@@ -46,7 +46,7 @@
                         aria-current="page">Home</a></li>
                 <li class="nav-item"><a href="{{ route('about') }}" class="nav-link text-dark">About Us</a></li>
                 <li class="nav-item"><a href="{{ route('faq') }}" class="nav-link text-dark">FAQ</a></li>
-                <li class="nav-item"><a href="" class="nav-link text-dark">Contacts</a></li>
+                <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link text-dark">Contact</a></li>
                 @if (Route::has('login'))
                     <div class="auth-buttons">
                         @auth
