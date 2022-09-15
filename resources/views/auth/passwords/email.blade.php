@@ -10,7 +10,7 @@
         <label class="form-label-wrapper">
             <p class="form-label">Email Address</p>
             <input class="form-input @error('email') is-invalid @enderror" type="email" placeholder="Enter your email"
-                value="{{ old('email') }}" autocomplete="email" required>
+                name="email" value="{{ old('email') }}" autocomplete="email" required>
 
             @error('email')
                 <span class="invalid-feedback" role="alert">
