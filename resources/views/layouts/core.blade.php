@@ -37,7 +37,7 @@
 </head>
 
 <body data-aos-easing="ease">
-    {{-- @include('shared.loader') --}}
+    @include('shared.loader')
     @include('shared.header')
 
     <!-- Hero -->
@@ -106,9 +106,7 @@
     <!-- Google Translate -->
     <div id="google_translate_element"></div>
 
-    <div class="d-flex flex-column justify-content-center container">
-        @yield('content')
-    </div>
+    @yield('content')
 
     <section class="pre-footer">
         <div class="container">
@@ -143,7 +141,8 @@
                                     <span class="material-icons fs-5">email</span> support@derivtraderx.com </a>
                             </li>
                             <li class="nav-item">
-                                <a href="mailto:support@derivtraderx.com" class="link-secondary text-decoration-none">
+                                <a href="https://goo.gl/maps/QUJyWa2A1KH5kQYR7" target="_blank"
+                                    class="link-secondary text-decoration-none">
                                     <span class="material-icons fs-5">location_on</span> 8564 Sumac Dr
                                     Baldwinsville, New York(NY), 13027 </a>
                             </li>
