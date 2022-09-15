@@ -280,8 +280,7 @@
                     <h4 class="text-light fw-bold text-uppercase">Increase your profit</h4>
 
                     <p class="fs-5 fw-lighter">Invite your friends to our project and earn extra money by advertising. We
-                        offer 3-level referral
-                        program with 5%-3%-1% comission.</p>
+                        offer 3-tire referral system with commissions.</p>
                 </div>
                 <div class="col-xl-6">
                     <div class="row">

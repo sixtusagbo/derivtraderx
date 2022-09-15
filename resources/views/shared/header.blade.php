@@ -20,7 +20,8 @@
                         <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-light">Login</a></li>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-lg-auto dark-button">Register</a>
+                            <a href="{{ route('register') }}"
+                                class="ml-lg-auto dark-button text-decoration-none">Register</a>
                         @endif
                     @endauth
                 </div>
@@ -55,7 +56,8 @@
                             <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-dark">Login</a></li>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="btn ml-lg-auto dark-button">Register</a>
+                                <a href="{{ route('register') }}"
+                                    class="btn ml-lg-auto dark-button text-decoration-none">Register</a>
                             @endif
                         @endauth
                     </div>
