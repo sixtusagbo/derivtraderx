@@ -301,4 +301,24 @@ header {
   }
 }
 
+.policy {
+
+  &-title {
+    @extend .fs-1, .text-primary, .text-decoration-underline;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-decoration-thickness: 2px;
+    text-underline-offset: .2em;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  h4 {
+    @extend .fw-bold;
+    color: scale-color($color: $white-color, $lightness: -30%);
+  }
+}
+
 @import 'mobile';

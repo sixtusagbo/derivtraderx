@@ -19,6 +19,7 @@ Route::get('/', [App\Http\Controllers\CoreController::class, 'index']);
 Route::get('/about_us', [App\Http\Controllers\CoreController::class, 'about'])->name('about');
 Route::get('/faq', [App\Http\Controllers\CoreController::class, 'faq'])->name('faq');
 Route::get('/contact', [App\Http\Controllers\CoreController::class, 'contact'])->name('contact');
+Route::get('/policy', [App\Http\Controllers\CoreController::class, 'policy'])->name('policy');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

@@ -7368,7 +7368,7 @@ textarea.form-control-lg {
   font-family: var(--bs-font-monospace) !important;
 }
 
-.fs-1 {
+.fs-1, .policy-title {
   font-size: calc(1.35rem + 1.2vw) !important;
 }
 
@@ -7412,7 +7412,7 @@ textarea.form-control-lg {
   font-weight: 400 !important;
 }
 
-.fw-bold, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
+.fw-bold, .policy h4, .policy .h4, .auth-buttons .btn, .auth-buttons #google_translate_element .goog-te-combo, #google_translate_element .auth-buttons .goog-te-combo {
   font-weight: 700 !important;
 }
 
@@ -7452,7 +7452,7 @@ textarea.form-control-lg {
   text-decoration: none !important;
 }
 
-.text-decoration-underline {
+.text-decoration-underline, .policy-title {
   text-decoration: underline !important;
 }
 
@@ -7487,7 +7487,7 @@ textarea.form-control-lg {
 }
 
 /* rtl:end:remove */
-.text-primary, .accordion-button {
+.text-primary, .policy-title, .accordion-button {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
 }
@@ -10225,7 +10225,7 @@ textarea.form-control-lg {
   }
 }
 @media (min-width: 1200px) {
-  .fs-1 {
+  .fs-1, .policy-title {
     font-size: 2.25rem !important;
   }
   .fs-2 {
@@ -10833,6 +10833,19 @@ header {
 }
 .contact-form button[type=submit]:hover {
   color: #ffffff !important;
+}
+
+.policy-title {
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+.policy li {
+  list-style-type: none;
+}
+.policy h4, .policy .h4 {
+  color: #b3b3b3;
 }
 
 @media (max-width: 990px) {

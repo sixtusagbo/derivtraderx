@@ -4,7 +4,7 @@
     <div class="container">
         <div class="my-5 ps-5 py-3 pe-3 contact-form">
             <div class="row">
-                <div class="col-lg-4 ps-5 ps-3 mt-5">
+                <div class="col-lg-5 ps-5 ps-3 mt-5">
                     <h2 class="text-light fw-bold">Contact Us</h2>
 
                     <p class="mt-3">Send us a message. <br> You'd receive our
@@ -15,7 +15,7 @@
                             class="text-decoration-none">support@derivtraderx.com</a></p>
 
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-7">
                     <form>
                         <div class="mb-3">
                             <label for="fullName" class="form-label fs-5 mb-0">Your Name</label>

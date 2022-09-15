@@ -45,4 +45,14 @@ class CoreController extends Controller
     {
         return view('core.contact');
     }
+
+    /**
+     * Show the site privacy policy
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function policy()
+    {
+        return view('core.policy');
+    }
 }

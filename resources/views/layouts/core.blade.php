@@ -192,7 +192,7 @@
     <footer>
         <div class="container">
             <div class="d-flex justify-content-between py-4 bg-dark">
-                <a href="{{ url('terms') }}" class="link-primary text-decoration-none">Terms & conditions</a>
+                <a href="{{ route('policy') }}" class="link-primary text-decoration-none">Terms & conditions</a>
 
                 <p>&copy; 2022 All Rights Reserved | <a href="{{ url('/') }}"
                         class="link-primary text-decoration-none">DerivTraderx</a>
