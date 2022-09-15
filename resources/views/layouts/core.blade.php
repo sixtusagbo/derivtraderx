@@ -22,7 +22,6 @@
     <meta property="twitter:description" content="An investment platform.">
     <meta property="twitter:image" content="https://derivtraderx.com/images/banner.jpg">
 
-
     <title>{{ config('app.name', 'DTX') }}</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
