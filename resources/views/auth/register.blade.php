@@ -9,10 +9,10 @@
 
         <label class="form-label-wrapper">
             <p class="form-label">Full Name</p>
-            <input class="form-input @error('full_name') is-invalid @enderror" type="text" name="full_name"
-                placeholder="Enter your name in full" value="{{ old('full_name') }}" autocomplete="name" required>
+            <input class="form-input @error('name') is-invalid @enderror" type="text" name="name"
+                placeholder="Enter your name in full" value="{{ old('name') }}" autocomplete="name" required>
 
-            @error('full_name')
+            @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

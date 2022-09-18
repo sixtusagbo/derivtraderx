@@ -8,6 +8,9 @@
     <title>{{ config('app.name', 'DTX') }}</title>
     <!-- Custom styles -->
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css" integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -162,14 +165,14 @@
                 <a href="##" class="sidebar-user">
                     <span class="sidebar-user-img">
                         <picture>
-                            <source srcset="{{ asset('images/avatar/avatar-illustrated-01.webp') }}"
-                                type="image/webp"><img src="{{ asset('images/avatar/avatar-illustrated-01.png') }}"
+                            <source srcset="{{ asset('images/avatar/avatar-male.webp') }}"
+                                type="image/webp"><img src="{{ asset('images/avatar/avatar-male.png') }}"
                                 alt="User name">
                         </picture>
                     </span>
                     <div class="sidebar-user-info">
-                        <span class="sidebar-user__title">Nafisa Sh.</span>
-                        <span class="sidebar-user__subtitle">Support manager</span>
+                        <span class="sidebar-user__title">{{Auth()->user()->username}}</span>
+                        <span class="sidebar-user__subtitle">Admin</span>
                     </div>
                 </a>
             </div>
@@ -246,9 +249,9 @@
                                 <span class="sr-only">My profile</span>
                                 <span class="nav-user-img">
                                     <picture>
-                                        <source srcset="{{ asset('images/avatar/avatar-illustrated-02.webp') }}"
+                                        <source srcset="{{ asset('images/avatar/avatar-male.webp') }}"
                                             type="image/webp">
-                                        <img src="{{ asset('images/avatar/avatar-illustrated-02.png') }}"
+                                        <img src="{{ asset('images/avatar/avatar-male.png') }}"
                                             alt="User name">
                                     </picture>
                                 </span>
@@ -301,6 +304,8 @@
     <script src="{{ asset('plugins/feather.min.js') }}"></script>
     <!-- Custom scripts -->
     <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/fontawesome.min.js" integrity="sha512-j3gF1rYV2kvAKJ0Jo5CdgLgSYS7QYmBVVUjduXdoeBkc4NFV4aSRTi+Rodkiy9ht7ZYEwF+s09S43Z1Y+ujUkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 
 </html>

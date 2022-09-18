@@ -24,3 +24,5 @@ Route::get('/policy', [App\Http\Controllers\CoreController::class, 'policy'])->n
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+
+Route::get('/user/delete/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('Delete_user');
