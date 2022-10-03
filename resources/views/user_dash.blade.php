@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user_layout')
 
 @section('content')
     <!-- ! Main -->
@@ -12,13 +12,26 @@
                             <i data-feather="bar-chart-2" aria-hidden="true"></i>
                         </div>
                         <div class="stat-cards-info">
-                            <p class="stat-cards-info__num">{{$users->count()}}</p>
-                            <p class="stat-cards-info__title">Total users</p>
+                            <p class="stat-cards-info__num">$
+                                @foreach ($userPayments as $userPayment)
+                                    @if ($userPayment->paymentAdd->symbole == 'BTC')
+                                        @if ($userPayment->status == 1)
+                                            @php
+                                                $btcSum += (float)$userPayment->amount
+                                            @endphp
+                                        @endif
+                                        
+                                    @endif
+                                @endforeach
+                                {{ $btcSum }}
+                            </p>
+                            <p class="stat-cards-info__title">Bitcoin</p>
                             <p class="stat-cards-info__progress">
                                 <span class="stat-cards-info__profit success">
                                     <i data-feather="trending-up" aria-hidden="true"></i>4.07%
                                 </span>
                                 Last month
+                                
                             </p>
                         </div>
                     </article>
@@ -29,8 +42,20 @@
                             <i data-feather="file" aria-hidden="true"></i>
                         </div>
                         <div class="stat-cards-info">
-                            <p class="stat-cards-info__num">{{$admins->count()}}</p>
-                            <p class="stat-cards-info__title">Total Admin</p>
+                            <p class="stat-cards-info__num">$
+                                @foreach ($userPayments as $userPayment)
+                                    @if ($userPayment->paymentAdd->symbole == 'ETH')
+                                        @if ($userPayment->status == 1)
+                                            @php
+                                                $ethSum += (float)$userPayment->amount
+                                            @endphp
+                                        @endif
+                                        
+                                    @endif
+                                @endforeach
+                                {{ $ethSum }}
+                            </p>
+                            <p class="stat-cards-info__title">Etherum</p>
                             <p class="stat-cards-info__progress">
                                 <span class="stat-cards-info__profit success">
                                     <i data-feather="trending-up" aria-hidden="true"></i>0.24%
@@ -46,8 +71,19 @@
                             <i data-feather="file" aria-hidden="true"></i>
                         </div>
                         <div class="stat-cards-info">
-                            <p class="stat-cards-info__num">1478 286</p>
-                            <p class="stat-cards-info__title">Total visits</p>
+                            <p class="stat-cards-info__num">$
+                                @foreach ($userPayments as $userPayment)
+                                    @if ($userPayment->paymentAdd->symbole == 'USDT')
+                                        @if ($userPayment->status == 1)
+                                            @php
+                                                $usdtSum += (float)$userPayment->amount
+                                            @endphp
+                                        @endif
+                                    @endif
+                                @endforeach
+                                {{ $usdtSum }}
+                            </p>
+                            <p class="stat-cards-info__title">USDT</p>
                             <p class="stat-cards-info__progress">
                                 <span class="stat-cards-info__profit danger">
                                     <i data-feather="trending-down" aria-hidden="true"></i>1.64%
@@ -63,8 +99,20 @@
                             <i data-feather="feather" aria-hidden="true"></i>
                         </div>
                         <div class="stat-cards-info">
-                            <p class="stat-cards-info__num">1478 286</p>
-                            <p class="stat-cards-info__title">Total visits</p>
+                            <p class="stat-cards-info__num">$
+                                @foreach ($userPayments as $userPayment)
+                                    @if ($userPayment->paymentAdd->symbole == 'TRX')
+                                        @if ($userPayment->status == 1)
+                                            @php
+                                                $trxSum += (float)$userPayment->amount
+                                            @endphp
+                                        @endif
+                                        
+                                    @endif
+                                @endforeach
+                                {{ $trxSum }}
+                            </p>
+                            <p class="stat-cards-info__title">Tron</p>
                             <p class="stat-cards-info__progress">
                                 <span class="stat-cards-info__profit warning">
                                     <i data-feather="trending-up" aria-hidden="true"></i>0.00%
@@ -82,126 +130,46 @@
                             <thead>
                                 <tr class="users-table-info">
                                     <th>S/N</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Status</th>
-                                    <th>Date Joined</th>
-                                    <th>Action</th>
+                                    <th>Plan Name</th>
+                                    <th>Min deposite</th>
+                                    <th>Max deposite</th>
+									<th>Bonus</th>
+									<th>Payment period</th>
+                                    <th>Date Added</th>
+									<th>Date Updated</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($user->count() > 0)
+                                @if ($plans->count() > 0)
                                     
-                                    @foreach ($users as $user)
+                                    @foreach ($plans as $plan)
                                             
                                         <tr>
                                             <td>
                                                 {{$i++}}
                                             </td>
                                             <td>
-                                                {{$user->name}}
+                                                {{$plan->plan_name}}
                                             </td>
                                             <td>
-                                                {{$user->email}}
+                                                ${{$plan->min_deposite}}
                                             </td>
-                                            <td><span class="badge-active">Active</span></td>
-                                            <td>{{$user->created_at->toDayDateTimeString()}}</td>
-                                            <td>
+											<td>
+                                                ${{$plan->max_deposite}}
+                                            </td>
+											<td>
+                                                {{$plan->bonus}}
+                                            </td>
+                                            <td>{{$plan->payment_period}}</td>
+                                            <td>{{$plan->created_at->toDayDateTimeString()}}</td>
+											<td>{{$plan->updated_at->toDayDateTimeString()}}</td>
                             
-                                                <span class="p-relative">
-                                                    <button class="dropdown-btn transparent-btn" type="button"
-                                                        title="More info">
-                                                        <div class="sr-only">More info</div>
-                                                        <i data-feather="more-horizontal" aria-hidden="true"></i>
-                                                    </button>
-                                                    <ul class="users-item-dropdown dropdown">
-                                                        <li><a href="/user/view/{{$user->id}}">View</a></li>
-                                                        <li><a href="##" data-bs-toggle="modal" data-bs-target="#editUser{{$user->id}}">Quick edit</a></li>
-                                                        <li><a href="##" class="" data-bs-toggle="modal" data-bs-target="#deleteUser{{$user->id}}">Trash</a></li>
-                                                    </ul>
-                                                </span>
-                        <!-- Edit user Model -->
-                          <div class="modal fade" id="editUser{{$user->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 class="modal-title text-primary" >Edit User</h4>
-                                  <a class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <i class="ti-close opacity-10 text-info"></i>
-                                  </a>
-                                </div>
-                                <div class="modal-body" id="editUserModalBody">
-                                  <form class="pt-3" role="form" method="POST" action="{{ url('/user/update/'.$user->id)}}" id="editUser" >
-                                    @csrf
-                                    
-                                    <div class="form-group">
-                                      <input type="text" class="form-control text-capitalize" name="name" 
-                                      placeholder="Name eg Charles John" required autocomplete="name" value="{{$user->name}}">
-                                    </div>
-                                    <div class="form-group">
-                                      <input type="email" class="form-control" name="email" 
-                                      placeholder="Email" required autocomplete="email" value="{{$user->email}}">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                      <input type="text" class="form-control" name="username" 
-                                      placeholder="Username" required autocomplete="username" value="{{$user->username}}">
-                                    </div>
-                                    <input type="hidden" name="_method" value="PUT">
-                                </div>
-                                <div class="modal-footer">
-                                  <div class="row">
-                                    <div class="col-md-12">
-                                      <button type="submit" class="btn btn-primary btn-md font-weight-medium auth-form-btn">
-                                        Update user
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                              </div>
-                            </div>
-                          </div>
-                          <!--//Edit user-->
-                                            </td>
-                            {{-- <!--Delete User--> --}}
-                            <div class="modal fade" id="deleteUser{{$user->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title text-primary" >Delete User</h4>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body" id="DeleteUserModalBody">
-                                    <p class="text-black">
-                                    Are you sure you wish to remove this "{{$user->name}}"?
-                                    </p>
-                                    <form method="POST" action="{{ url('/user/delete/'. $user->id)}}" id="deleteUser">
-                                        @csrf
-                                        <input type="hidden" name="_method" value="DELETE">
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="row">
-                                    <div class="col-md-12">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                        <button type="submit" class="btn btn-danger btn-md font-weight-medium auth-form-btn">
-                                        Yes
-                                        </button>
-                                    </div>
-                                    </div>
-                                </div>
-                                </form>
-                                </div>
-                            </div>
-                            </div>
-                            {{-- <!--//Delete User--> --}}
                                         </tr>
                                             
                                     @endforeach
-                                    {{$users->links()}}
                                 @else
                                     <tr>
-                                        <td colspan="5"><span>No user yet</span></td>
+                                        <td colspan="7"><span>No payment plan yet</span></td>
                                     </tr>
                                 @endif
                             </tbody>

@@ -45,23 +45,6 @@
                         </li>
                         <li>
                             <a class="show-cat-btn" href="##">
-                                <span class="icon user-3" aria-hidden="true"></span>Users
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only">Open list</span>
-                                    <span class="icon arrow-down" aria-hidden="true"></span>
-                                </span>
-                            </a>
-                            <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="{{url('/users')}}">Normal Users</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/admins')}}">Admin Users</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="show-cat-btn" href="##">
                                 <span class="icon paper" aria-hidden="true"></span>Withdrawal
                                 <span class="category__btn transparent-btn" title="Open list">
                                     <span class="sr-only">Open list</span>
@@ -70,10 +53,10 @@
                             </a>
                             <ul class="cat-sub-menu">
                                 <li>
-                                    <a href="{{url('/admin/withdrawalAdd')}}">Withdrawal</a>
+                                    <a href="{{url('/withdrawalAddress')}}">Withdrawal</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/admin/withdrawal/history')}}">Withdrawal History</a>
+                                    <a href="{{url('/withdrawal/history')}}">Withdrawal History</a>
                                 </li>
                                 
                             </ul>
@@ -89,16 +72,12 @@
                             </a>
                             <ul class="cat-sub-menu">
                                 <li>
-                                    <a href="{{url('/admin/payment')}}">Manage Payment</a>
+                                    <a href="{{url('/makepayment')}}">Make Payment</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/payment_address')}}">Payment Address</a>
+                                    <a href="{{url('/payment/history')}}">Payment History</a>
                                 </li>
-                                <li>
-                                    <a href="{{url('/admin/payment/history')}}">Payment History</a>
-                                </li>
-                                <li><a href="{{url('/admin/investment_plans')}}">Investment Plans</a>
-                                </li>
+                                
                             </ul>
                         </li>
                     </ul>
