@@ -22,6 +22,7 @@ Route::get('/contact', [App\Http\Controllers\CoreController::class, 'contact'])-
 Route::get('/policy', [App\Http\Controllers\CoreController::class, 'policy'])->name('policy');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/deposit', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit');
 
 Auth::routes();
 

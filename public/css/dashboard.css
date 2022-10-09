@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Inter';
-    src: url('Inter-Thin.woff2') format('woff2');
+    src: url('../fonts/Inter-Thin.woff2') format('woff2');
     font-weight: 100;
     font-style: normal;
     font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('Inter-ExtraLight.woff2') format('woff2');
+    src: url('../fonts/Inter-ExtraLight.woff2') format('woff2');
     font-weight: 200;
     font-style: normal;
     font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('Inter-Light.woff2') format('woff2');
+    src: url('../fonts/Inter-Light.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('Inter-Regular.woff2') format('woff2');
+    src: url('../fonts/Inter-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('Inter-Medium.woff2') format('woff2');
+    src: url('../fonts/Inter-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -40,7 +40,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('Inter-SemiBold.woff2') format('woff2');
+    src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -48,7 +48,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('Inter-Bold.woff2') format('woff2');
+    src: url('../fonts/Inter-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -56,7 +56,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('Inter-ExtraBold.woff2') format('woff2');
+    src: url('../fonts/Inter-ExtraBold.woff2') format('woff2');
     font-weight: 800;
     font-style: normal;
     font-display: swap;
@@ -64,7 +64,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('Inter-Black.woff2') format('woff2');
+    src: url('../fonts/Inter-Black.woff2') format('woff2');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -6561,7 +6561,7 @@ textarea.form-control-lg {
   display: table-cell !important;
 }
 
-.d-flex {
+.d-flex, .user-image-wrapper, .overview-leading-icon-wrapper, .overview-leading, .overview {
   display: flex !important;
 }
 
@@ -6674,7 +6674,7 @@ textarea.form-control-lg {
   border: 1px solid #dee2e6 !important;
 }
 
-.border-0 {
+.border-0, .card {
   border: 0 !important;
 }
 
@@ -6910,11 +6910,11 @@ textarea.form-control-lg {
   justify-content: flex-end !important;
 }
 
-.justify-content-center {
+.justify-content-center, .user-image-wrapper {
   justify-content: center !important;
 }
 
-.justify-content-between {
+.justify-content-between, .overview {
   justify-content: space-between !important;
 }
 
@@ -6934,7 +6934,7 @@ textarea.form-control-lg {
   align-items: flex-end !important;
 }
 
-.align-items-center {
+.align-items-center, .overview-leading-icon-wrapper, .overview-leading, .overview {
   align-items: center !important;
 }
 
@@ -7164,7 +7164,7 @@ textarea.form-control-lg {
   margin-right: 0.5rem !important;
 }
 
-.me-3 {
+.me-3, .overview-leading-icon-wrapper {
   margin-right: 1rem !important;
 }
 
@@ -7192,7 +7192,7 @@ textarea.form-control-lg {
   margin-bottom: 0.5rem !important;
 }
 
-.mb-3 {
+.mb-3, .overview {
   margin-bottom: 1rem !important;
 }
 
@@ -7440,7 +7440,7 @@ textarea.form-control-lg {
   font-size: 1.125rem !important;
 }
 
-.fs-6 {
+.fs-6, .overview-item, .overview-leading-title {
   font-size: 0.9rem !important;
 }
 
@@ -7464,7 +7464,7 @@ textarea.form-control-lg {
   font-weight: 400 !important;
 }
 
-.fw-bold {
+.fw-bold, .overview-item {
   font-weight: 700 !important;
 }
 
@@ -7740,7 +7740,7 @@ textarea.form-control-lg {
   pointer-events: auto !important;
 }
 
-.rounded {
+.rounded, .overview-leading-icon-wrapper {
   border-radius: 0.25rem !important;
 }
 
@@ -11335,10 +11335,6 @@ body {
   stroke: #D6D7E3;
 }
 
-.users .primary-white-btn svg {
-  margin-right: 5px;
-}
-
 .folder-list svg {
   color: #ffb648;
   fill: #ffb648;
@@ -11851,10 +11847,6 @@ label {
 
 .new-page-content input {
   padding: 5px 16px;
-}
-
-.users {
-  /* Users Table */
 }
 
 .users-table table {
@@ -12734,10 +12726,6 @@ label {
 
 .main-btns-wrapper button:last-child {
   margin-right: 0;
-}
-
-.users .col-xl-3 {
-  margin-bottom: 20px;
 }
 
 .users-item {
@@ -13705,6 +13693,113 @@ label {
     display: flex;
     flex-direction: column;
   }
+}
+.bg-purple {
+  background-color: rgba(95, 46, 234, 0.1019607843) !important;
+}
+
+.bg-light-success {
+  background: rgba(40, 199, 111, 0.1215686275) !important;
+}
+
+.text-light-success {
+  color: #28c76f !important;
+}
+
+.bg-light-warning {
+  background: rgba(255, 159, 67, 0.1215686275) !important;
+}
+
+.text-light-warning {
+  color: #ff9f43 !important;
+}
+
+.bg-light-info {
+  background: rgba(0, 207, 232, 0.1215686275) !important;
+}
+
+.text-light-info {
+  color: #00cfe8 !important;
+}
+
+.bg-light-danger {
+  background: rgba(234, 84, 85, 0.1215686275) !important;
+}
+
+.text-light-danger {
+  color: #ea5455 !important;
+}
+
+.darkmode h1, .darkmode .h1,
+.darkmode h2,
+.darkmode .h2,
+.darkmode h3,
+.darkmode .h3,
+.darkmode h4,
+.darkmode .h4,
+.darkmode h5,
+.darkmode .h5,
+.darkmode h6,
+.darkmode .h6 {
+  color: #D0D2D6;
+}
+.darkmode .user-image-wrapper .user-image {
+  background-color: #161624;
+}
+
+.sidebar-body-menu a:hover {
+  transform: translateX(10px);
+}
+
+.welcome {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/welcome_banner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  position: relative;
+  word-wrap: break-word;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 10px;
+}
+
+.overview-leading-icon-wrapper {
+  padding: 0.7rem;
+}
+.overview-leading-icon-wrapper * {
+  height: 18px;
+  width: 18px;
+}
+.user-image-wrapper {
+  margin-bottom: 3.7rem;
+}
+
+.user-image-wrapper .user-image {
+  position: absolute;
+  top: 5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 8px 0 rgba(34, 41, 47, 0.14);
+}
+
+.user-avatar {
+  white-space: nowrap;
+  background-color: #c3c3c3;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.user-avatar img {
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+  border-style: none;
+  border-radius: 50%;
+}
+
+.stat-cards .col-xl-3 {
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=dashboard.css.map*/

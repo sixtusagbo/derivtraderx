@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('plans', function (Blueprint $table) {
-            $table->id();
-            $table->string('plan_name');
-            $table->double('min_deposit');
-            $table->double('max_deposit');
-            $table->string('payment_period');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->timestamp('last_login')->nullable();
+            $table->string('last_login_ip')->nullable();
         });
     }
 
@@ -30,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plans');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['last_login', 'last_login_ip']);
+        });
     }
 };

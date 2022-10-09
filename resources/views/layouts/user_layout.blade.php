@@ -9,7 +9,9 @@
     <!-- Custom styles -->
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css" integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css"
+        integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -22,7 +24,7 @@
         <aside class="sidebar">
             <div class="sidebar-start">
                 <div class="sidebar-head">
-                    <a href="/" class="logo-wrapper" title="Home">
+                    <a href="" class="logo-wrapper" title="Home">
                         <span class="sr-only">Home</span>
                         <img class="icon me-2" aria-hidden="true" src="{{ asset('images/logo_white.png') }}"
                             height="49" width="54">
@@ -38,76 +40,33 @@
                     </button>
                 </div>
                 <div class="sidebar-body">
+                    <span class="system-menu__title">navigation</span>
                     <ul class="sidebar-body-menu">
                         <li>
-                            <a class="active" href="/home"><span class="icon home"
-                                    aria-hidden="true"></span>Dashboard</a>
-                        </li>
-                        <li>
-                            <a class="show-cat-btn" href="##">
-                                <span class="icon paper" aria-hidden="true"></span>Withdrawal
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only">Open list</span>
-                                    <span class="icon arrow-down" aria-hidden="true"></span>
-                                </span>
+                            <a class="active" href="{{ route('home') }}">
+                                <span class="icon home" aria-hidden="true"></span>Dashboard
                             </a>
-                            <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="{{url('/withdrawalAddress')}}">Withdrawal</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/withdrawal/history')}}">Withdrawal History</a>
-                                </li>
-                                
-                            </ul>
                         </li>
-                         
                         <li>
-                            <a class="show-cat-btn" href="##">
-                                <span class="icon paper" aria-hidden="true"></span>Payments
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only">Open list</span>
-                                    <span class="icon arrow-down" aria-hidden="true"></span>
-                                </span>
+                            <a href="{{ route('deposit') }}">
+                                <span class="icon" data-feather="dollar-sign" aria-hidden="true"></span>Make a Deposit
                             </a>
-                            <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="{{url('/makepayment')}}">Make Payment</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/payment/history')}}">Payment History</a>
-                                </li>
-                                
-                            </ul>
-                        </li>
-                    </ul>
-                    <span class="system-menu__title">system</span>
-                    <ul class="sidebar-body-menu">
-                        <li>
-                            <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
-                        </li>
-                        <li>
-                            <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="sidebar-footer">
-                <a href="##" class="sidebar-user">
-                    <span class="sidebar-user-img">
-                        <picture>
-                            <source srcset="{{ asset('images/avatar/avatar-male.webp') }}"
-                                type="image/webp"><img src="{{ asset('images/avatar/avatar-male.png') }}"
-                                alt="User name">
-                        </picture>
+                <a href="" class="sidebar-user">
+                    <span class="sidebar-user-img bg-success d-flex justify-content-center align-items-center">
+                        <i data-feather="user" aria-hidden="true"></i>
                     </span>
                     <div class="sidebar-user-info">
-                        <span class="sidebar-user__title">{{Auth()->user()->username}}</span>
+                        <span class="sidebar-user__title">{{ Auth()->user()->username }}</span>
                         <span class="sidebar-user__subtitle">
                             @if (Auth()->user()->type == 1)
                                 Admin
                             @else
-                                User
+                                Member
                             @endif
                         </span>
                     </div>
@@ -138,59 +97,15 @@
                             </button>
                             <ul class="users-item-dropdown notification-dropdown dropdown">
                                 <li>
-                                    <a href="##">
-                                        <div class="notification-dropdown-icon info">
-                                            <i data-feather="check"></i>
-                                        </div>
-                                        <div class="notification-dropdown-text">
-                                            <span class="notification-dropdown__title">System just updated</span>
-                                            <span class="notification-dropdown__subtitle">The system has been
-                                                successfully upgraded. Read more
-                                                here.</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="##">
-                                        <div class="notification-dropdown-icon danger">
-                                            <i data-feather="info" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="notification-dropdown-text">
-                                            <span class="notification-dropdown__title">The cache is full!</span>
-                                            <span class="notification-dropdown__subtitle">Unnecessary caches take up a
-                                                lot of memory space and
-                                                interfere ...</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="##">
-                                        <div class="notification-dropdown-icon info">
-                                            <i data-feather="check" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="notification-dropdown-text">
-                                            <span class="notification-dropdown__title">New Subscriber here!</span>
-                                            <span class="notification-dropdown__subtitle">A new subscriber has
-                                                subscribed.</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="link-to-page" href="##">Go to Notifications page</a>
+                                    <a class="link-to-page">No messages yet</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="nav-user-wrapper">
-                            <button href="##" class="nav-user-btn dropdown-btn" title="My profile"
-                                type="button">
+                            <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
                                 <span class="sr-only">My profile</span>
-                                <span class="nav-user-img">
-                                    <picture>
-                                        <source srcset="{{ asset('images/avatar/avatar-male.webp') }}"
-                                            type="image/webp">
-                                        <img src="{{ asset('images/avatar/avatar-male.png') }}"
-                                            alt="User name">
-                                    </picture>
+                                <span class="nav-user-img bg-success">
+                                    <i data-feather="user" aria-hidden="true"></i>
                                 </span>
                             </button>
                             <ul class="users-item-dropdown nav-user-dropdown dropdown">
@@ -202,11 +117,10 @@
                                         <i data-feather="settings" aria-hidden="true"></i>
                                         <span>Account settings</span>
                                     </a></li>
-                                <li><a class="danger" href="##">
+                                <li><a class="danger" href=""
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i data-feather="log-out" aria-hidden="true"></i>
-                                        <span
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
-                                            out</span>
+                                        Log out
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                             class="d-none">
@@ -241,7 +155,9 @@
     <script src="{{ asset('plugins/feather.min.js') }}"></script>
     <!-- Custom scripts -->
     <script src="{{ asset('js/dashboard.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/fontawesome.min.js" integrity="sha512-j3gF1rYV2kvAKJ0Jo5CdgLgSYS7QYmBVVUjduXdoeBkc4NFV4aSRTi+Rodkiy9ht7ZYEwF+s09S43Z1Y+ujUkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/fontawesome.min.js"
+        integrity="sha512-j3gF1rYV2kvAKJ0Jo5CdgLgSYS7QYmBVVUjduXdoeBkc4NFV4aSRTi+Rodkiy9ht7ZYEwF+s09S43Z1Y+ujUkA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
 

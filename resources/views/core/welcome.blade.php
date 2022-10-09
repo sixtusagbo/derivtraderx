@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <ul class="pricing-content">
-                                <li>Minimum - $50.00</li>
+                                <li>Minimum - $100.00</li>
                                 <br>
                                 <li>Always on server</li>
                                 <br>
@@ -126,7 +126,7 @@
                 <div class="col">
                     <label for="plan">Pick a plan</label>
                     <select class="form-select plan-select" id="plan">
-                        <option data-duration="24" data-min="50" data-max="499" data-percent="20" selected>Starter</option>
+                        <option data-duration="24" data-min="100" data-max="499" data-percent="20" selected>Starter</option>
                         <option data-duration="48" data-min="500" data-max="999" data-percent="50">Elite</option>
                         <option data-duration="72" data-min="1000" data-max="4999" data-percent="80">Premium</option>
                         <option data-duration="168" data-min="5000" data-max="100000" data-percent="150">Platinum</option>

@@ -28010,20 +28010,6 @@ function _arrayLikeToArray(arr, len) {
 
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
-  /* function testWebP(callback) {
-  var webP = new Image();
-  webP.onload = webP.onerror = function () {
-  callback(webP.height == 2);
-  };
-  webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-  }
-  testWebP(function (support) {
-  if (support == true) {
-  document.querySelector('body').classList.add('webp');
-  }else{
-  document.querySelector('body').classList.add('no-webp');
-  }
-  });*/
 
   feather.replace();
 
@@ -28039,7 +28025,7 @@ document.addEventListener('DOMContentLoaded', function () {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var sidebarBtn = _step.value;
 
-        if (sidebarBtn && catSubMenu && sidebarBtn) {
+        if (sidebarBtn || catSubMenu || sidebarBtn) {
           sidebarBtn.addEventListener('click', function () {
             var _iterator2 = _createForOfIteratorHelper(sidebarBtns),
                 _step2;
@@ -28056,7 +28042,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             sidebar.classList.toggle('hidden');
-            catSubMenu.classList.remove('visible');
+
+            if (catSubMenu) {
+              catSubMenu.classList.remove('visible');
+            }
           });
         }
       }

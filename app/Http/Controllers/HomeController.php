@@ -60,8 +60,19 @@ class HomeController extends Controller
 
         if ($user->type == 1) {
             return view('home')->with($data);
-        }elseif($user->type == 0){
-            return view('user_dash')->with($user_data);
+        } elseif ($user->type == 0) {
+            return view('user.user_dash')->with($user_data);
         }
+    }
+
+    /**
+     * Make a deposit.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function deposit()
+    {
+        $data = [];
+        return view('user.deposit')->with($data);
     }
 }

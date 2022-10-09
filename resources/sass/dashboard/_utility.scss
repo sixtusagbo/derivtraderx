@@ -1,0 +1,37 @@
+.bg-purple {
+  background-color: #5f2eea1a !important;
+}
+
+.bg-light-success {
+  background: #28c76f1f !important;
+}
+
+.text-light-success {
+  color: #28c76f !important;
+}
+
+.bg-light-warning {
+  background: #ff9f431f !important;
+}
+
+.text-light-warning {
+  color: #ff9f43 !important;
+}
+
+.bg-light-info {
+  background: #00cfe81f !important;
+}
+
+.text-light-info {
+  color: #00cfe8 !important;
+}
+
+.bg-light-danger {
+  background: #ea54551f !important;
+}
+
+.text-light-danger {
+  color: #ea5455 !important;
+}
+
+@import './darkmode_mod';
