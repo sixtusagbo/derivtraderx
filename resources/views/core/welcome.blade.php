@@ -136,7 +136,7 @@
                     <label for="amount">Deposit amount</label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">$</span>
-                        <input type="text" class="form-control" id="plan-amount" value="50">
+                        <input type="text" class="form-control" id="plan-amount" value="100">
                         <span class="input-group-text">.00</span>
                         <div class="invalid-feedback">Please enter a valid amount.</div>
                     </div>
@@ -153,9 +153,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td id="profit-result">$10.00</td>
-                        <td id="monthly-result">$300.00</td>
-                        <td id="annual-result">$3,650.00</td>
+                        <td id="profit-result">$20.00</td>
+                        <td id="monthly-result">$600.00</td>
+                        <td id="annual-result">$7,300.00</td>
                     </tr>
                 </tbody>
 

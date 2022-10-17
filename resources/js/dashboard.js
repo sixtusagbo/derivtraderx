@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   (function () {
     var userDdBtnList = document.querySelectorAll('.dropdown-btn');
-    var userDdList = document.querySelectorAll('.users-item-dropdown');
+    var userDdList = document.querySelectorAll('.item-dropdown');
     var layer = document.querySelector('.layer');
 
     if (userDdList && userDdBtnList) {
@@ -238,8 +238,8 @@ document.addEventListener('DOMContentLoaded', function () {
               checkAll.checked = false;
             }
 
-            var totalCheckbox = document.querySelectorAll('.users-table .check');
-            var totalChecked = document.querySelectorAll('.users-table .check:checked');
+            var totalCheckbox = document.querySelectorAll('.mi-table .check');
+            var totalChecked = document.querySelectorAll('.mi-table .check:checked');
 
             if (totalCheckbox && totalChecked) {
               if (totalCheckbox.length == totalChecked.length) {
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (checkedSum && checkAll && checkers) {
       checkAll.addEventListener('change', function (e) {
-        var totalChecked = document.querySelectorAll('.users-table .check:checked');
+        var totalChecked = document.querySelectorAll('.mi-table .check:checked');
         checkedSum.textContent = totalChecked.length;
       });
 
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
           var checker = _step8.value;
           checker.addEventListener('change', function (e) {
-            var totalChecked = document.querySelectorAll('.users-table .check:checked');
+            var totalChecked = document.querySelectorAll('.mi-table .check:checked');
             checkedSum.textContent = totalChecked.length;
           });
         }
@@ -484,9 +484,8 @@ document.addEventListener('DOMContentLoaded', function () {
       customersChart.customers = myCustomersChart;
     }
   })();
+
   /* Change data of all charts */
-
-
   function addData() {
     var darkMode = localStorage.getItem('darkMode');
 

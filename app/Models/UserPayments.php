@@ -11,7 +11,8 @@ class UserPayments extends Model
 
     protected $fillable = [
         'user_id',
-        'paymentAdd_id',
+        'plan_id',
+        'payment_add_id',
         'amount',
         'status',
     ];
@@ -23,12 +24,11 @@ class UserPayments extends Model
 
     public function paymentAdd()
     {
-        return $this->belongsTo(PaymentAdd::class, 'paymentAdd_id');
-        
+        return $this->belongsTo(PaymentAdd::class);
     }
 
-    public function plans()
+    public function plan()
     {
-        return $this->belongsTo(Plans::class);
+        return $this->belongsTo(Plan::class);
     }
 }

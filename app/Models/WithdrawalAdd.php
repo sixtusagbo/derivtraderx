@@ -11,11 +11,10 @@ class WithdrawalAdd extends Model
 
     protected $fillable = [
         'user_id',
-        'Coin_Address',
-        'Coin_name',
-        'Symbol',
-        'Network',
-        'Exchange_platform',
+        'address',
+        'name',
+        'symbol',
+        'network',
     ];
 
 

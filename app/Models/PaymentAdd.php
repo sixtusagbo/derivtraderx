@@ -10,11 +10,10 @@ class PaymentAdd extends Model
     use HasFactory;
 
     protected $fillable = [
-        'coin_address',
-        'coin_name',
-        'symbole',
+        'address',
+        'name',
+        'symbol',
         'network',
-        'exchange_platform',
     ];
 
     public function userPayments()

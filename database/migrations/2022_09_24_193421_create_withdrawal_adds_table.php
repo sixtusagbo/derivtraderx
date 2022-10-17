@@ -17,11 +17,10 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('coin_address');
-            $table->string('coin_name');
-            $table->string('symbole');
+            $table->string('address');
+            $table->string('name');
+            $table->string('symbol');
             $table->string('network');
-            $table->string('exchange_platform');
             $table->timestamps();
         });
     }

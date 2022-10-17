@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Plans;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -17,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         //check if user trying to access the page is admin
-         if (auth()->user()->type != 1) {
+        if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
@@ -26,7 +25,7 @@ class UserController extends Controller
         $users = User::where('type', '0')->paginate();
         $newuser = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
         $admins = User::where('type', '1')->get();
-        
+
 
         $data = [
             'user' => $user,
@@ -47,7 +46,7 @@ class UserController extends Controller
     public function admin_users()
     {
         //check if user trying to access the page is admin
-         if (auth()->user()->type != 1) {
+        if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
@@ -111,9 +110,9 @@ class UserController extends Controller
 
         if ($request->input('type') != null) {
             return redirect('/admins')->with('success', 'Admin creadet successfully');
-        }else{
+        } else {
             return redirect('/users')->with('success', 'User successfully Created');
-        }    
+        }
     }
 
     /**
@@ -151,8 +150,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-         //check if user trying to access the page is admin
-         if (auth()->user()->type != 1) {
+        //check if user trying to access the page is admin
+        if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
@@ -161,7 +160,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            
+
         ]);
 
         $user = User::find($id);

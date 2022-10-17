@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserPayments;
 use App\Models\PaymentAdd;
-use App\Models\Plans;
+use App\Models\Plan;
 use App\Models\WithdrawalAdd;
 use App\Models\UserWithdrawals;
 
@@ -25,7 +25,7 @@ class UserWithdrawalController extends Controller
         $withdrawalAdds = WithdrawalAdd::where('user_id', $user_id)->get();
         $userWithdrawals = UserWithdrawals::all();
         $paymentAdds = PaymentAdd::all();
-        $plans = Plans::all();
+        $plans = Plan::all();
 
         $data = [
             'user' => $user,
@@ -37,7 +37,7 @@ class UserWithdrawalController extends Controller
             'i' => 1
         ];
 
-      
+
         return view('user.UserWithdrawal_history')->with($data);
     }
 
@@ -48,8 +48,8 @@ class UserWithdrawalController extends Controller
      */
     public function index2()
     {
-         //check if user trying to access the page is admin
-         if (auth()->user()->type != 1) {
+        //check if user trying to access the page is admin
+        if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
@@ -59,7 +59,7 @@ class UserWithdrawalController extends Controller
         $withdrawalAdds = WithdrawalAdd::where('user_id', $user_id)->get();
         $userWithdrawals = UserWithdrawals::all();
         $paymentAdds = PaymentAdd::all();
-        $plans = Plans::all();
+        $plans = Plan::all();
 
         $data = [
             'user' => $user,
@@ -71,7 +71,7 @@ class UserWithdrawalController extends Controller
             'i' => 1
         ];
 
-      
+
         return view('admin.Manage_UserWithdrawal_history')->with($data);
     }
 
@@ -93,7 +93,7 @@ class UserWithdrawalController extends Controller
      */
     public function store(Request $request)
     {
-         //validat request details
+        //validat request details
         $this->validate($request, [
             'amount' => 'required|integer',
         ]);
@@ -139,12 +139,12 @@ class UserWithdrawalController extends Controller
      */
     public function update(Request $request, $id)
     {
-         //check if user trying to access the page is admin
+        //check if user trying to access the page is admin
         if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
-         //validat request details
+        //validat request details
         $this->validate($request, [
             'amount' => 'required|integer',
         ]);
@@ -167,7 +167,7 @@ class UserWithdrawalController extends Controller
      */
     public function destroy($id)
     {
-         //check if user trying to access the page is admin
+        //check if user trying to access the page is admin
         if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }

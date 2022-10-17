@@ -35,7 +35,7 @@
                 href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
         @endif
         <label class="form-checkbox-wrapper">
-            <input class="form-checkbox" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} required>
+            <input class="form-checkbox" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
             <span class="form-checkbox-label">Remember me next time</span>
         </label>
 

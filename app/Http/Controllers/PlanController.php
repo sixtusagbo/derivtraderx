@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Plans;
+use App\Models\Plan;
 
-class PlansController extends Controller
+class PlanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +16,16 @@ class PlansController extends Controller
     public function index()
     {
         //check if user trying to access the page is admin
-         if (auth()->user()->type != 1) {
+        if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
         $user_id = Auth()->user()->id;
-        $plans = Plans::all();
+        $plans = Plan::all();
         $users = User::where('type', '0')->paginate();
         $admins = User::where('type', '1')->get();
 
-        $data =[
+        $data = [
             'plans' => $plans,
             'user_id' => $user_id,
             'users' => $users,
@@ -43,7 +43,6 @@ class PlansController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -65,19 +64,19 @@ class PlansController extends Controller
             'max_deposite' => 'required|integer',
             'bonus' => 'required|string| max:255',
             'payment_period' => 'required|string|max:255',
-        
+
         ]);
 
-        $plan = new Plans();
+        $plan = new Plan();
         $plan->plan_name = $request->input('plan_name');
         $plan->min_deposite = $request->input('min_deposite');
         $plan->max_deposite = $request->input('max_deposite');
         $plan->bonus = $request->input('bonus');
         $plan->payment_period = $request->input('payment_period');
-        
+
         $plan->save();
 
-        return redirect('/investment_plans')->with('success', 'Investment plan successfully Created');
+        return redirect('/admin/investment_plans')->with('success', 'Investment plan successfully Created');
     }
 
     /**
@@ -122,16 +121,16 @@ class PlansController extends Controller
             'max_deposite' => 'required|integer',
             'bonus' => 'required|string| max:255',
             'payment_period' => 'required|string|max:255',
-        
+
         ]);
 
-        $plan = Plans::find($id);
+        $plan = Plan::find($id);
         $plan->plan_name = $request->input('plan_name');
         $plan->min_deposite = $request->input('min_deposite');
         $plan->max_deposite = $request->input('max_deposite');
         $plan->bonus = $request->input('bonus');
         $plan->payment_period = $request->input('payment_period');
-        
+
         $plan->update();
 
         return redirect('/investment_plans')->with('success', 'Payment plan successfully updated');
@@ -145,7 +144,7 @@ class PlansController extends Controller
      */
     public function destroy($id)
     {
-        $plan = Plans::find($id);
+        $plan = Plan::find($id);
         $plan->delete();
         return redirect('/investment_plans')->with('success', 'Plan deleted successfuly');
     }

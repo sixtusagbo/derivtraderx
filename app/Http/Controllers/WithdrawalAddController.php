@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserPayments;
 use App\Models\PaymentAdd;
-use App\Models\Plans;
+use App\Models\Plan;
 use App\Models\WithdrawalAdd;
 use App\Models\UserWithdrawals;
 
@@ -26,7 +26,7 @@ class WithdrawalAddController extends Controller
         $allwithdrawalAdds = WithdrawalAdd::all();
         $userWithdrawals = UserWithdrawals::all();
         $paymentAdds = PaymentAdd::all();
-        $plans = Plans::all();
+        $plans = Plan::all();
         // $newuser = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
         // $admins = User::where('type', '1')->get();
 
@@ -46,12 +46,9 @@ class WithdrawalAddController extends Controller
 
         if ($user->type == 0) {
             return view('user.WithdrawalAdd')->with($data);
-        }else if ($user->type == 1)
-        {
+        } else if ($user->type == 1) {
             return view('admin.Manage_UserWithdrawal_address')->with($Adata);
         }
-      
-        
     }
 
     /**
@@ -158,7 +155,7 @@ class WithdrawalAddController extends Controller
      */
     public function destroy($id)
     {
-         //check if user trying to access the page is admin
+        //check if user trying to access the page is admin
         if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }

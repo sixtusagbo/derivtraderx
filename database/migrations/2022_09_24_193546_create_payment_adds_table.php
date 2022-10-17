@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('payment_adds', function (Blueprint $table) {
             $table->id();
-            $table->string('coin_name');
-            $table->string('coin_address');
-            $table->string('symbole');
+            $table->string('name');
+            $table->string('address');
+            $table->string('symbol');
             $table->string('network');
-            $table->string('exchange_platform');
             $table->timestamps();
         });
     }

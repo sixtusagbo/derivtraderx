@@ -44,7 +44,7 @@ class User extends Authenticatable
     ];
 
 
-    public function userPayments()
+    public function payments()
     {
         return $this->hasMany(UserPayments::class);
     }
@@ -54,10 +54,8 @@ class User extends Authenticatable
         return $this->hasMany(WithdrawalAdd::class);
     }
 
-     public function userWithrawals()
+    public function withrawals()
     {
         return $this->hasMany(UserWithrawals::class);
     }
-
-    
 }

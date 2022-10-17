@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PaymentAdd;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Plans;
+use App\Models\Plan;
 use App\Models\UserPayments;
-
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -32,7 +33,7 @@ class HomeController extends Controller
         $users = User::where('type', '0')->paginate();
         $newuser = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
         $admins = User::where('type', '1')->get();
-        $plans = Plans::all();
+        $Plan = Plan::all();
         $userPayments = UserPayments::where('user_id', $user_id)->get();
         // dd($userPayments);
 
@@ -47,7 +48,7 @@ class HomeController extends Controller
         $user_data = [
             'user' => $user,
             'users' => $users,
-            'plans' => $plans,
+            'Plan' => $Plan,
             'i' => 1,
             'admins' => $admins,
             'userPayments' => $userPayments,
@@ -72,7 +73,35 @@ class HomeController extends Controller
      */
     public function deposit()
     {
-        $data = [];
+        $Plan = Plan::all();
+        $paymentAddresses = PaymentAdd::all();
+
+        $data = [
+            'Plan' => $Plan,
+            'paymentAddresses' => $paymentAddresses,
+        ];
+
         return view('user.deposit')->with($data);
+    }
+
+    /**
+     * User Deposits list.
+     * View all depposits made by a user
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function my_deposits()
+    {
+        // return auth()->user()->payments->find(1)->paymentAdd; //? Debugging
+        // return auth()->user()->payments->find(1)->Plan; //? Debugging
+        $Plan = Plan::all();
+        $currentUserPayments = auth()->user()->payments;
+
+        $data = [
+            'Plan' => $Plan,
+            'currentUserPayments' => $currentUserPayments,
+        ];
+
+        return view('user.my_deposits')->with($data);
     }
 }

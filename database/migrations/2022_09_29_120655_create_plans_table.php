@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
-            $table->string('plan_name');
-            $table->double('min_deposit');
-            $table->double('max_deposit');
-            $table->string('payment_period');
+            $table->string('name');
+            $table->decimal('min_deposit');
+            $table->decimal('max_deposit');
+            $table->unsignedInteger('return')->comment('In percent(%)');
+            $table->unsignedInteger('payment_period')->comment('In hours');
             $table->timestamps();
         });
     }

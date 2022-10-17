@@ -87,3 +87,61 @@
     margin-bottom: 20px;
   }
 }
+
+.available-plans {
+  @extend .mx-1, .mb-2;
+
+  .plan {
+    @extend .p-0;
+    border-radius: 10px 0 0 0 !important;
+    box-shadow: 0 0 50px #283046;
+
+    &-duration {
+      @extend .p-2, .text-center;
+      border-right: 4px solid $primary;
+    }
+
+    &-item {
+      @extend .p-2, .mb-1;
+      background-color: $dash-dark;
+      border-left: 2px solid $primary;
+
+      &:last-of-type {
+        @extend .mb-0;
+      }
+
+      .value {
+        @extend .fw-bold, .text-uppercase;
+      }
+    }
+
+    &.choice {
+      box-shadow: 0 0 20px #cfd1d6;
+    }
+  }
+}
+
+.payment-channels {
+  @extend .justify-content-center, .align-items-center, .text-center, .mb-4, .mx-2;
+
+  .coin {
+    text-transform: uppercase;
+    position: relative;
+    max-width: 200px;
+    margin: 15px auto 0;
+    border-radius: 40px 0 40px 0;
+    box-shadow: 0 0 30px #000000fd;
+    padding: 7px;
+    border-top: 5px solid #121212;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: $white-block-dark;
+    color: #ffffff;
+    font-size: .8rem;
+
+    &.choice {
+      box-shadow: 0 0 15px #cfd1d6cb;
+      border-top: 5px solid scale-color($color: $orange, $lightness: -70%);
+    }
+  }
+}

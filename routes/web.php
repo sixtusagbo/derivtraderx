@@ -23,6 +23,7 @@ Route::get('/policy', [App\Http\Controllers\CoreController::class, 'policy'])->n
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/deposit', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit');
+Route::get('/my_deposits', [App\Http\Controllers\HomeController::class, 'my_deposits'])->name('my_deposits');
 
 Auth::routes();
 
@@ -48,10 +49,10 @@ Route::get('/makepayment', [App\Http\Controllers\UserPaymentController::class, '
 Route::post('/makepayment/new', [App\Http\Controllers\UserPaymentController::class, 'store'])->name('makePayment');
 Route::get('/payment/history', [App\Http\Controllers\UserPaymentController::class, 'history'])->name('payment_history');
 
-Route::get('/admin/investment_plans', [App\Http\Controllers\PlansController::class, 'index'])->name('plans_list');
-Route::put('/plan/update/{id}', [App\Http\Controllers\PlansController::class, 'update'])->name('update_plan');
-Route::delete('/plan/delete/{id}', [App\Http\Controllers\PlansController::class, 'destroy'])->name('delete_plan');
-Route::post('/plan/create', [App\Http\Controllers\PlansController::class, 'store'])->name('create_plan');
+Route::get('/admin/investment_plans', [App\Http\Controllers\PlanController::class, 'index'])->name('plans_list');
+Route::put('/plan/update/{id}', [App\Http\Controllers\PlanController::class, 'update'])->name('update_plan');
+Route::delete('/plan/delete/{id}', [App\Http\Controllers\PlanController::class, 'destroy'])->name('delete_plan');
+Route::post('/plan/create', [App\Http\Controllers\PlanController::class, 'store'])->name('create_plan');
 
 Route::get('/withdrawalAddress', [App\Http\Controllers\WithdrawalAddController::class, 'index'])->name('withdrawalAdd');
 Route::post('/withdrawalAddress/new', [App\Http\Controllers\WithdrawalAddController::class, 'store'])->name('create_withdrawalAdd');

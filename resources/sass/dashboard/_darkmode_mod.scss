@@ -13,4 +13,17 @@
     background-color: #161624;
   }
 
+  & input.form-control,
+  & .custom-file-label,
+  & textarea.form-control {
+    background-color: #283046;
+    color: #B4B7BD;
+  }
+
+  & input.form-control:not(:focus),
+  & .custom-file-label:not(:focus),
+  & textarea.form-control:not(:focus) {
+    border-color: #404656;
+  }
+
 }

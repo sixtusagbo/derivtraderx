@@ -16,11 +16,10 @@ return new class extends Migration
         Schema::create('user_payments', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->bigInteger('paymentAdd_id')->unsigned();
-            $table->foreign('paymentAdd_id')->references('id')->on('payment_adds')->onDelete('cascade');
+            $table->bigInteger('payment_add_id')->unsigned();
+            $table->bigInteger('plan_id')->unsigned();
             $table->tinyInteger('status')->nullable()->default(0);
-            $table->float('amount');
+            $table->decimal('amount');
             $table->timestamps();
         });
     }

@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Plans extends Model
+class Plan extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'plan_name',
-        'min_deposite',
-        'max_deposite',
+        'name',
+        'min_deposit',
+        'max_deposit',
         'payment_period',
     ];
 

@@ -34,4 +34,16 @@
   color: #ea5455 !important;
 }
 
+// * Overriding bootstrap default
+.form-control {
+  border: .05rem solid #ffffff3f !important;
+  outline: none !important;
+}
+
+.form-control:focus {
+  border: 1px solid #7367F0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 @import './darkmode_mod';

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserPayments;
 use App\Models\PaymentAdd;
-use App\Models\Plans;
+use App\Models\Plan;
 
 class UserPaymentController extends Controller
 {
@@ -21,7 +21,7 @@ class UserPaymentController extends Controller
         $user = User::find($user_id);
         $payments = UserPayments::where('user_id', $user_id)->orderBy('created_at', 'desc')->paginate();
         $paymentAdds = PaymentAdd::all();
-        $plans = Plans::all();
+        $plans = Plan::all();
         // $newuser = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
         // $admins = User::where('type', '1')->get();
 
@@ -33,13 +33,12 @@ class UserPaymentController extends Controller
             'i' => 1
         ];
 
-      
+
         return view('user.UserPayment')->with($data);
-    
     }
 
 
-     /**
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -60,23 +59,19 @@ class UserPaymentController extends Controller
             if (($request->input('amount') < 100) || ($request->input('amount') > 499)) {
                 return redirect('/makepayment')->with('error', 'Amount for Basic plan should be >= $100 and <= $499');
             }
-        }else if($userPayment->plans_id == 2)
-        {
+        } else if ($userPayment->plans_id == 2) {
             if (($request->input('amount') < 500) || ($request->input('amount') > 4999)) {
                 return redirect('/makepayment')->with('error', 'Amount for Standard plan should be >= $500 and <= $4999');
             }
-        }else if($userPayment->plans_id == 3)
-        {
+        } else if ($userPayment->plans_id == 3) {
             if (($request->input('amount') < 5000) || ($request->input('amount') > 9999)) {
                 return redirect('/makepayment')->with('error', 'Amount for Medium plan should be >= $5000 and <= $9999');
             }
-        }else if($userPayment->plans_id == 4)
-        {
+        } else if ($userPayment->plans_id == 4) {
             if (($request->input('amount') < 10000)) {
                 return redirect('/makepayment')->with('error', 'Amount for Professional plan should be >= $10000');
             }
-        }else if($userPayment->plans_id == 5)
-        {
+        } else if ($userPayment->plans_id == 5) {
             if (($request->input('amount') < 20000)) {
                 return redirect('/makepayment')->with('error', 'Amount for VIP plan should be >= $20000');
             }

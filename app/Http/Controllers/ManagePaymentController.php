@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\PaymentAdd;
 use App\Models\UserPayments;
-use App\Models\Plans;
+use App\Models\Plan;
 
 class ManagePaymentController extends Controller
 {
@@ -18,7 +18,7 @@ class ManagePaymentController extends Controller
     public function index()
     {
         //check if user trying to access the page is admin
-         if (auth()->user()->type != 1) {
+        if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
@@ -26,7 +26,7 @@ class ManagePaymentController extends Controller
         $user = User::find($user_id);
         $payments = UserPayments::all();
         $paymentAdds = PaymentAdd::all();
-        $plans = Plans::all();
+        $Plan = Plan::all();
         // $newuser = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
         // $admins = User::where('type', '1')->get();
 
@@ -34,11 +34,11 @@ class ManagePaymentController extends Controller
             'user' => $user,
             'payments' => $payments,
             'paymentAdds' => $paymentAdds,
-            'plans' => $plans,
+            'Plan' => $Plan,
             'i' => 1
         ];
 
-      
+
         return view('admin.manage_payment')->with($data);
     }
 
@@ -61,7 +61,7 @@ class ManagePaymentController extends Controller
     public function store(Request $request)
     {
         //check if user trying to access the page is admin
-         if (auth()->user()->type != 1) {
+        if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
@@ -73,28 +73,24 @@ class ManagePaymentController extends Controller
         $userPayment = new UserPayments();
         $userPayment->user_id = $request->input('user_id');
         $userPayment->paymentAdd_id = $request->input('paymentAdd_id');
-        $userPayment->plans_id = $request->input('plan_id');
-        if ($userPayment->plans_id == 1) {
+        $userPayment->Plan_id = $request->input('plan_id');
+        if ($userPayment->Plan_id == 1) {
             if (($request->input('amount') < 100) || ($request->input('amount') > 499)) {
                 return redirect('/makepayment')->with('error', 'Amount for Basic plan should be >= $100 and <= $499');
             }
-        }else if($userPayment->plans_id == 2)
-        {
+        } else if ($userPayment->Plan_id == 2) {
             if (($request->input('amount') < 500) || ($request->input('amount') > 4999)) {
                 return redirect('/makepayment')->with('error', 'Amount for Standard plan should be >= $500 and <= $4999');
             }
-        }else if($userPayment->plans_id == 3)
-        {
+        } else if ($userPayment->Plan_id == 3) {
             if (($request->input('amount') < 5000) || ($request->input('amount') > 9999)) {
                 return redirect('/makepayment')->with('error', 'Amount for Medium plan should be >= $5000 and <= $9999');
             }
-        }else if($userPayment->plans_id == 4)
-        {
+        } else if ($userPayment->Plan_id == 4) {
             if (($request->input('amount') < 10000)) {
                 return redirect('/makepayment')->with('error', 'Amount for Professional plan should be >= $10000');
             }
-        }else if($userPayment->plans_id == 5)
-        {
+        } else if ($userPayment->Plan_id == 5) {
             if (($request->input('amount') < 20000)) {
                 return redirect('/makepayment')->with('error', 'Amount for VIP plan should be >= $20000');
             }
@@ -138,7 +134,7 @@ class ManagePaymentController extends Controller
     public function update(Request $request, $id)
     {
         //check if user trying to access the page is admin
-         if (auth()->user()->type != 1) {
+        if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
@@ -150,7 +146,7 @@ class ManagePaymentController extends Controller
         $userPayment = UserPayments::find($id);
         $userPayment->user_id = $request->input('user_id');
         $userPayment->paymentAdd_id = $request->input('paymentAdd_id');
-        $userPayment->plans_id = $request->input('plan_id');
+        $userPayment->Plan_id = $request->input('plan_id');
         $userPayment->amount = $request->input('amount');
         $userPayment->status = $request->input('status');
 
@@ -166,7 +162,7 @@ class ManagePaymentController extends Controller
      */
     public function destroy($id)
     {
-         //check if user trying to access the page is admin
+        //check if user trying to access the page is admin
         if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
