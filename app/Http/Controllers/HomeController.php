@@ -130,7 +130,7 @@ class HomeController extends Controller
     {
         // TODO: Update user addresses
 
-        return redirect()->route('withdraw')->with('success', 'Will update addresses soon');
+        return redirect()->route('withdraw')->with('success', 'Withdrawal addresses updated succesfully');
     }
 
     /**
@@ -165,5 +165,27 @@ class HomeController extends Controller
     public function exchange()
     {
         return view('user.exchange');
+    }
+
+    /**
+     * Show trading exchange
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function security()
+    {
+        return view('user.security');
+    }
+
+    /**
+     * Update user security settings
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function sec_settings()
+    {
+        // TODO: Update user security settings on db
+
+        return redirect()->route('home')->with('success', 'Security settings updated successfully');
     }
 }

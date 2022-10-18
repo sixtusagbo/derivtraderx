@@ -29,6 +29,8 @@ Route::post('/user_addresses', [App\Http\Controllers\HomeController::class, 'use
 Route::get('/referrals', [App\Http\Controllers\HomeController::class, 'referrals'])->name('referrals');
 Route::get('/referral_banners', [App\Http\Controllers\HomeController::class, 'banners'])->name('banners');
 Route::get('/exchange', [App\Http\Controllers\HomeController::class, 'exchange'])->name('exchange');
+Route::get('/security', [App\Http\Controllers\HomeController::class, 'security'])->name('security');
+Route::post('/security', [App\Http\Controllers\HomeController::class, 'sec_settings'])->name('update_sec');
 
 Auth::routes();
 

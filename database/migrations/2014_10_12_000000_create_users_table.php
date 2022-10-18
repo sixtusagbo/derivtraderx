@@ -20,9 +20,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('username')->unique();
-            $table->tinyInteger('type')->nullable()->default(0);
+            $table->tinyInteger('type')->default(0);
             $table->timestamp('last_login')->nullable();
             $table->string('last_login_ip')->nullable();
+            $table->tinyInteger('ip_change')->default(0);
+            $table->tinyInteger('browser_change')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
