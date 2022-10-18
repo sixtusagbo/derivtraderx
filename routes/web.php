@@ -24,6 +24,8 @@ Route::get('/policy', [App\Http\Controllers\CoreController::class, 'policy'])->n
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/deposit', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit');
 Route::get('/my_deposits', [App\Http\Controllers\HomeController::class, 'my_deposits'])->name('my_deposits');
+Route::get('/withdraw', [App\Http\Controllers\HomeController::class, 'withdraw'])->name('withdraw');
+Route::post('/user_addresses', [App\Http\Controllers\HomeController::class, 'user_addresses'])->name('user_addresses');
 
 Auth::routes();
 

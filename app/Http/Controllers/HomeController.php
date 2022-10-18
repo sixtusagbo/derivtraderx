@@ -73,15 +73,31 @@ class HomeController extends Controller
      */
     public function deposit()
     {
-        $Plan = Plan::all();
+        $plans = Plan::all();
         $paymentAddresses = PaymentAdd::all();
 
         $data = [
-            'Plan' => $Plan,
+            'plans' => $plans,
             'paymentAddresses' => $paymentAddresses,
         ];
 
         return view('user.deposit')->with($data);
+    }
+
+    /**
+     * Place withdrawal
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function withdraw()
+    {
+        $withdrawalAddresses = auth()->user()->withdrawalAddresses;
+
+        $data = [
+            'withdrawalAddresses' => $withdrawalAddresses,
+        ];
+
+        return view('user.withdrawal')->with($data);
     }
 
     /**
@@ -94,14 +110,26 @@ class HomeController extends Controller
     {
         // return auth()->user()->payments->find(1)->paymentAdd; //? Debugging
         // return auth()->user()->payments->find(1)->Plan; //? Debugging
-        $Plan = Plan::all();
+        $plans = Plan::all();
         $currentUserPayments = auth()->user()->payments;
 
         $data = [
-            'Plan' => $Plan,
+            'plans' => $plans,
             'currentUserPayments' => $currentUserPayments,
         ];
 
         return view('user.my_deposits')->with($data);
+    }
+
+    /**
+     * Add user wallet address
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function user_addresses()
+    {
+        // TODO: Update user addresses
+
+        return redirect()->route('withdraw')->with('success', 'Will update addresses soon');
     }
 }

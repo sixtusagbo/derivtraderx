@@ -49,7 +49,7 @@ class User extends Authenticatable
         return $this->hasMany(UserPayments::class);
     }
 
-    public function withdrawalAdd()
+    public function withdrawalAddresses()
     {
         return $this->hasMany(WithdrawalAdd::class);
     }

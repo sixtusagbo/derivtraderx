@@ -1954,7 +1954,7 @@ progress {
   border-color: #dfe0e1;
 }
 
-.table-dark {
+.table-dark, .darkmode .table {
   --bs-table-bg: #131419;
   --bs-table-striped-bg: #1f2025;
   --bs-table-striped-color: #fff;
@@ -6674,7 +6674,7 @@ textarea.form-control-lg {
   border: 1px solid #dee2e6 !important;
 }
 
-.border-0, .card {
+.border-0, .darkmode .alert .btn-close, .darkmode .alert, .card {
   border: 0 !important;
 }
 
@@ -6770,7 +6770,7 @@ textarea.form-control-lg {
   width: 25% !important;
 }
 
-.w-50 {
+.w-50, .avatar {
   width: 50% !important;
 }
 
@@ -7064,7 +7064,7 @@ textarea.form-control-lg {
   margin-left: 0.25rem !important;
 }
 
-.mx-2, .payment-channels {
+.mx-2, .payment-channels, .darkmode .alert {
   margin-right: 0.5rem !important;
   margin-left: 0.5rem !important;
 }
@@ -7180,7 +7180,7 @@ textarea.form-control-lg {
   margin-right: auto !important;
 }
 
-.mb-0, .available-plans .plan-item:last-of-type {
+.mb-0, .available-plans .plan-item:last-of-type, .darkmode .alert {
   margin-bottom: 0 !important;
 }
 
@@ -7192,7 +7192,7 @@ textarea.form-control-lg {
   margin-bottom: 0.5rem !important;
 }
 
-.mb-3, .overview {
+.mb-3, .overview, .avatar {
   margin-bottom: 1rem !important;
 }
 
@@ -7240,11 +7240,11 @@ textarea.form-control-lg {
   padding: 0 !important;
 }
 
-.p-1 {
+.p-1, .darkmode .alert .btn-close {
   padding: 0.25rem !important;
 }
 
-.p-2, .available-plans .plan-item, .available-plans .plan-duration {
+.p-2, .available-plans .plan-item, .available-plans .plan-duration, .avatar {
   padding: 0.5rem !important;
 }
 
@@ -7660,7 +7660,7 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
 }
 
-.bg-light {
+.bg-light, .darkmode .alert .btn-close {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
@@ -7760,7 +7760,7 @@ textarea.form-control-lg {
   border-radius: 0.3rem !important;
 }
 
-.rounded-circle {
+.rounded-circle, .avatar {
   border-radius: 50% !important;
 }
 
@@ -13698,11 +13698,11 @@ label {
   background-color: rgba(95, 46, 234, 0.1019607843) !important;
 }
 
-.bg-light-success {
+.bg-light-success, .darkmode .alert-success {
   background: rgba(40, 199, 111, 0.1215686275) !important;
 }
 
-.text-light-success {
+.text-light-success, .darkmode .alert-success {
   color: #28c76f !important;
 }
 
@@ -13714,20 +13714,28 @@ label {
   color: #ff9f43 !important;
 }
 
-.bg-light-info {
+.bg-light-info, .avatar {
   background: rgba(0, 207, 232, 0.1215686275) !important;
 }
 
-.text-light-info {
+.text-light-info, .avatar {
   color: #00cfe8 !important;
 }
 
-.bg-light-danger {
+.bg-light-danger, .darkmode .alert-danger {
   background: rgba(234, 84, 85, 0.1215686275) !important;
 }
 
-.text-light-danger {
+.text-light-danger, .darkmode .alert-danger {
   color: #ea5455 !important;
+}
+
+.bg-light-secondary {
+  background-color: rgba(130, 134, 139, 0.1215686275);
+}
+
+.text-light-secondary {
+  color: #82868b !important;
 }
 
 .form-control {
@@ -13739,6 +13747,23 @@ label {
   border: 1px solid #7367F0 !important;
   outline: none !important;
   box-shadow: none !important;
+}
+
+.card {
+  transition: all 0.3s ease-in-out, background 0s, color 0s, border-color 0s;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  color: #6e6b7b;
+}
+.table th {
+  text-transform: uppercase;
 }
 
 .darkmode h1, .darkmode .h1,
@@ -13764,7 +13789,9 @@ label {
 .darkmode input.form-control:not(:focus), .darkmode .custom-file-label:not(:focus), .darkmode textarea.form-control:not(:focus) {
   border-color: #404656;
 }
-
+.darkmode .alert .btn-close {
+  top: 0.9em;
+}
 .sidebar-body-menu a:hover {
   transform: translateX(10px);
 }
@@ -13853,6 +13880,10 @@ label {
 .payment-channels .coin.choice {
   box-shadow: 0 0 15px rgba(207, 209, 214, 0.7960784314);
   border-top: 5px solid #512501;
+}
+
+.withdrawals p {
+  color: #6e6b7b;
 }
 
 /*# sourceMappingURL=dashboard.css.map*/

@@ -34,6 +34,14 @@
   color: #ea5455 !important;
 }
 
+.bg-light-secondary {
+  background-color: #82868b1f;
+}
+
+.text-light-secondary {
+  color: #82868b !important;
+}
+
 // * Overriding bootstrap default
 .form-control {
   border: .05rem solid #ffffff3f !important;
@@ -46,4 +54,24 @@
   box-shadow: none !important;
 }
 
-@import './darkmode_mod';
+.card {
+  @extend .border-0;
+  transition: all 0.3s ease-in-out, background 0s, color 0s, border-color 0s;
+}
+
+.avatar {
+  @extend .rounded-circle, .p-2, .mb-3, .bg-light-info, .text-light-info, .w-50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  color: #6e6b7b;
+
+  th {
+    text-transform: uppercase;
+  }
+}
+
+@import 'darkmode_mod';

@@ -49,6 +49,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('withdraw') }}">
+                                <span class="icon" data-feather="credit-card" aria-hidden="true"></span>Withdrawal
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('my_deposits') }}">
                                 <span class="icon" data-feather="activity" aria-hidden="true"></span>Active Deposits
                             </a>
@@ -134,7 +139,13 @@
                 </div>
             </nav>
 
-            @yield('content')
+            <!-- ! Main -->
+            @include('inc.messages')
+            <main class="main" id="skip-target">
+                <div class="container">
+                    @yield('content')
+                </div>
+            </main>
 
             <!-- ! Footer -->
             <footer class="footer">

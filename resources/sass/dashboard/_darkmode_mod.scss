@@ -26,4 +26,25 @@
     border-color: #404656;
   }
 
+  & .table {
+    @extend .table-dark;
+  }
+
+  & .alert {
+    @extend .border-0, .mx-2, .mb-0;
+
+    .btn-close {
+      @extend .bg-light, .border-0, .p-1;
+      top: .9em;
+    }
+  }
+
+  & .alert-success {
+    @extend .bg-light-success, .text-light-success;
+  }
+
+  & .alert-danger {
+    @extend .bg-light-danger, .text-light-danger;
+  }
+
 }

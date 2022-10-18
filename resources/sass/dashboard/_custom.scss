@@ -1,4 +1,4 @@
-@import './utility';
+@import 'utility';
 
 .sidebar {
   &-body {
@@ -45,10 +45,6 @@
   &-item {
     @extend .fs-6, .fw-bold;
   }
-}
-
-.card {
-  @extend .border-0;
 }
 
 .user-image-wrapper {
@@ -143,5 +139,11 @@
       box-shadow: 0 0 15px #cfd1d6cb;
       border-top: 5px solid scale-color($color: $orange, $lightness: -70%);
     }
+  }
+}
+
+.withdrawals {
+  p {
+    color: #6e6b7b;
   }
 }
