@@ -73,6 +73,11 @@
                                 <span class="icon" data-feather="shuffle" aria-hidden="true"></span>Exchange
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('contact') }}">
+                                <span class="icon" data-feather="info" aria-hidden="true"></span>Support
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
