@@ -28,6 +28,7 @@ Route::get('/withdraw', [App\Http\Controllers\HomeController::class, 'withdraw']
 Route::post('/user_addresses', [App\Http\Controllers\HomeController::class, 'user_addresses'])->name('user_addresses');
 Route::get('/referrals', [App\Http\Controllers\HomeController::class, 'referrals'])->name('referrals');
 Route::get('/referral_banners', [App\Http\Controllers\HomeController::class, 'banners'])->name('banners');
+Route::get('/exchange', [App\Http\Controllers\HomeController::class, 'exchange'])->name('exchange');
 
 Auth::routes();
 

@@ -68,6 +68,11 @@
                                 <span class="icon" data-feather="link" aria-hidden="true"></span>Referral Banners
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('exchange') }}">
+                                <span class="icon" data-feather="shuffle" aria-hidden="true"></span>Exchange
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

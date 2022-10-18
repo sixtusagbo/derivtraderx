@@ -156,4 +156,14 @@ class HomeController extends Controller
     {
         return view('user.banners');
     }
+
+    /**
+     * Show trading exchange
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function exchange()
+    {
+        return view('user.exchange');
+    }
 }
