@@ -63,6 +63,11 @@
                                 <span class="icon" data-feather="users" aria-hidden="true"></span>Referral program
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('banners') }}">
+                                <span class="icon" data-feather="link" aria-hidden="true"></span>Referral Banners
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -113,7 +118,8 @@
                             </ul>
                         </div>
                         <div class="nav-user-wrapper">
-                            <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
+                            <button href="##" class="nav-user-btn dropdown-btn" title="My profile"
+                                type="button">
                                 <span class="sr-only">My profile</span>
                                 <span class="nav-user-img bg-success">
                                     <i data-feather="user" aria-hidden="true"></i>

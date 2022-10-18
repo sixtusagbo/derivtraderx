@@ -146,4 +146,14 @@ class HomeController extends Controller
 
         return view('user.referrals')->with($data);
     }
+
+    /**
+     * Show banner for advertisements
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function banners()
+    {
+        return view('user.banners');
+    }
 }
