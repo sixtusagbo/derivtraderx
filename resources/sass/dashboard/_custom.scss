@@ -147,3 +147,12 @@
     color: #6e6b7b;
   }
 }
+
+.copy-btn {
+  @extend .btn, .btn-outline-primary;
+
+  &:focus {
+    outline: none !important;
+    color: $white-color;
+  }
+}

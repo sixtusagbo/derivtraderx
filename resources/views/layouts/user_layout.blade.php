@@ -58,6 +58,11 @@
                                 <span class="icon" data-feather="activity" aria-hidden="true"></span>Active Deposits
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('referrals') }}">
+                                <span class="icon" data-feather="users" aria-hidden="true"></span>Referral program
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -26,6 +26,7 @@ Route::get('/deposit', [App\Http\Controllers\HomeController::class, 'deposit'])-
 Route::get('/my_deposits', [App\Http\Controllers\HomeController::class, 'my_deposits'])->name('my_deposits');
 Route::get('/withdraw', [App\Http\Controllers\HomeController::class, 'withdraw'])->name('withdraw');
 Route::post('/user_addresses', [App\Http\Controllers\HomeController::class, 'user_addresses'])->name('user_addresses');
+Route::get('/referrals', [App\Http\Controllers\HomeController::class, 'referrals'])->name('referrals');
 
 Auth::routes();
 

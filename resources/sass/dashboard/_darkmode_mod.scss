@@ -28,6 +28,17 @@
 
   & .table {
     @extend .table-dark;
+
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: #1f2025;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #2b2c30;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #11111d8f;
+    --bs-table-hover-color: #fff;
+    color: #fff;
+    border-color: #2b2c30;
+
   }
 
   & .alert {

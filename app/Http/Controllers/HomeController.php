@@ -132,4 +132,18 @@ class HomeController extends Controller
 
         return redirect()->route('withdraw')->with('success', 'Will update addresses soon');
     }
+
+    /**
+     * User referrals overview
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function referrals()
+    {
+        // TODO: Fetch user referral statistics with eloquent
+
+        $data = [];
+
+        return view('user.referrals')->with($data);
+    }
 }

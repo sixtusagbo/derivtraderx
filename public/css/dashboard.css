@@ -2404,7 +2404,7 @@ textarea.form-control-lg {
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
 }
-.btn-check[disabled] + .btn, .btn-check:disabled + .btn {
+.btn-check[disabled] + .btn, .btn-check[disabled] + .copy-btn, .btn-check:disabled + .btn, .btn-check:disabled + .copy-btn {
   pointer-events: none;
   filter: none;
   opacity: 0.65;
@@ -2582,11 +2582,11 @@ textarea.form-control-lg {
 .input-group > .form-select:focus {
   z-index: 3;
 }
-.input-group .btn {
+.input-group .btn, .input-group .copy-btn {
   position: relative;
   z-index: 2;
 }
-.input-group .btn:focus {
+.input-group .btn:focus, .input-group .copy-btn:focus {
   z-index: 3;
 }
 
@@ -2608,7 +2608,8 @@ textarea.form-control-lg {
 .input-group-lg > .form-control,
 .input-group-lg > .form-select,
 .input-group-lg > .input-group-text,
-.input-group-lg > .btn {
+.input-group-lg > .btn,
+.input-group-lg > .copy-btn {
   padding: 0.5rem 1rem;
   font-size: 1.125rem;
   border-radius: 0.3rem;
@@ -2617,7 +2618,8 @@ textarea.form-control-lg {
 .input-group-sm > .form-control,
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
-.input-group-sm > .btn {
+.input-group-sm > .btn,
+.input-group-sm > .copy-btn {
   padding: 0.25rem 0.5rem;
   font-size: 0.7875rem;
   border-radius: 0.2rem;
@@ -2822,7 +2824,7 @@ textarea.form-control-lg {
   z-index: 3;
 }
 
-.btn {
+.btn, .copy-btn {
   display: inline-block;
   font-weight: 400;
   line-height: 1.6;
@@ -2842,18 +2844,18 @@ textarea.form-control-lg {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn {
+  .btn, .copy-btn {
     transition: none;
   }
 }
-.btn:hover {
+.btn:hover, .copy-btn:hover {
   color: #212529;
 }
-.btn-check:focus + .btn, .btn:focus {
+.btn-check:focus + .btn, .btn-check:focus + .copy-btn, .btn:focus, .copy-btn:focus {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(5, 160, 160, 0.25);
 }
-.btn:disabled, .btn.disabled, fieldset:disabled .btn {
+.btn:disabled, .copy-btn:disabled, .btn.disabled, .disabled.copy-btn, fieldset:disabled .btn, fieldset:disabled .copy-btn {
   pointer-events: none;
   opacity: 0.65;
 }
@@ -3098,27 +3100,27 @@ textarea.form-control-lg {
   border-color: #131419;
 }
 
-.btn-outline-primary {
+.btn-outline-primary, .copy-btn {
   color: #05a0a0;
   border-color: #05a0a0;
 }
-.btn-outline-primary:hover {
+.btn-outline-primary:hover, .copy-btn:hover {
   color: #000;
   background-color: #05a0a0;
   border-color: #05a0a0;
 }
-.btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
+.btn-check:focus + .btn-outline-primary, .btn-check:focus + .copy-btn, .btn-outline-primary:focus, .copy-btn:focus {
   box-shadow: 0 0 0 0.25rem rgba(5, 160, 160, 0.5);
 }
-.btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
+.btn-check:checked + .btn-outline-primary, .btn-check:checked + .copy-btn, .btn-check:active + .btn-outline-primary, .btn-check:active + .copy-btn, .btn-outline-primary:active, .copy-btn:active, .btn-outline-primary.active, .active.copy-btn, .btn-outline-primary.dropdown-toggle.show, .dropdown-toggle.show.copy-btn {
   color: #000;
   background-color: #05a0a0;
   border-color: #05a0a0;
 }
-.btn-check:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
+.btn-check:checked + .btn-outline-primary:focus, .btn-check:checked + .copy-btn:focus, .btn-check:active + .btn-outline-primary:focus, .btn-check:active + .copy-btn:focus, .btn-outline-primary:active:focus, .copy-btn:active:focus, .btn-outline-primary.active:focus, .active.copy-btn:focus, .btn-outline-primary.dropdown-toggle.show:focus, .dropdown-toggle.show.copy-btn:focus {
   box-shadow: 0 0 0 0.25rem rgba(5, 160, 160, 0.5);
 }
-.btn-outline-primary:disabled, .btn-outline-primary.disabled {
+.btn-outline-primary:disabled, .copy-btn:disabled, .btn-outline-primary.disabled, .disabled.copy-btn {
   color: #05a0a0;
   background-color: transparent;
 }
@@ -3310,13 +3312,13 @@ textarea.form-control-lg {
   color: #6c757d;
 }
 
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .copy-btn {
   padding: 0.5rem 1rem;
   font-size: 1.125rem;
   border-radius: 0.3rem;
 }
 
-.btn-sm, .btn-group-sm > .btn {
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .copy-btn {
   padding: 0.25rem 0.5rem;
   font-size: 0.7875rem;
   border-radius: 0.2rem;
@@ -3666,23 +3668,35 @@ textarea.form-control-lg {
   display: inline-flex;
   vertical-align: middle;
 }
-.btn-group > .btn,
-.btn-group-vertical > .btn {
+.btn-group > .btn, .btn-group > .copy-btn,
+.btn-group-vertical > .btn,
+.btn-group-vertical > .copy-btn {
   position: relative;
   flex: 1 1 auto;
 }
-.btn-group > .btn-check:checked + .btn,
+.btn-group > .btn-check:checked + .btn, .btn-group > .btn-check:checked + .copy-btn,
 .btn-group > .btn-check:focus + .btn,
+.btn-group > .btn-check:focus + .copy-btn,
 .btn-group > .btn:hover,
+.btn-group > .copy-btn:hover,
 .btn-group > .btn:focus,
+.btn-group > .copy-btn:focus,
 .btn-group > .btn:active,
+.btn-group > .copy-btn:active,
 .btn-group > .btn.active,
+.btn-group > .active.copy-btn,
 .btn-group-vertical > .btn-check:checked + .btn,
+.btn-group-vertical > .btn-check:checked + .copy-btn,
 .btn-group-vertical > .btn-check:focus + .btn,
+.btn-group-vertical > .btn-check:focus + .copy-btn,
 .btn-group-vertical > .btn:hover,
+.btn-group-vertical > .copy-btn:hover,
 .btn-group-vertical > .btn:focus,
+.btn-group-vertical > .copy-btn:focus,
 .btn-group-vertical > .btn:active,
-.btn-group-vertical > .btn.active {
+.btn-group-vertical > .copy-btn:active,
+.btn-group-vertical > .btn.active,
+.btn-group-vertical > .active.copy-btn {
   z-index: 1;
 }
 
@@ -3695,18 +3709,21 @@ textarea.form-control-lg {
   width: auto;
 }
 
-.btn-group > .btn:not(:first-child),
+.btn-group > .btn:not(:first-child), .btn-group > .copy-btn:not(:first-child),
 .btn-group > .btn-group:not(:first-child) {
   margin-left: -1px;
 }
-.btn-group > .btn:not(:last-child):not(.dropdown-toggle),
-.btn-group > .btn-group:not(:last-child) > .btn {
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .copy-btn:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn-group:not(:last-child) > .btn,
+.btn-group > .btn-group:not(:last-child) > .copy-btn {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.btn-group > .btn:nth-child(n+3),
+.btn-group > .btn:nth-child(n+3), .btn-group > .copy-btn:nth-child(n+3),
 .btn-group > :not(.btn-check) + .btn,
-.btn-group > .btn-group:not(:first-child) > .btn {
+.btn-group > :not(.btn-check) + .copy-btn,
+.btn-group > .btn-group:not(:first-child) > .btn,
+.btn-group > .btn-group:not(:first-child) > .copy-btn {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -3722,12 +3739,12 @@ textarea.form-control-lg {
   margin-right: 0;
 }
 
-.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .btn-group-sm > .copy-btn + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem;
 }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .btn-group-lg > .copy-btn + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
@@ -3737,21 +3754,23 @@ textarea.form-control-lg {
   align-items: flex-start;
   justify-content: center;
 }
-.btn-group-vertical > .btn,
+.btn-group-vertical > .btn, .btn-group-vertical > .copy-btn,
 .btn-group-vertical > .btn-group {
   width: 100%;
 }
-.btn-group-vertical > .btn:not(:first-child),
+.btn-group-vertical > .btn:not(:first-child), .btn-group-vertical > .copy-btn:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child) {
   margin-top: -1px;
 }
-.btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle),
-.btn-group-vertical > .btn-group:not(:last-child) > .btn {
+.btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), .btn-group-vertical > .copy-btn:not(:last-child):not(.dropdown-toggle),
+.btn-group-vertical > .btn-group:not(:last-child) > .btn,
+.btn-group-vertical > .btn-group:not(:last-child) > .copy-btn {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.btn-group-vertical > .btn ~ .btn,
-.btn-group-vertical > .btn-group:not(:first-child) > .btn {
+.btn-group-vertical > .btn ~ .btn, .btn-group-vertical > .copy-btn ~ .btn, .btn-group-vertical > .btn ~ .copy-btn, .btn-group-vertical > .copy-btn ~ .copy-btn,
+.btn-group-vertical > .btn-group:not(:first-child) > .btn,
+.btn-group-vertical > .btn-group:not(:first-child) > .copy-btn {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -4728,7 +4747,7 @@ textarea.form-control-lg {
   display: none;
 }
 
-.btn .badge {
+.btn .badge, .copy-btn .badge {
   position: relative;
   top: -1px;
 }
@@ -6196,7 +6215,7 @@ textarea.form-control-lg {
   background-color: currentColor;
   opacity: 0.5;
 }
-.placeholder.btn::before {
+.placeholder.btn::before, .placeholder.copy-btn::before {
   display: inline-block;
   content: "";
 }
@@ -13789,6 +13808,17 @@ label {
 .darkmode input.form-control:not(:focus), .darkmode .custom-file-label:not(:focus), .darkmode textarea.form-control:not(:focus) {
   border-color: #404656;
 }
+.darkmode .table {
+  --bs-table-bg: transparent;
+  --bs-table-striped-bg: #1f2025;
+  --bs-table-striped-color: #fff;
+  --bs-table-active-bg: #2b2c30;
+  --bs-table-active-color: #fff;
+  --bs-table-hover-bg: #11111d8f;
+  --bs-table-hover-color: #fff;
+  color: #fff;
+  border-color: #2b2c30;
+}
 .darkmode .alert .btn-close {
   top: 0.9em;
 }
@@ -13884,6 +13914,11 @@ label {
 
 .withdrawals p {
   color: #6e6b7b;
+}
+
+.copy-btn:focus {
+  outline: none !important;
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=dashboard.css.map*/
