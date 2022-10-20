@@ -13,11 +13,10 @@
 
         <div class="py-5">
             <p class="mb-5">
-                Derivtraderx is an international financial organization that has been working since July 2018. Our company
-                is
-                located in Utrecht, Netherlands. As the derivtraderx team, we decided to receive investments in order to
-                grow
-                and sharing our profits with our investors.
+                Derivtraderx is an international financial organization. Deriv
+                Group's operational headquarters is located in Cyberjaya and is home to a majority of teams such as Back-end
+                and Front-end, IT Operations, Customer Support, Compliance, Marketing, Trading, Business Intelligence, and
+                Human Resources, to name a few.
             </p>
 
             <p class="mb-5">
@@ -72,21 +71,29 @@
                     <h3 class="text-light display-6 fw-bold">Our CEO</h3>
 
                     <div class="my-3">
-                        <p class="mb-3">Masako Kato was born in the Canadian province of Saskatchewan due to her family
-                            immigration to Canada. Masako Kato, who settled in Toronto for university education, graduated
-                            from
-                            the University of Toronto in the department of economics. She then completed master's degree in
-                            risk
-                            management at New York University.
-                            In 2011, she started working in the New York office of Franklin Templeton Company</p>
-                        <p class="mb-3">After working here for 5 years, she started working as a manager in the
-                            Netherlands
-                            office of Binance Company in 2016.</p>
-                        <p>Deciding to establish her own company after 3 years, Masako gathered a professional team and
-                            founded
-                            derivtraderx company in 2018. The company, which takes its name from the miners village of
-                            Saskatchewan state where she was born, has been growing for 2 years. Masako Kato is the CEO and
-                            chairman of the board.</p>
+                        <p class="mb-3">Jean-Yves Sireau is the founder and CEO of Deriv, an online trading broker founded
+                            in 1999. The company has become one of the world&apos;s largest online brokers, offering a wide
+                            range
+                            of CFD and other derivative contracts on forex, stocks, and synthetic indices to over a million
+                            clients worldwide. Now a global company, Deriv Group Ltd has over 580 employees across 10
+                            offices
+                            worldwide.</p>
+                        <p class="mb-3">In 1997, Jean-Yves started working on the systems and algorithms that became the
+                            foundation of Deriv. Today, after more than 20 years and with over USD 3 billion in turnover,
+                            Deriv Group continues on its journey of innovation to give clients access to a wide range of
+                            contracts, markets, and apps to trade.</p>
+                        <p class="mb-3">Deciding to offer trading platforms that provide a simple, reliable, adnd flexible
+                            trading
+                            experience for their clients. The COVID-19 pandemic struck almost every country across the
+                            globe.</p>
+                        <h5 class="text-light fw-bold">What&apos;s next for Deriv?</h5>
+                        <p>We&apos;ve always been about innovation, right from the beginning. The future is hard to predict,
+                            but
+                            you always need to build for the future. We&apos;ve been in the industry for over 20 years, and
+                            we&apos;ve
+                            remained committed and consistent when it comes to evolving to reflect the current times and
+                            market trends to provide the best service for our clients. The future is full of opportunities,
+                            and I believe it&apos;s important to explore what&apos;s out there and start now.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">

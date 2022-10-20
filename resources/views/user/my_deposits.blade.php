@@ -51,6 +51,13 @@
                                     </tr>
                                 @endif
                                 @empty
+                                    <tr>
+                                        <td colspan="4" class="border-0">
+                                            <div class="badge rounded-pill bg-light-danger text-light-danger"
+                                                style="font-size: .8rem">No deposits for this
+                                                plan</div>
+                                        </td>
+                                    </tr>
                                 @endforelse
                             </tbody>
                         </table>
