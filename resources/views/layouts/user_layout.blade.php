@@ -146,16 +146,19 @@
                                         <span>Security</span>
                                     </a>
                                 </li>
-                                <li><a class="danger" href=""
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <li>
+                                    <a class="danger" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                         <i data-feather="log-out" aria-hidden="true"></i>
-                                        Log out
+                                        {{ __('Logout') }}
+                                    </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </a></li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <input type="text" class="form-control is-valid text-light-success" id="refferalLink"
-                                value="{{ route('register') . '?ref=' . Auth::user()->username }}" readonly=""
+                                value="{{ Auth::user()->referral_link }}" readonly=""
                                 style="border-color: #28c76f !important;">
                         </div>
                         <div class="form-group col-lg-1">
@@ -49,15 +49,26 @@
                             <tbody>
                                 <tr>
                                     <td class="item">Referrals:</td>
-                                    <td class="item">0</td>
+                                    <td class="item">{{ count(Auth::user()->referrals) }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="item">Active referrals:</td>
-                                    <td class="item">0</td>
+                                    <td class="item">You referred:</td>
+                                    <td class="item">
+                                        @forelse (Auth::user()->referrals as $user)
+                                            {{ __($user->username) }}
+                                            @if ($user->id != Auth::user()->referrals->last()->id)
+                                                {{ __(' | ') }}
+                                            @endif
+                                        @empty
+                                            <p class="fst-italic">no one yet</p>
+                                        @endforelse
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="item">Total referral commission:</td>
-                                    <td class="item">$0.00</td>
+                                    <td class="item">
+                                        {{ '$' . number_format(count(Auth::user()->referrals) * 3, 2) }}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
