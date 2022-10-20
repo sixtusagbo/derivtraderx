@@ -32,7 +32,7 @@ Route::get('/exchange', [App\Http\Controllers\HomeController::class, 'exchange']
 Route::get('/security', [App\Http\Controllers\HomeController::class, 'security'])->name('security');
 Route::post('/security', [App\Http\Controllers\HomeController::class, 'sec_settings'])->name('update_sec');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::delete('/user/delete/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('Delete_user');
 Route::put('/user/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('EditUser');

@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Carbon\Carbon;
 
-class LastLogin
+class LastLoginListener
 {
     /**
      * Create the event listener.
@@ -21,7 +21,7 @@ class LastLogin
     /**
      * Handle the event.
      *
-     * @param  object  $event
+     * @param object $event
      * @return void
      */
     public function handle($event)

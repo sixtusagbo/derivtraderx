@@ -62,7 +62,7 @@
                     class="link-primary text-decoration-none">Terms & conditions</a></span>
         </label>
 
-        <button class="form-btn primary-default-btn transparent-btn">Sign in</button>
+        <button class="form-btn primary-default-btn transparent-btn">Sign up</button>
         <p class="mt-4 text-center text-light">Already have an account? <a href="{{ route('login') }}"
                 class="link-primary text-decoration-none">Sign in instead</a></p>
     </form>

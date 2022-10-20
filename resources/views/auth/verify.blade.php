@@ -2,10 +2,12 @@
 
 @section('content')
     <h1 class="sign-up__title fw-bold">Verify Your Email Address</h1>
-    <p class="sign-up__subtitle">Before proceeding, please check your email for a verification link. <br>If you did not
-        receive the email</p>
+    <p class="sign-up__subtitle">Thanks for signing up! Before proceeding, please check your email for a verification link.
+        <br>If you did not
+        receive the email
+    </p>
     @if (session('resent'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success mb-2" role="alert">
             {{ __('A fresh verification link has been sent to your email address.') }}
         </div>
     @endif

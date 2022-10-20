@@ -16,11 +16,10 @@ return new class extends Migration
         Schema::create('user_withdrawals', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('withdrawal_add_id')->unsigned()->nullable();
-            $table->foreign('withdrawal_add_id')->references('id')->on('withdrawal_adds')->onDelete('cascade');
-            $table->float('amount');
-             $table->tinyInteger('status')->nullable()->default(0);
+            $table->decimal('amount');
+            // ? 0- Pending, 1 - Confirmed
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
