@@ -13,7 +13,7 @@
                                     <i data-feather="eye" aria-hidden="true"></i>
                                 </div>
 
-                                <h3 class="fw-bolder mb-3">$0.00</h3>
+                                <h3 class="fw-bolder mb-3">{{ '$' . number_format($userNetWorth, 2) }}</h3>
 
                                 <p class="card-text">Account Balance</p>
                             </div>
@@ -42,9 +42,9 @@
                             <div class="card-header bg-transparent border-0 text-start">Withdrawable account balance
                             </div>
                             <div class="card-body">
-                                <h4 class="card-title">You can make a profit by investing</h4>
-                                <a href="{{ route('deposit') }}" class="btn btn-outline-primary"
-                                    style="outline: none;">Invest</a>
+                                <h4 class="card-title">You can make profit by</h4>
+                                <a href="{{ route('deposit') }}" class="btn btn-outline-primary text-light"
+                                    style="outline: none;">investing</a>
                             </div>
                         </div>
                     </div>
@@ -79,74 +79,142 @@
                                         <tbody>
                                             <tr>
                                                 <td></td>
-                                                <td><img src="{{ asset('images/btc.png') }}" width="32" height="32">
-                                                    BITCOIN</td>
-                                                <td><b
-                                                        class="badge rounded-pill bg-light-success text-light-success me-1">$0.00</b>
+                                                <td>
+                                                    <img src="{{ asset('images/btc.png') }}" width="32" height="32">
+                                                    BITCOIN
                                                 </td>
-                                                <td><b
-                                                        class="badge rounded-pill bg-light-warning text-light-warning me-1">$0.00</b>
+                                                <td>
+                                                    <b class="badge rounded-pill bg-light-success text-light-success me-1">
+                                                        {{ '$' . number_format($btcPayments->where('status', 1)->sum->amount, 2) }}
+                                                    </b>
                                                 </td>
-                                                <td><a class="badge rounded-pill bg-light-secondary me-1"
-                                                        data-bs-toggle="modal" role="button"
-                                                        href="#set-addresses-modal"><i>not set</i></a>
-                                                    <div class="spinner-border text-danger" role="status">
-                                                        <span class="visually-hidden">Loading...</span>
-                                                    </div>
+                                                <td>
+                                                    <b class="badge rounded-pill bg-light-warning text-light-warning me-1">
+                                                        {{ '$' . number_format($btcPayments->where('status', 0)->sum->amount, 2) }}
+                                                    </b>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td><img src="{{ asset('images/eth.png') }}" width="32" height="32">
-                                                    ETHEREUM</td>
-                                                <td><b
-                                                        class="badge rounded-pill bg-light-success text-light-success me-1">$0.00</b>
-                                                </td>
-                                                <td><b
-                                                        class="badge rounded-pill bg-light-warning text-light-warning me-1">$0.00</b>
-                                                </td>
-                                                <td><a class="badge rounded-pill bg-light-secondary me-1"
-                                                        data-bs-toggle="modal" role="button"
-                                                        href="#set-addresses-modal"><i>not set</i></a>
-                                                    <div class="spinner-border text-danger" role="status">
-                                                        <span class="visually-hidden">Loading...</span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td><img src="{{ asset('images/usdt.png') }}" width="32" height="32">
-                                                    USDT (BEP-20)</td>
-                                                <td><b
-                                                        class="badge rounded-pill bg-light-success text-light-success me-1">$0.00</b>
-                                                </td>
-                                                <td><b
-                                                        class="badge rounded-pill bg-light-warning text-light-warning me-1">$0.00</b>
-                                                </td>
-                                                <td><a class="badge rounded-pill bg-light-secondary me-1"
-                                                        data-bs-toggle="modal" role="button"
-                                                        href="#set-addresses-modal"><i>not set</i></a>
-                                                    <div class="spinner-border text-danger" role="status">
-                                                        <span class="visually-hidden">Loading...</span>
-                                                    </div>
+                                                <td>
+                                                    @if ($withdrawalAddresses->contains('symbol', 'BTC'))
+                                                        <a class="badge rounded-pill bg-success p-1" data-bs-toggle="modal"
+                                                            role="button" href="#set-addresses-modal">
+                                                            <i data-feather="check" aria-hidden="true"></i>
+                                                        </a>
+                                                    @else
+                                                        <a class="badge rounded-pill bg-light-secondary me-1"
+                                                            data-bs-toggle="modal" role="button"
+                                                            href="#set-addresses-modal">
+                                                            <i>not set</i>
+                                                        </a>
+                                                        <div class="spinner-border spinner-border-sm text-danger"
+                                                            role="status">
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </div>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
-                                                <td><img src="{{ asset('images/trx.png') }}" width="32" height="32">
-                                                    TRON</td>
-                                                <td><b
-                                                        class="badge rounded-pill bg-light-success text-light-success me-1">$0.00</b>
+                                                <td>
+                                                    <img src="{{ asset('images/eth.png') }}" width="32" height="32">
+                                                    ETHEREUM
                                                 </td>
-                                                <td><b
-                                                        class="badge rounded-pill bg-light-warning text-light-warning me-1">$0.00</b>
+                                                <td>
+                                                    <b class="badge rounded-pill bg-light-success text-light-success me-1">
+                                                        {{ '$' . number_format($ethPayments->where('status', 1)->sum->amount, 2) }}
+                                                    </b>
                                                 </td>
-                                                <td><a class="badge rounded-pill bg-light-secondary me-1"
-                                                        data-bs-toggle="modal" role="button"
-                                                        href="#set-addresses-modal"><i>not set</i></a>
-                                                    <div class="spinner-border text-danger" role="status">
-                                                        <span class="visually-hidden">Loading...</span>
-                                                    </div>
+                                                <td>
+                                                    <b class="badge rounded-pill bg-light-warning text-light-warning me-1">
+                                                        {{ '$' . number_format($ethPayments->where('status', 0)->sum->amount, 2) }}
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    @if ($withdrawalAddresses->contains('symbol', 'ETH'))
+                                                        <a class="badge rounded-pill bg-success p-1" data-bs-toggle="modal"
+                                                            role="button" href="#set-addresses-modal">
+                                                            <i data-feather="check" aria-hidden="true"></i>
+                                                        </a>
+                                                    @else
+                                                        <a class="badge rounded-pill bg-light-secondary me-1"
+                                                            data-bs-toggle="modal" role="button"
+                                                            href="#set-addresses-modal">
+                                                            <i>not set</i>
+                                                        </a>
+                                                        <div class="spinner-border spinner-border-sm text-danger"
+                                                            role="status">
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </div>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <img src="{{ asset('images/usdt.png') }}" width="32" height="32">
+                                                    USDT (BEP-20)
+                                                </td>
+                                                <td>
+                                                    <b class="badge rounded-pill bg-light-success text-light-success me-1">
+                                                        {{ '$' . number_format($usdtPayments->where('status', 1)->sum->amount, 2) }}
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    <b class="badge rounded-pill bg-light-warning text-light-warning me-1">
+                                                        {{ '$' . number_format($usdtPayments->where('status', 0)->sum->amount, 2) }}
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    @if ($withdrawalAddresses->contains('symbol', 'USDT'))
+                                                        <a class="badge rounded-pill bg-success p-1" data-bs-toggle="modal"
+                                                            role="button" href="#set-addresses-modal">
+                                                            <i data-feather="check" aria-hidden="true"></i>
+                                                        </a>
+                                                    @else
+                                                        <a class="badge rounded-pill bg-light-secondary me-1"
+                                                            data-bs-toggle="modal" role="button"
+                                                            href="#set-addresses-modal">
+                                                            <i>not set</i>
+                                                        </a>
+                                                        <div class="spinner-border spinner-border-sm text-danger"
+                                                            role="status">
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </div>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <img src="{{ asset('images/trx.png') }}" width="32" height="32">
+                                                    TRON
+                                                </td>
+                                                <td>
+                                                    <b class="badge rounded-pill bg-light-success text-light-success me-1">
+                                                        {{ '$' . number_format($trxPayments->where('status', 1)->sum->amount, 2) }}
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    <b class="badge rounded-pill bg-light-warning text-light-warning me-1">
+                                                        {{ '$' . number_format($trxPayments->where('status', 0)->sum->amount, 2) }}
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    @if ($withdrawalAddresses->contains('symbol', 'TRX'))
+                                                        <a class="badge rounded-pill bg-success p-1" data-bs-toggle="modal"
+                                                            role="button" href="#set-addresses-modal">
+                                                            <i data-feather="check" aria-hidden="true"></i>
+                                                        </a>
+                                                    @else
+                                                        <a class="badge rounded-pill bg-light-secondary me-1"
+                                                            data-bs-toggle="modal" role="button"
+                                                            href="#set-addresses-modal">
+                                                            <i>not set</i>
+                                                        </a>
+                                                        <div class="spinner-border spinner-border-sm text-danger"
+                                                            role="status">
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </div>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -202,8 +270,6 @@
                                     </table>
                                 </div>
                             </div>
-
-                            <p class="p-3">You have no funds to withdraw.</p>
 
                         </div>
                     </div>

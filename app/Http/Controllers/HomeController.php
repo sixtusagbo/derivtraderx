@@ -54,10 +54,10 @@ class HomeController extends Controller
 
         $user_data = [
             'admins' => $admins,
-            'ethSum' => $ethPayments->sum->amount,
-            'trxSum' => $trxPayments->sum->amount,
-            'usdtSum' => $usdtPayments->sum->amount,
-            'btcSum' => $btcPayments->sum->amount,
+            'ethSum' => $ethPayments->where('status', 1)->sum->amount,
+            'trxSum' => $trxPayments->where('status', 1)->sum->amount,
+            'usdtSum' => $usdtPayments->where('status', 1)->sum->amount,
+            'btcSum' => $btcPayments->where('status', 1)->sum->amount,
             'userPayments' => $userPayments,
             'userWithdrawals' => $userWithdrawals,
             'totalDeposits' => $userPayments->sum->amount,
@@ -108,10 +108,24 @@ class HomeController extends Controller
      */
     public function withdraw()
     {
-        $withdrawalAddresses = auth()->user()->withdrawalAddresses;
+        $user = auth()->user();
+        $ethPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('ETH'));
+        $usdtPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('USDT'));
+        $trxPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('TRX'));
+        $btcPayments = $user->payments->whereNotIn('payment_add_id', [self::getCoinIdWithSymbol('ETH'), self::getCoinIdWithSymbol('USDT'), self::getCoinIdWithSymbol('TRX')]);
+        //! Calculate this
+        $planEarnings = 0;
+        $userPayments = $user->payments->where('status', 1);
+        $userReferralEarnings = config('referral.worth', 2) * $user->referrals->count();
+        $userNetWorth = $userPayments->sum->amount + $userReferralEarnings + $planEarnings;
 
         $data = [
-            'withdrawalAddresses' => $withdrawalAddresses,
+            'withdrawalAddresses' => $user->withdrawalAddresses,
+            'ethPayments' => $ethPayments,
+            'trxPayments' => $trxPayments,
+            'usdtPayments' => $usdtPayments,
+            'btcPayments' => $btcPayments,
+            'userNetWorth' => $userNetWorth,
         ];
 
         return view('user.withdrawal')->with($data);
@@ -127,7 +141,7 @@ class HomeController extends Controller
     {
         // return auth()->user()->payments->find(1)->paymentAdd; //? Debugging
         $plans = Plan::all();
-        $currentUserPayments = User::find(auth()->user()->id)->payments;
+        $currentUserPayments = auth()->user()->payments;
 
         $data = [
             'plans' => $plans,
