@@ -126,9 +126,8 @@ class HomeController extends Controller
     public function my_deposits()
     {
         // return auth()->user()->payments->find(1)->paymentAdd; //? Debugging
-        // return auth()->user()->payments->find(1)->Plan; //? Debugging
         $plans = Plan::all();
-        $currentUserPayments = auth()->user()->payments;
+        $currentUserPayments = User::find(auth()->user()->id)->payments;
 
         $data = [
             'plans' => $plans,

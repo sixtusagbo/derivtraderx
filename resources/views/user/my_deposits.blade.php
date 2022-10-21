@@ -18,38 +18,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($currentUserPayments as $payment)
-                                @if ($payment->plans->id == $plan->id)
-                                    <tr>
-                                        <td>
-                                            ${{ number_format($payment->amount, 2) }}
-                                        </td>
-                                        <td>{{ $payment->paymentAdd->name }} ({{ $payment->paymentAdd->network }})
-                                        </td>
-                                        <td>
-                                            @switch($payment->status)
-                                                @case(0)
-                                                    <span class="badge-pending">Pending</span>
-                                                @break
+                            @forelse ($currentUserPayments->where('plan_id', $plan->id) as $payment)
+                                <tr>
+                                    <td>
+                                        ${{ number_format($payment->amount, 2) }}
+                                    </td>
+                                    <td>{{ $payment->paymentAdd->name }} ({{ $payment->paymentAdd->network }})
+                                    </td>
+                                    <td>
+                                        @switch($payment->status)
+                                            @case(0)
+                                                <span class="badge-pending">Pending</span>
+                                            @break
 
-                                                @case(1)
-                                                    <span class="badge-success">Approved</span>
-                                                @break
+                                            @case(1)
+                                                <span class="badge-success">Approved</span>
+                                            @break
 
-                                                @default
-                                            @endswitch
-                                        </td>
-                                        <td>{{ $payment->created_at->toDayDateTimeString() }}</td>
-                                    </tr>
-                                @else
-                                    <tr>
-                                        <td colspan="4" class="border-0">
-                                            <div class="badge rounded-pill bg-light-danger text-light-danger"
-                                                style="font-size: .8rem">No deposits for this
-                                                plan</div>
-                                        </td>
-                                    </tr>
-                                @endif
+                                            @default
+                                        @endswitch
+                                    </td>
+                                    <td>{{ $payment->created_at->toDayDateTimeString() }}</td>
+                                </tr>
                                 @empty
                                     <tr>
                                         <td colspan="4" class="border-0">
