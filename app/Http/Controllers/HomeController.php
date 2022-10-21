@@ -28,17 +28,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
+        $user = auth()->user();
         $users = User::where('type', '0')->paginate();
         $newuser = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
         $admins = User::where('type', '1')->get();
-        $Plan = Plan::all();
-        $userPayments = UserPayments::where('user_id', $user_id)->get();
-        // dd($userPayments);
+        $ethPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('ETH'));
+        $usdtPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('USDT'));
+        $trxPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('TRX'));
+        $btcPayments = $user->payments->whereNotIn('payment_add_id', [self::getCoinIdWithSymbol('ETH'), self::getCoinIdWithSymbol('USDT'), self::getCoinIdWithSymbol('TRX')]);
+        $userPayments = $user->payments->where('status', 1);
+        $userWithdrawals = $user->withrawals->where('status', 1);
+        //! Calculate this
+        $planEarnings = 0;
+        $userReferralEarnings = config('referral.worth', 2) * $user->referrals->count();
+        $userNetWorth = $userPayments->sum->amount + $userReferralEarnings + $planEarnings;
+        // return $userPayments->take(5); //? Debugging
+        // $a = $userPayments->whereIn(paymentAdd->sy);
 
         $data = [
-            'user' => $user,
             'users' => $users,
             'admins' => $admins,
             'newusers' => $newuser,
@@ -46,17 +53,16 @@ class HomeController extends Controller
         ];
 
         $user_data = [
-            'user' => $user,
-            'users' => $users,
-            'Plan' => $Plan,
-            'i' => 1,
             'admins' => $admins,
+            'ethSum' => $ethPayments->sum->amount,
+            'trxSum' => $trxPayments->sum->amount,
+            'usdtSum' => $usdtPayments->sum->amount,
+            'btcSum' => $btcPayments->sum->amount,
             'userPayments' => $userPayments,
-            'btcSum' => 0,
-            'ethSum' => 0,
-            'trxSum' => 0,
-            'usdtSum' => 0,
-
+            'userWithdrawals' => $userWithdrawals,
+            'totalDeposits' => $userPayments->sum->amount,
+            'userNetWorth' => $userNetWorth,
+            'referralEarnings' => $userReferralEarnings,
         ];
 
         if ($user->type == 1) {
@@ -64,6 +70,17 @@ class HomeController extends Controller
         } elseif ($user->type == 0) {
             return view('user.user_dash')->with($user_data);
         }
+    }
+
+    /**
+     * Get coin id
+     * 
+     * @param  String $symbol
+     * @return int $id
+     */
+    protected function getCoinIdWithSymbol(String $symbol)
+    {
+        return PaymentAdd::where('symbol', $symbol)->first()->id;
     }
 
     /**
@@ -140,11 +157,7 @@ class HomeController extends Controller
      */
     public function referrals()
     {
-        // TODO: Fetch user referral statistics with eloquent
-
-        $data = [];
-
-        return view('user.referrals')->with($data);
+        return view('user.referrals');
     }
 
     /**
@@ -179,12 +192,21 @@ class HomeController extends Controller
 
     /**
      * Update user security settings
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * 
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
      */
-    public function sec_settings()
+    public function sec_settings(Request $request)
     {
-        // TODO: Update user security settings on db
+        $newVal = $request->validate([
+            'ip' => 'required|integer',
+            'browser' => 'required|integer',
+        ]);
+
+        $user = User::find(auth()->user()->id);
+        $user->ip_change = $newVal['ip'];
+        $user->browser_change = $newVal['browser'];
+        $user->update();
 
         return redirect()->route('home')->with('success', 'Security settings updated successfully');
     }

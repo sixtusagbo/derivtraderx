@@ -10534,6 +10534,8 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
+  -moz-appearance: button;
+       appearance: button;
   -webkit-appearance: button;
 }
 
@@ -10625,6 +10627,8 @@ textarea {
  * 2. Correct the outline style in Safari.
  */
 [type=search] {
+  -moz-appearance: textfield;
+       appearance: textfield;
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -10635,6 +10639,7 @@ textarea {
  * Remove the inner padding in Chrome and Safari on macOS.
  */
 [type=search]::-webkit-search-decoration {
+  appearance: none;
   -webkit-appearance: none;
 }
 
@@ -10643,6 +10648,7 @@ textarea {
  * 2. Change font properties to `inherit` in Safari.
  */
 ::-webkit-file-upload-button {
+  appearance: button;
   -webkit-appearance: button;
   /* 1 */
   font: inherit;
@@ -11874,14 +11880,12 @@ label {
   border-collapse: collapse;
   line-height: 1.4;
   letter-spacing: -0.3px;
-  color: #767676;
   transition: none;
 }
 
 .mi-table-info {
   line-height: 1.4;
   letter-spacing: -0.3px;
-  color: #767676;
   height: 48px;
   border-bottom: 1.2px solid #dadbe4;
   font-size: 14px;

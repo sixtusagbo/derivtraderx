@@ -226,6 +226,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
+  appearance: button;
   -webkit-appearance: button;
 }
 
@@ -328,6 +329,7 @@ textarea {
  */
 
 [type="search"] {
+  appearance: textfield;
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -339,6 +341,7 @@ textarea {
  */
 
 [type="search"]::-webkit-search-decoration {
+  appearance: none;
   -webkit-appearance: none;
 }
 
@@ -348,6 +351,7 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
+  appearance: button;
   -webkit-appearance: button;
   /* 1 */
   font: inherit;
@@ -1784,7 +1788,6 @@ label {
   border-collapse: collapse;
   line-height: 1.4;
   letter-spacing: -0.3px;
-  color: #767676;
   -webkit-transition: none;
   -o-transition: none;
   transition: none;
@@ -1793,7 +1796,6 @@ label {
 .mi-table-info {
   line-height: 1.4;
   letter-spacing: -0.3px;
-  color: #767676;
   height: 48px;
   border-bottom: 1.2px solid #dadbe4;
   font-size: 14px;

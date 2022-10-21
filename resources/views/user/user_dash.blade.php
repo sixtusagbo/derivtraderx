@@ -22,15 +22,6 @@
                 </div>
                 <div class="stat-cards-info">
                     <p class="stat-cards-info__num">
-                        @foreach ($userPayments as $userPayment)
-                            @if ($userPayment->paymentAdd->symbole == 'BTC')
-                                @if ($userPayment->status == 1)
-                                    @php
-                                        $btcSum += (float) $userPayment->amount;
-                                    @endphp
-                                @endif
-                            @endif
-                        @endforeach
                         {{ "$" . number_format($btcSum, 2) }}
                     </p>
                     <p class="stat-cards-info__title">Bitcoin</p>
@@ -44,15 +35,6 @@
                 </div>
                 <div class="stat-cards-info">
                     <p class="stat-cards-info__num">
-                        @foreach ($userPayments as $userPayment)
-                            @if ($userPayment->paymentAdd->symbole == 'ETH')
-                                @if ($userPayment->status == 1)
-                                    @php
-                                        $ethSum += (float) $userPayment->amount;
-                                    @endphp
-                                @endif
-                            @endif
-                        @endforeach
                         {{ "$" . number_format($ethSum, 2) }}
                     </p>
                     <p class="stat-cards-info__title">Etherum</p>
@@ -66,15 +48,6 @@
                 </div>
                 <div class="stat-cards-info">
                     <p class="stat-cards-info__num">
-                        @foreach ($userPayments as $userPayment)
-                            @if ($userPayment->paymentAdd->symbole == 'USDT')
-                                @if ($userPayment->status == 1)
-                                    @php
-                                        $usdtSum += (float) $userPayment->amount;
-                                    @endphp
-                                @endif
-                            @endif
-                        @endforeach
                         {{ "$" . number_format($usdtSum, 2) }}
                     </p>
                     <p class="stat-cards-info__title">USDT</p>
@@ -88,15 +61,6 @@
                 </div>
                 <div class="stat-cards-info">
                     <p class="stat-cards-info__num">
-                        @foreach ($userPayments as $userPayment)
-                            @if ($userPayment->paymentAdd->symbole == 'TRX')
-                                @if ($userPayment->status == 1)
-                                    @php
-                                        $trxSum += (float) $userPayment->amount;
-                                    @endphp
-                                @endif
-                            @endif
-                        @endforeach
                         {{ "$" . number_format($trxSum, 2) }}
                     </p>
                     <p class="stat-cards-info__title">Tron</p>
@@ -194,11 +158,11 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex flex-column">
                                 <h6 class="text-light-secondary fw-bold mt-3 mb-2">Total Deposit</h6>
-                                <h4 class="text-light">$0.00</h4>
+                                <h4 class="text-light">{{ '$' . number_format($totalDeposits, 2) }}</h4>
                             </div>
                             <div class="d-flex flex-column">
                                 <h6 class="text-light-secondary fw-bold mt-3 mb-2">Earning</h6>
-                                <h4 class="text-light">$0.00</h4>
+                                <h4 class="text-light">{{ '$' . number_format($referralEarnings, 2) }}</h4>
                             </div>
                         </div>
                     </div>
@@ -224,7 +188,13 @@
                         <p class="overview-leading-title">Last Deposit</p>
                     </div>
 
-                    <p class="overview-item text-light-success"> $n/a </p>
+                    <p class="overview-item text-light-success">
+                        @if ($userPayments->count() > 0)
+                            {{ '$' . $userPayments->last()->amount }}
+                        @else
+                            {{ '$n/a' }}
+                        @endif
+                    </p>
                 </div>
                 <div class="overview">
                     <div class="overview-leading">
@@ -235,7 +205,13 @@
                         <p class="overview-leading-title">Last Withdrawal</p>
                     </div>
 
-                    <p class="overview-item text-light-danger"> $n/a </p>
+                    <p class="overview-item text-light-danger">
+                        @if ($userWithdrawals->count() > 0)
+                            {{ '$' . $userWithdrawals->last()->amount }}
+                        @else
+                            {{ '$n/a' }}
+                        @endif
+                    </p>
                 </div>
                 <div class="overview">
                     <div class="overview-leading">
@@ -249,21 +225,7 @@
                         </div>
                     </div>
 
-                    <p class="overview-item text-light-info"> $0.00 </p>
-                </div>
-                <div class="overview">
-                    <div class="overview-leading">
-                        <div class="overview-leading-icon-wrapper bg-light-warning text-light-warning">
-                            <i data-feather="credit-card"></i>
-                        </div>
-
-                        <div class="d-flex flex-column">
-                            <p class="overview-leading-title">Active</p>
-                            <small>Deposit</small>
-                        </div>
-                    </div>
-
-                    <p class="overview-item text-light-warning"> $0.00 </p>
+                    <p class="overview-item text-light-info"> {{ '$' . number_format($userNetWorth, 2) }} </p>
                 </div>
                 <div class="overview">
                     <div class="overview-leading">
@@ -277,7 +239,8 @@
                         </div>
                     </div>
 
-                    <p class="overview-item text-light-warning"> $0.00 </p>
+                    <p class="overview-item text-light-warning">
+                        {{ '$' . number_format($userWithdrawals->sum->amount, 2) }} </p>
                 </div>
                 <div class="overview">
                     <div class="overview-leading">
@@ -291,7 +254,7 @@
                         </div>
                     </div>
 
-                    <p class="overview-item text-light-warning"> $0.00 </p>
+                    <p class="overview-item text-light-warning"> {{ '$' . number_format($totalDeposits, 2) }} </p>
                 </div>
             </article>
         </div>
@@ -300,23 +263,43 @@
     <div class="row">
         <!-- Last Deposit Card-->
         <div class="col-lg-6 col-12">
-            <div class="card bg-dark text-light border-none">
-                <div class="card-body p-0">
-                    <div class="card-header">
-                        <h4 class="card-title">Last Deposit</h4>
+            <div class="card white-block text-light border-none p-0">
+                <div class="card-body p-0 m-0">
+                    <div class="card-header border-0 bg-transparent p-3">
+                        <h4 class="card-title">Last Deposits</h4>
                     </div>
+
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover table-secondary">
                             <thead>
                                 <tr>
-                                    <th>Payment</th>
-                                    <th>Timedate</th>
+                                    <th>Channel</th>
+                                    <th>Date</th>
                                     <th>Amount</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-
+                                @forelse ($userPayments->take(5) as $payment)
+                                    <tr>
+                                        <td class="text-uppercase">
+                                            {{ $payment->paymentAdd->name }} ({{ $payment->paymentAdd->network }})
+                                        </td>
+                                        <td>
+                                            {{ $payment->created_at->toDayDateTimeString() }}
+                                        </td>
+                                        <td>
+                                            {{ '$' . number_format($payment->amount, 2) }}
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="3" class="border-0">
+                                            <div class="badge rounded-pill bg-light-info text-light-info"
+                                                style="font-size: .8rem">No deposits yet</div>
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -326,22 +309,44 @@
 
         <!-- Last Withdrawal Card -->
         <div class="col-lg-6 col-12">
-            <div class="card bg-dark text-light border-none">
-                <div class="card-body p-0">
-                    <div class="card-header">
+            <div class="card white-block text-light border-none p-0">
+                <div class="card-body p-0 m-0">
+                    <div class="card-header border-0 bg-transparent p-3">
                         <h4 class="card-title">Last Withdrawals</h4>
                     </div>
+
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover table-secondary">
                             <thead>
                                 <tr>
-                                    <th>Payment</th>
-                                    <th>Timedate</th>
+                                    <th>Channel</th>
+                                    <th>Date</th>
                                     <th>Amount</th>
                                 </tr>
                             </thead>
+                            <tbody>
 
-
+                                @forelse ($userWithdrawals->take(5) as $withdrawal)
+                                    <tr>
+                                        <td class="text-uppercase">
+                                            {{ $withdrawal->paymentAdd->name }} ({{ $withdrawal->paymentAdd->network }})
+                                        </td>
+                                        <td>
+                                            {{ $withdrawal->created_at->toDayDateTimeString() }}
+                                        </td>
+                                        <td>
+                                            {{ '$' . number_format($withdrawal->amount, 2) }}
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="3" class="border-0">
+                                            <div class="badge rounded-pill bg-light-info text-light-info"
+                                                style="font-size: .8rem">No withdrawals yet</div>
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
                         </table>
                     </div>
                 </div>

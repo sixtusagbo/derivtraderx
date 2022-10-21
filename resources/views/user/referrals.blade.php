@@ -67,7 +67,7 @@
                                 <tr>
                                     <td class="item">Total referral commission:</td>
                                     <td class="item">
-                                        {{ '$' . number_format(count(Auth::user()->referrals) * 3, 2) }}
+                                        {{ '$' . number_format(Auth::user()->referrals->count() * config('referral.worth', 2), 2) }}
                                     </td>
                                 </tr>
                             </tbody>

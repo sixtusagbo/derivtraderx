@@ -12,7 +12,7 @@
                             <i data-feather="bar-chart-2" aria-hidden="true"></i>
                         </div>
                         <div class="stat-cards-info">
-                            <p class="stat-cards-info__num">{{$users->count()}}</p>
+                            <p class="stat-cards-info__num">{{ $users->count() }}</p>
                             <p class="stat-cards-info__title">Total users</p>
                             <p class="stat-cards-info__progress">
                                 <span class="stat-cards-info__profit success">
@@ -29,7 +29,7 @@
                             <i data-feather="file" aria-hidden="true"></i>
                         </div>
                         <div class="stat-cards-info">
-                            <p class="stat-cards-info__num">{{$admins->count()}}</p>
+                            <p class="stat-cards-info__num">{{ $admins->count() }}</p>
                             <p class="stat-cards-info__title">Total Admin</p>
                             <p class="stat-cards-info__progress">
                                 <span class="stat-cards-info__profit success">
@@ -90,24 +90,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($user->count() > 0)
-                                    
+                                @if ($users->count() > 0)
                                     @foreach ($users as $user)
-                                            
                                         <tr>
                                             <td>
-                                                {{$i++}}
+                                                {{ $i++ }}
                                             </td>
                                             <td>
-                                                {{$user->name}}
+                                                {{ $user->name }}
                                             </td>
                                             <td>
-                                                {{$user->email}}
+                                                {{ $user->email }}
                                             </td>
                                             <td><span class="badge-active">Active</span></td>
-                                            <td>{{$user->created_at->toDayDateTimeString()}}</td>
+                                            <td>{{ $user->created_at->toDayDateTimeString() }}</td>
                                             <td>
-                            
+
                                                 <span class="p-relative">
                                                     <button class="dropdown-btn transparent-btn" type="button"
                                                         title="More info">
@@ -115,90 +113,112 @@
                                                         <i data-feather="more-horizontal" aria-hidden="true"></i>
                                                     </button>
                                                     <ul class="users-item-dropdown dropdown">
-                                                        <li><a href="/user/view/{{$user->id}}">View</a></li>
-                                                        <li><a href="##" data-bs-toggle="modal" data-bs-target="#editUser{{$user->id}}">Quick edit</a></li>
-                                                        <li><a href="##" class="" data-bs-toggle="modal" data-bs-target="#deleteUser{{$user->id}}">Trash</a></li>
+                                                        <li><a href="/user/view/{{ $user->id }}">View</a></li>
+                                                        <li><a href="##" data-bs-toggle="modal"
+                                                                data-bs-target="#editUser{{ $user->id }}">Quick edit</a>
+                                                        </li>
+                                                        <li><a href="##" class="" data-bs-toggle="modal"
+                                                                data-bs-target="#deleteUser{{ $user->id }}">Trash</a>
+                                                        </li>
                                                     </ul>
                                                 </span>
-                        <!-- Edit user Model -->
-                          <div class="modal fade" id="editUser{{$user->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 class="modal-title text-primary" >Edit User</h4>
-                                  <a class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <i class="ti-close opacity-10 text-info"></i>
-                                  </a>
-                                </div>
-                                <div class="modal-body" id="editUserModalBody">
-                                  <form class="pt-3" role="form" method="POST" action="{{ url('/user/update/'.$user->id)}}" id="editUser" >
-                                    @csrf
-                                    
-                                    <div class="form-group">
-                                      <input type="text" class="form-control text-capitalize" name="name" 
-                                      placeholder="Name eg Charles John" required autocomplete="name" value="{{$user->name}}">
-                                    </div>
-                                    <div class="form-group">
-                                      <input type="email" class="form-control" name="email" 
-                                      placeholder="Email" required autocomplete="email" value="{{$user->email}}">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                      <input type="text" class="form-control" name="username" 
-                                      placeholder="Username" required autocomplete="username" value="{{$user->username}}">
-                                    </div>
-                                    <input type="hidden" name="_method" value="PUT">
-                                </div>
-                                <div class="modal-footer">
-                                  <div class="row">
-                                    <div class="col-md-12">
-                                      <button type="submit" class="btn btn-primary btn-md font-weight-medium auth-form-btn">
-                                        Update user
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                              </div>
-                            </div>
-                          </div>
-                          <!--//Edit user-->
+                                                <!-- Edit user Model -->
+                                                <div class="modal fade" id="editUser{{ $user->id }}" tabindex="-1"
+                                                    role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title text-primary">Edit User</h4>
+                                                                <a class="close" type="button" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <i class="ti-close opacity-10 text-info"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="modal-body" id="editUserModalBody">
+                                                                <form class="pt-3" role="form" method="POST"
+                                                                    action="{{ url('/user/update/' . $user->id) }}"
+                                                                    id="editUser">
+                                                                    @csrf
+
+                                                                    <div class="form-group">
+                                                                        <input type="text"
+                                                                            class="form-control text-capitalize"
+                                                                            name="name"
+                                                                            placeholder="Name eg Charles John" required
+                                                                            autocomplete="name"
+                                                                            value="{{ $user->name }}">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <input type="email" class="form-control"
+                                                                            name="email" placeholder="Email" required
+                                                                            autocomplete="email"
+                                                                            value="{{ $user->email }}">
+                                                                    </div>
+
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control"
+                                                                            name="username" placeholder="Username"
+                                                                            required autocomplete="username"
+                                                                            value="{{ $user->username }}">
+                                                                    </div>
+                                                                    <input type="hidden" name="_method" value="PUT">
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary btn-md font-weight-medium auth-form-btn">
+                                                                            Update user
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--//Edit user-->
                                             </td>
-                            {{-- <!--Delete User--> --}}
-                            <div class="modal fade" id="deleteUser{{$user->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title text-primary" >Delete User</h4>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body" id="DeleteUserModalBody">
-                                    <p class="text-black">
-                                    Are you sure you wish to remove this "{{$user->name}}"?
-                                    </p>
-                                    <form method="POST" action="{{ url('/user/delete/'. $user->id)}}" id="deleteUser">
-                                        @csrf
-                                        <input type="hidden" name="_method" value="DELETE">
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="row">
-                                    <div class="col-md-12">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                        <button type="submit" class="btn btn-danger btn-md font-weight-medium auth-form-btn">
-                                        Yes
-                                        </button>
-                                    </div>
-                                    </div>
-                                </div>
-                                </form>
-                                </div>
-                            </div>
-                            </div>
-                            {{-- <!--//Delete User--> --}}
+                                            {{-- <!--Delete User--> --}}
+                                            <div class="modal fade" id="deleteUser{{ $user->id }}" tabindex="-1"
+                                                role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title text-primary">Delete User</h4>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body" id="DeleteUserModalBody">
+                                                            <p class="text-black">
+                                                                Are you sure you wish to remove this "{{ $user->name }}"?
+                                                            </p>
+                                                            <form method="POST"
+                                                                action="{{ url('/user/delete/' . $user->id) }}"
+                                                                id="deleteUser">
+                                                                @csrf
+                                                                <input type="hidden" name="_method" value="DELETE">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">No</button>
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger btn-md font-weight-medium auth-form-btn">
+                                                                        Yes
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- <!--//Delete User--> --}}
                                         </tr>
-                                            
                                     @endforeach
-                                    {{$users->links()}}
+                                    {{ $users->links() }}
                                 @else
                                     <tr>
                                         <td colspan="5"><span>No user yet</span></td>
@@ -206,7 +226,7 @@
                                 @endif
                             </tbody>
                         </table>
-            
+
                     </div>
                 </div>
 
