@@ -33,6 +33,7 @@
                         <table class="table table-hover table-secondary">
                             <thead>
                                 <tr>
+                                    <th>S/N</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Status</th>
@@ -44,6 +45,7 @@
                                 @if ($users->count() > 0)
                                     @foreach ($users as $user)
                                         <tr>
+                                            <td>{{ $i++ }}</td>
                                             <td>
                                                 {{ $user->name }}
                                             </td>
@@ -54,7 +56,7 @@
                                             <td>{{ $user->created_at->toFormattedDateString() }}</td>
                                             <td>
 
-                                                <a href="/user/view/{{ $user->id }}" class="link-primary">
+                                                <a href="{{ route('users.show', $user->id) }}" class="link-primary">
                                                     <i data-feather="eye" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="" data-bs-toggle="modal" class="link-warning"
@@ -80,7 +82,7 @@
                                                             </div>
                                                             <div class="modal-body" id="editUserModalBody">
                                                                 <form class="pt-3" role="form" method="POST"
-                                                                    action="{{ url('/user/update/' . $user->id) }}"
+                                                                    action="{{ route('users.update', $user->id) }}"
                                                                     id="editUser">
                                                                     @csrf
 
@@ -89,7 +91,8 @@
                                                                             class="form-control text-capitalize text-white"
                                                                             name="name"
                                                                             placeholder="Name eg Charles John" required
-                                                                            autocomplete="name" value="{{ $user->name }}">
+                                                                            autocomplete="name"
+                                                                            value="{{ $user->name }}">
                                                                     </div>
                                                                     <div class="mb-3">
                                                                         <input type="email"
@@ -142,7 +145,7 @@
                                                                 "{{ $user->name }}"?
                                                             </p>
                                                             <form method="POST"
-                                                                action="{{ url('/user/delete/' . $user->id) }}"
+                                                                action="{{ route('users.destroy', $user->id) }}"
                                                                 id="deleteUser">
                                                                 @csrf
                                                                 <input type="hidden" name="_method" value="DELETE">
@@ -188,7 +191,7 @@
                                 </a>
                             </div>
                             <div class="modal-body" id="createUserModalBody">
-                                <form class="pt-3" role="form" method="POST" action="{{ url('/user/create') }}"
+                                <form class="pt-3" role="form" method="POST" action="{{ route('users.store') }}"
                                     id="createUser">
                                     @csrf
 

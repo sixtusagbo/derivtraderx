@@ -76,7 +76,7 @@
                         </li>
                         <li>
                             <a class="show-cat-btn" href="">
-                                <span class="icon paper" aria-hidden="true"></span>Withdrawal
+                                <span class="icon" data-feather="archive" aria-hidden="true"></span> Withdrawal
                                 <span class="category__btn transparent-btn" title="Open list">
                                     <span class="sr-only">Open list</span>
                                     <span class="icon arrow-down" aria-hidden="true"></span>
@@ -84,10 +84,10 @@
                             </a>
                             <ul class="cat-sub-menu">
                                 <li>
-                                    <a href="{{ url('/admin/withdrawalAdd') }}">Withdrawal</a>
+                                    <a href="{{ route('withdrawal_addresses.index') }}">Addresses</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/admin/withdrawal/history') }}">Withdrawal History</a>
+                                    <a href="{{ route('withdrawals.index') }}">Requests</a>
                                 </li>
 
                             </ul>
@@ -95,7 +95,7 @@
 
                         <li>
                             <a class="show-cat-btn" href="">
-                                <span class="icon paper" aria-hidden="true"></span>Payments
+                                <span class="icon" data-feather="credit-card" aria-hidden="true"></span> Payments
                                 <span class="category__btn transparent-btn" title="Open list">
                                     <span class="sr-only">Open list</span>
                                     <span class="icon arrow-down" aria-hidden="true"></span>

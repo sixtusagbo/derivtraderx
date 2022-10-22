@@ -27,8 +27,8 @@
         </div>
         <div class="col-md-6 col-xl-3">
             <article class="stat-cards-item">
-                <div class="stat-cards-icon purple">
-                    <i data-feather="file" aria-hidden="true"></i>
+                <div class="stat-cards-icon success">
+                    <i data-feather="credit-card" aria-hidden="true"></i>
                 </div>
                 <div class="stat-cards-info">
                     <p class="stat-cards-info__num">{{ $pendingPayments }}</p>
@@ -38,8 +38,8 @@
         </div>
         <div class="col-md-6 col-xl-3">
             <article class="stat-cards-item">
-                <div class="stat-cards-icon success">
-                    <i data-feather="feather" aria-hidden="true"></i>
+                <div class="stat-cards-icon warning">
+                    <i data-feather="archive" aria-hidden="true"></i>
                 </div>
                 <div class="stat-cards-info">
                     <p class="stat-cards-info__num">{{ $pendingWithdrawals }}</p>
@@ -82,7 +82,7 @@
                                             </td>
                                             <td>{{ $user->created_at->toFormattedDateString() }}</td>
                                             <td>
-                                                <a href="/user/view/{{ $user->id }}" class="link-primary">
+                                                <a href="{{ route('users.show', $user->id) }}" class="link-primary">
                                                     <i data-feather="eye" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="" data-bs-toggle="modal" class="link-warning"
@@ -108,7 +108,7 @@
                                                             </div>
                                                             <div class="modal-body" id="editUserModalBody">
                                                                 <form class="pt-3" role="form" method="POST"
-                                                                    action="{{ url('/user/update/' . $user->id) }}"
+                                                                    action="{{ route('users.update', $user->id) }}"
                                                                     id="editUser">
                                                                     @csrf
 
@@ -166,7 +166,7 @@
                                                                 Are you sure you wish to remove this "{{ $user->name }}"?
                                                             </p>
                                                             <form method="POST"
-                                                                action="{{ url('/user/delete/' . $user->id) }}"
+                                                                action="{{ route('users.destroy', $user->id) }}"
                                                                 id="deleteUser">
                                                                 @csrf
                                                                 <input type="hidden" name="_method" value="DELETE">

@@ -12,41 +12,13 @@ use App\Models\UserWithdrawals;
 
 class UserWithdrawalController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        $payments = UserPayments::where('user_id', $user_id)->orderBy('created_at', 'desc')->paginate();
-        $withdrawalAdds = WithdrawalAdd::where('user_id', $user_id)->get();
-        $userWithdrawals = UserWithdrawals::all();
-        $paymentAdds = PaymentAdd::all();
-        $plans = Plan::all();
-
-        $data = [
-            'user' => $user,
-            'payments' => $payments,
-            'paymentAdds' => $paymentAdds,
-            'plans' => $plans,
-            'withdrawalAdds' => $withdrawalAdds,
-            'userWithdrawals' => $userWithdrawals,
-            'i' => 1
-        ];
-
-
-        return view('user.UserWithdrawal_history')->with($data);
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index2()
     {
         //check if user trying to access the page is admin
         if (auth()->user()->type != 1) {
@@ -76,61 +48,6 @@ class UserWithdrawalController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //validat request details
-        $this->validate($request, [
-            'amount' => 'required|integer',
-        ]);
-
-        $userWithdrawal = new UserWithdrawals();
-        $userWithdrawal->user_id = $request->input('user_id');
-        $userWithdrawal->withdrawal_add_id = $request->input('withdrawal_add_id');
-        $userWithdrawal->amount = $request->input('amount');
-        $userWithdrawal->status = 0;
-        $userWithdrawal->save();
-
-        return redirect('withdrawal/history')->with('success', 'successfuly sent');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -156,7 +73,7 @@ class UserWithdrawalController extends Controller
         $userWithdrawal->status = $request->input('status');
         $userWithdrawal->save();
 
-        return redirect('/admin/withdrawal/history')->with('success', 'successfuly updated');
+        return redirect()->route('withdrawals.index')->with('success', 'successfuly updated');
     }
 
     /**
@@ -174,6 +91,6 @@ class UserWithdrawalController extends Controller
 
         $userWithdrawal = UserWithdrawals::find($id);
         $userWithdrawal->delete();
-        return redirect('/admin/withdrawal/history')->with('success', 'Request deleted successfuly');
+        return redirect()->route('withdrawals.index')->with('success', 'Request deleted successfuly');
     }
 }

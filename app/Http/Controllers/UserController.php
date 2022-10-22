@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -27,6 +37,7 @@ class UserController extends Controller
         $data = [
             'users' => $users,
             'admins' => $admins,
+            'i' => 1,
         ];
 
         return view('admin.User')->with($data);
@@ -50,19 +61,10 @@ class UserController extends Controller
         $data = [
             'users' => $users,
             'admins' => $admins,
+            'i' => 1,
         ];
 
         return view('admin.Admin_list')->with($data);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -97,7 +99,7 @@ class UserController extends Controller
         $user->save();
 
         if ($request->input('type') != null) {
-            return redirect('/admins')->with('success', 'Admin creadet successfully');
+            return redirect('/admins')->with('success', 'Admin created successfully');
         } else {
             return redirect('/users')->with('success', 'User successfully Created');
         }
@@ -111,22 +113,16 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        //check if user trying to access the route is admin
+        if (auth()->user()->type != 1) {
+            return redirect('/')->with('error', 'Unauthorized Page');
+        }
+
         $user = User::find($id);
         $data = [
             'user' => $user
         ];
         return view('admin.viewUser')->with($data);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -168,6 +164,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        //check if user trying to access the route is admin
+        if (auth()->user()->type != 1) {
+            return redirect('/')->with('error', 'Unauthorized Page');
+        }
+
         $user = User::find($id);
         $user->delete();
         return redirect('/home')->with('success', 'User deleted successfuly');

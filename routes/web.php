@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserWithdrawalController;
+use App\Http\Controllers\WithdrawalAddController;
+use App\Models\UserWithdrawals;
+use App\Models\WithdrawalAdd;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,12 +41,11 @@ Route::post('/security', [App\Http\Controllers\HomeController::class, 'sec_setti
 
 Auth::routes(['verify' => true]);
 
-Route::delete('/user/delete/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('Delete_user');
-Route::put('/user/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('EditUser');
-Route::get('/user/view/{id}', [App\Http\Controllers\UserController::class, 'show'])->name('ViewUser');
-Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('Users');
+Route::resource('users', UserController::class)->except(['create', 'edit']);
+Route::resource('withdrawal_addresses', WithdrawalAddController::class)->except(['create', 'show', 'edit', 'store']);
+Route::resource('withdrawals', UserWithdrawalController::class)->except(['create', 'show', 'edit', 'store']);
+
 Route::get('/admins', [App\Http\Controllers\UserController::class, 'admin_users'])->name('Admins_list');
-Route::post('/user/create', [App\Http\Controllers\UserController::class, 'store'])->name('create_user');
 
 Route::get('/payment_address', [App\Http\Controllers\PaymentAddController::class, 'index'])->name('payment_Address');
 Route::put('/payment_address/update/{id}', [App\Http\Controllers\PaymentAddController::class, 'update'])->name('update_payment_Address');
@@ -62,16 +66,3 @@ Route::get('/admin/investment_plans', [App\Http\Controllers\PlanController::clas
 Route::put('/plan/update/{id}', [App\Http\Controllers\PlanController::class, 'update'])->name('update_plan');
 Route::delete('/plan/delete/{id}', [App\Http\Controllers\PlanController::class, 'destroy'])->name('delete_plan');
 Route::post('/plan/create', [App\Http\Controllers\PlanController::class, 'store'])->name('create_plan');
-
-Route::get('/withdrawalAddress', [App\Http\Controllers\WithdrawalAddController::class, 'index'])->name('withdrawalAdd');
-Route::post('/withdrawalAddress/new', [App\Http\Controllers\WithdrawalAddController::class, 'store'])->name('create_withdrawalAdd');
-
-Route::get('/withdrawal/history', [App\Http\Controllers\UserWithdrawalController::class, 'index'])->name('withdrawal_history');
-Route::post('/withdrawal/make', [App\Http\Controllers\UserWithdrawalController::class, 'store'])->name('make_withdrawal');
-Route::get('/admin/withdrawal/history', [App\Http\Controllers\UserWithdrawalController::class, 'index2'])->name('manage_withdrawal_history');
-Route::put('/admin/withdrawal/update/{id}', [App\Http\Controllers\UserWithdrawalController::class, 'update'])->name('update_withdrawal_history');
-Route::delete('/admin/withdrawal/delete/{id}', [App\Http\Controllers\UserWithdrawalController::class, 'destroy'])->name('delete_withdrawal_history');
-
-Route::get('/admin/withdrawalAdd', [App\Http\Controllers\WithdrawalAddController::class, 'index'])->name('manage_withdrawal_Address');
-Route::delete('/admin/withdrawalAdd/delete/{id}', [App\Http\Controllers\WithdrawalAddController::class, 'destroy'])->name('delete_withdrawal_Address');
-Route::put('/admin/withdrawalAdd/update/{id}', [App\Http\Controllers\WithdrawalAddController::class, 'update'])->name('update_withdrawal_Address');
