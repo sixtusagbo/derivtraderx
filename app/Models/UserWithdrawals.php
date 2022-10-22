@@ -13,6 +13,7 @@ class UserWithdrawals extends Model
         'user_id',
         'withdrawal_add_id',
         'amount',
+        //? 0 - Pending, 1 - Approved
         'status',
     ];
 

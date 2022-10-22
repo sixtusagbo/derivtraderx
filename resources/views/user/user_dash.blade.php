@@ -162,7 +162,7 @@
                             </div>
                             <div class="d-flex flex-column">
                                 <h6 class="text-light-secondary fw-bold mt-3 mb-2">Earning</h6>
-                                <h4 class="text-light">{{ '$' . number_format($referralEarnings, 2) }}</h4>
+                                <h4 class="text-light">{{ '$' . number_format($allEarnings, 2) }}</h4>
                             </div>
                         </div>
                     </div>

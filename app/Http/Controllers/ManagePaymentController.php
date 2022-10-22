@@ -11,6 +11,16 @@ use App\Models\Plan;
 class ManagePaymentController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -40,88 +50,6 @@ class ManagePaymentController extends Controller
 
 
         return view('admin.manage_payment')->with($data);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //check if user trying to access the page is admin
-        if (auth()->user()->type != 1) {
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
-
-        //validat request details
-        $this->validate($request, [
-            'amount' => 'required|integer',
-        ]);
-
-        $userPayment = new UserPayments();
-        $userPayment->user_id = $request->input('user_id');
-        $userPayment->paymentAdd_id = $request->input('paymentAdd_id');
-        $userPayment->Plan_id = $request->input('plan_id');
-        if ($userPayment->Plan_id == 1) {
-            if (($request->input('amount') < 100) || ($request->input('amount') > 499)) {
-                return redirect('/makepayment')->with('error', 'Amount for Basic plan should be >= $100 and <= $499');
-            }
-        } else if ($userPayment->Plan_id == 2) {
-            if (($request->input('amount') < 500) || ($request->input('amount') > 4999)) {
-                return redirect('/makepayment')->with('error', 'Amount for Standard plan should be >= $500 and <= $4999');
-            }
-        } else if ($userPayment->Plan_id == 3) {
-            if (($request->input('amount') < 5000) || ($request->input('amount') > 9999)) {
-                return redirect('/makepayment')->with('error', 'Amount for Medium plan should be >= $5000 and <= $9999');
-            }
-        } else if ($userPayment->Plan_id == 4) {
-            if (($request->input('amount') < 10000)) {
-                return redirect('/makepayment')->with('error', 'Amount for Professional plan should be >= $10000');
-            }
-        } else if ($userPayment->Plan_id == 5) {
-            if (($request->input('amount') < 20000)) {
-                return redirect('/makepayment')->with('error', 'Amount for VIP plan should be >= $20000');
-            }
-        }
-        $userPayment->amount = $request->input('amount');
-        $userPayment->status = $request->input('status');
-        $userPayment->save();
-
-        return redirect('/admin/payment')->with('success', 'Payment successful');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**

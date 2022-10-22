@@ -38,12 +38,15 @@ class HomeController extends Controller
         $btcPayments = $user->payments->whereNotIn('payment_add_id', [self::getCoinIdWithSymbol('ETH'), self::getCoinIdWithSymbol('USDT'), self::getCoinIdWithSymbol('TRX')]);
         $userPayments = $user->payments->where('status', 1);
         $userWithdrawals = $user->withrawals->where('status', 1);
-        //! Calculate this
+        $completedPlans = $user->payments->where('status', 2);
         $planEarnings = 0;
+        foreach ($completedPlans as $payment) {
+            $planEarnings += ($payment->plan->return / 100) * $payment->amount;
+        }
         $userReferralEarnings = config('referral.worth', 2) * $user->referrals->count();
-        $userNetWorth = $userPayments->sum->amount + $userReferralEarnings + $planEarnings;
+        $allEarnings = $planEarnings + $userReferralEarnings;
+        $userNetWorth = $userPayments->sum->amount + $allEarnings;
         // return $userPayments->take(5); //? Debugging
-        // $a = $userPayments->whereIn(paymentAdd->sy);
 
         $data = [
             'users' => $users,
@@ -62,7 +65,7 @@ class HomeController extends Controller
             'userWithdrawals' => $userWithdrawals,
             'totalDeposits' => $userPayments->sum->amount,
             'userNetWorth' => $userNetWorth,
-            'referralEarnings' => $userReferralEarnings,
+            'allEarnings' => $allEarnings,
         ];
 
         if ($user->type == 1) {
@@ -169,19 +172,33 @@ class HomeController extends Controller
         $usdtPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('USDT'));
         $trxPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('TRX'));
         $btcPayments = $user->payments->whereNotIn('payment_add_id', [self::getCoinIdWithSymbol('ETH'), self::getCoinIdWithSymbol('USDT'), self::getCoinIdWithSymbol('TRX')]);
-        //! Calculate this
-        $planEarnings = 0;
         $userPayments = $user->payments->where('status', 1);
+        $completedPlans = $user->payments->where('status', 2);
+        $planEarnings = 0;
+        foreach ($completedPlans as $payment) {
+            $planEarnings += ($payment->plan->return / 100) * $payment->amount;
+        }
         $userReferralEarnings = config('referral.worth', 2) * $user->referrals->count();
-        $userNetWorth = $userPayments->sum->amount + $userReferralEarnings + $planEarnings;
+        $allEarnings = $planEarnings + $userReferralEarnings;
+        $userNetWorth = $userPayments->sum->amount + $allEarnings;
+        $tangibleReferralVolume = config('referral.worth', 2) * 50;
+        $withdrawalAddresses = $user->withdrawalAddresses;
+        $pluckedWithdrawalAddresses = $withdrawalAddresses->pluck('symbol', 'id');
 
         $data = [
-            'withdrawalAddresses' => $user->withdrawalAddresses,
+            'withdrawalAddresses' => $withdrawalAddresses,
+            'pluckedWithdrawalAddresses' => $pluckedWithdrawalAddresses,
             'ethPayments' => $ethPayments,
             'trxPayments' => $trxPayments,
             'usdtPayments' => $usdtPayments,
             'btcPayments' => $btcPayments,
             'userNetWorth' => $userNetWorth,
+            'allEarnings' => $allEarnings,
+            'planEarnings' => $planEarnings,
+            'withdrawals' => $user->withdrawals,
+            'pendingWithdrawals' => $user->withdrawals->where('status', 0)->sum->amount,
+            'referralEarnings' => $userReferralEarnings,
+            'tangibleReferralVolume' => $tangibleReferralVolume,
         ];
 
         return view('user.withdrawal')->with($data);

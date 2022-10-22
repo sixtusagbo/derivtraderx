@@ -9,6 +9,16 @@ use App\Models\PaymentAdd;
 class PaymentAddController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -16,7 +26,7 @@ class PaymentAddController extends Controller
     public function index()
     {
         //check if user trying to access the page is admin
-         if (auth()->user()->type != 1) {
+        if (auth()->user()->type != 1) {
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
@@ -67,11 +77,10 @@ class PaymentAddController extends Controller
         $paymentAdds->symbole = $request->input('symbole');
         $paymentAdds->network = $request->input('network');
         $paymentAdds->exchange_platform = $request->input('exchange_platform');
-        
+
         $paymentAdds->save();
 
         return redirect('/admin/payment_address')->with('success', 'Payment Address successfully Created');
-         
     }
 
 
@@ -106,11 +115,10 @@ class PaymentAddController extends Controller
         $paymentAdds->symbole = $request->input('symbole');
         $paymentAdds->network = $request->input('network');
         $paymentAdds->exchange_platform = $request->input('exchange_platform');
-        
+
         $paymentAdds->update();
 
         return redirect('/admin/payment_address')->with('success', 'Payment Address successfully updated');
-         
     }
 
 

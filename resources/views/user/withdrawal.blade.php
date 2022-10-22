@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
 
-                                <h3 class="fw-bolder mb-3">$</h3>
+                                <h3 class="fw-bolder mb-3">{{ '$' . number_format($pendingWithdrawals, 2) }}</h3>
 
                                 <p class="card-text">Pending withdrawals</p>
                             </div>
@@ -39,12 +39,25 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card white-block text-center pb-1">
-                            <div class="card-header bg-transparent border-0 text-start">Withdrawable account balance
+                            <div class="card-header bg-transparent border-0 d-flex justify-content-between">
+                                <p>Withdrawable</p>
+                                @if ($referralEarnings < $tangibleReferralVolume)
+                                    <p>{{ '$' . number_format($planEarnings, 2) }}</p>
+                                @else
+                                    <p>{{ '$' . number_format($allEarnings, 2) }}</p>
+                                @endif
                             </div>
                             <div class="card-body">
-                                <h4 class="card-title">You can make profit by</h4>
-                                <a href="{{ route('deposit') }}" class="btn btn-outline-primary text-light"
-                                    style="outline: none;">investing</a>
+                                @if ($planEarnings <= 0)
+                                    <h4 class="card-title">You can make profit by</h4>
+                                    <a href="{{ route('deposit') }}" class="btn btn-outline-primary text-light"
+                                        style="outline: none;">investing</a>
+                                @else
+                                    <a class="btn btn-info" data-bs-toggle="modal" role="button"
+                                        href="#create-withdrawal-modal">
+                                        Withdraw
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -57,9 +70,10 @@
                         <div class="card white-block p-0">
                             <div class="card-header border-0 bg-transparent mb-3 p-4">
                                 <h5 class="card-title mb-3">Available Payment Methods</h5>
-                                <p>Minimum withdrawal amounts for Perfect Money and EpayCore
-                                    are $1. For
-                                    Litecoin, Dogecoin, Dash and BNB are $10. For Bitcoin and Ethereum are $30 due to
+                                <p>Minimum withdrawal amount is ${{ $tangibleReferralVolume }} for referral
+                                    earnings. For
+                                    Dogecoin, Dash, BNB, Tronx and other altcoins are $10. For Bitcoin and Ethereum are $30
+                                    due to
                                     high fee costs. All Payments are Instant.</p>
                             </div>
 
@@ -150,7 +164,8 @@
                                             <tr>
                                                 <td></td>
                                                 <td>
-                                                    <img src="{{ asset('images/usdt.png') }}" width="32" height="32">
+                                                    <img src="{{ asset('images/usdt.png') }}" width="32"
+                                                        height="32">
                                                     USDT (BEP-20)
                                                 </td>
                                                 <td>
@@ -200,8 +215,9 @@
                                                 </td>
                                                 <td>
                                                     @if ($withdrawalAddresses->contains('symbol', 'TRX'))
-                                                        <a class="badge rounded-pill bg-success p-1" data-bs-toggle="modal"
-                                                            role="button" href="#set-trx-address-modal">
+                                                        <a class="badge rounded-pill bg-success p-1"
+                                                            data-bs-toggle="modal" role="button"
+                                                            href="#set-trx-address-modal">
                                                             <i data-feather="check" aria-hidden="true"></i>
                                                         </a>
                                                     @else
@@ -365,10 +381,114 @@
                                 </div>
                             </div>
 
+                            <!------------------ Create withdrawal request modal --------------------------------->
+                            <div class="modal fade" id="create-withdrawal-modal" tabindex="-1"
+                                aria-labelledby="createWithdrawalModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content white-block">
+                                        <div class="modal-body">
+                                            <div class="d-flex justify-content-between mb-3 pb-1">
+                                                <h5 class="modal-title text-primary fw-bold"
+                                                    id="createWithdrawalModalLabel">Make withdrawal request</h5>
+                                                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            {!! Form::open(['route' => 'withdrawals.store']) !!}
+                                            <div class="row g-3">
+                                                <div class="col-12">
+                                                    <label class="form-label">Withdrawal Address</label>
+                                                    {{ Form::select('withdrawal_add_id', $pluckedWithdrawalAddresses, null, ['class' => 'form-control text-light', 'required' => '', 'placeholder' => 'select withdrawal address']) }}
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="amount" class="form-label">Enter
+                                                        amount</label>
+                                                    <input type="number" name="amount" required
+                                                        @if ($referralEarnings < $tangibleReferralVolume) {{ 'max=' . $planEarnings }} @else {{ 'max=' . $allEarnings }} @endif
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-end mt-3 pt-3">
+                                                <button type="button" class="btn btn-secondary me-3"
+                                                    data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-success">Save</button>
+                                            </div>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if ($referralEarnings < $tangibleReferralVolume)
+                                @if ($planEarnings < 0)
+                                    <p class="p-3 text-info">You have no funds to withdraw</p>
+                                @endif
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card white-block p-0">
+                    <div class="card-header border-0 bg-transparent p-3 pb-0">
+                        <h5 class="card-title mb-3">Withdrawals</h5>
+                    </div>
+
+                    <div class="card-body p-0 m-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-secondary">
+                                <thead>
+
+                                    <tr>
+                                        <th></th>
+                                        <th>Channel</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($withdrawals as $withdrawal)
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                {{ $withdrawal->withdrawalAdd->symbol }}
+                                            </td>
+                                            <td>
+                                                {{ '$' . number_format($withdrawal->amount, 2) }}
+                                            </td>
+                                            <td>
+                                                @switch($withdrawal->status)
+                                                    @case(0)
+                                                        <span class="badge-pending">Pending</span>
+                                                    @break
+
+                                                    @case(1)
+                                                        <span class="badge-success">Approved</span>
+                                                    @break
+
+                                                    @default
+                                                @endswitch
+                                            </td>
+                                            <td>{{ $withdrawal->created_at->toFormattedDateString() }}</td>
+                                        </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="3" class="border-0">
+                                                    <div class="badge rounded-pill bg-light-info text-light-info"
+                                                        style="font-size: .8rem">No withdrawals yet</div>
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    @endsection

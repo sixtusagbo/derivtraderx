@@ -12,6 +12,15 @@ use App\Models\UserWithdrawals;
 
 class UserWithdrawalController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
 
     /**
      * Display a listing of the resource.
@@ -45,6 +54,40 @@ class UserWithdrawalController extends Controller
 
 
         return view('admin.Manage_UserWithdrawal_history')->with($data);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Create withdrawal
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //validate request details
+        $this->validate($request, [
+            'withdrawal_add_id' => 'required',
+            'amount' => 'required',
+        ]);
+
+        $userWithdrawal = new UserWithdrawals();
+        $userWithdrawal->user_id = auth()->user()->id;
+        $userWithdrawal->withdrawal_add_id = $request->input('withdrawal_add_id');
+        $userWithdrawal->amount = $request->input('amount');
+        $userWithdrawal->status = 0;
+        $userWithdrawal->save();
+
+        return redirect()->route('withdraw')->with('success', 'Withdrawal request submitted successfully.');
     }
 
     /**

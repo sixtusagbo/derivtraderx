@@ -48,7 +48,7 @@
 
     <div class="d-flex justify-content-center align-items-center flex-column mb-4">
         <label for="amount" class="form-label fs-4 mb-0">Enter amount</label>
-        <input type="amount" name="amount" value="100.00" min="100.00" class="form-control w-25">
+        <input type="number" name="amount" value="100.00" min="100.00" class="form-control w-25">
     </div>
 
     <div class="row payment-channels">

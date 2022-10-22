@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ManagePaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserWithdrawalController;
 use App\Http\Controllers\WithdrawalAddController;
@@ -43,20 +44,21 @@ Auth::routes(['verify' => true]);
 
 Route::resource('users', UserController::class)->except(['create', 'edit']);
 Route::resource('withdrawal_addresses', WithdrawalAddController::class)->except(['create', 'show', 'edit', 'store']);
-Route::resource('withdrawals', UserWithdrawalController::class)->except(['create', 'show', 'edit', 'store']);
+Route::resource('withdrawals', UserWithdrawalController::class)->except(['create', 'show', 'edit']);
+Route::resource('payments', ManagePaymentController::class)->except(['create', 'show', 'edit', 'store']);
 
 Route::get('/admins', [App\Http\Controllers\UserController::class, 'admin_users'])->name('Admins_list');
-
-Route::get('/payment_address', [App\Http\Controllers\PaymentAddController::class, 'index'])->name('payment_Address');
-Route::put('/payment_address/update/{id}', [App\Http\Controllers\PaymentAddController::class, 'update'])->name('update_payment_Address');
-Route::delete('/payment_address/delete/{id}', [App\Http\Controllers\PaymentAddController::class, 'destroy'])->name('delete_payment_Address');
-Route::post('/payment_address/create', [App\Http\Controllers\PaymentAddController::class, 'create'])->name('create_payment_Address');
 
 Route::get('/admin/payment', [App\Http\Controllers\ManagePaymentController::class, 'index'])->name('admin_list_Payment');
 Route::post('/admin/payment/new', [App\Http\Controllers\ManagePaymentController::class, 'store'])->name('admin_Create_Payment');
 Route::put('/admin/payment/update/{id}', [App\Http\Controllers\ManagePaymentController::class, 'update'])->name('admin_Update_Payment');
 Route::delete('/admin/payment/delete/{id}', [App\Http\Controllers\ManagePaymentController::class, 'destroy'])->name('admin_delete_Payment');
 Route::get('/admin/payment/history', [App\Http\Controllers\ManagePaymentController::class, 'history'])->name('admin_payment_history');
+
+Route::get('/payment_address', [App\Http\Controllers\PaymentAddController::class, 'index'])->name('payment_Address');
+Route::put('/payment_address/update/{id}', [App\Http\Controllers\PaymentAddController::class, 'update'])->name('update_payment_Address');
+Route::delete('/payment_address/delete/{id}', [App\Http\Controllers\PaymentAddController::class, 'destroy'])->name('delete_payment_Address');
+Route::post('/payment_address/create', [App\Http\Controllers\PaymentAddController::class, 'create'])->name('create_payment_Address');
 
 Route::get('/admin/investment_plans', [App\Http\Controllers\PlanController::class, 'index'])->name('plans_list');
 Route::put('/plan/update/{id}', [App\Http\Controllers\PlanController::class, 'update'])->name('update_plan');
