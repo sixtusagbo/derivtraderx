@@ -58,10 +58,6 @@ Route::put('/admin/payment/update/{id}', [App\Http\Controllers\ManagePaymentCont
 Route::delete('/admin/payment/delete/{id}', [App\Http\Controllers\ManagePaymentController::class, 'destroy'])->name('admin_delete_Payment');
 Route::get('/admin/payment/history', [App\Http\Controllers\ManagePaymentController::class, 'history'])->name('admin_payment_history');
 
-Route::get('/makepayment', [App\Http\Controllers\UserPaymentController::class, 'index'])->name('list_makePayment');
-Route::post('/makepayment/new', [App\Http\Controllers\UserPaymentController::class, 'store'])->name('makePayment');
-Route::get('/payment/history', [App\Http\Controllers\UserPaymentController::class, 'history'])->name('payment_history');
-
 Route::get('/admin/investment_plans', [App\Http\Controllers\PlanController::class, 'index'])->name('plans_list');
 Route::put('/plan/update/{id}', [App\Http\Controllers\PlanController::class, 'update'])->name('update_plan');
 Route::delete('/plan/delete/{id}', [App\Http\Controllers\PlanController::class, 'destroy'])->name('delete_plan');
