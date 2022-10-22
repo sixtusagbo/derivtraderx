@@ -11,17 +11,17 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url('/') }}">
-    <meta property="og:title" content="DTX">
+    <meta property="og:title" content="DerivTraderx">
     <meta property="og:description" content="An investment platform">
     <meta property="og:image" content="{{ asset('images/welcome_banner.jpg') }}">
     <!-- Twitter -->
     <meta property="twitter:card" content="website">
     <meta property="twitter:url" content="{{ url('/') }}">
-    <meta property="twitter:title" content="DTX">
+    <meta property="twitter:title" content="DerivTraderx">
     <meta property="twitter:description" content="An investment platform">
     <meta property="twitter:image" content="{{ asset('images/welcome_banner.jpg') }}">
 
-    <title>{{ config('app.name', 'DTX') }}</title>
+    <title>{{ config('app.name', 'DerivTraderx') }}</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
