@@ -20,19 +20,13 @@ class UserController extends Controller
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
         $users = User::where('type', '0')->paginate();
-        $newuser = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
         $admins = User::where('type', '1')->get();
 
 
         $data = [
-            'user' => $user,
             'users' => $users,
             'admins' => $admins,
-            'newusers' => $newuser,
-            'i' => 1
         ];
 
         return view('admin.User')->with($data);
@@ -50,18 +44,12 @@ class UserController extends Controller
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
         $users = User::where('type', '0')->paginate();
-        $newuser = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
         $admins = User::where('type', '1')->paginate();
 
         $data = [
-            'user' => $user,
             'users' => $users,
             'admins' => $admins,
-            'newusers' => $newuser,
-            'i' => 1
         ];
 
         return view('admin.Admin_list')->with($data);

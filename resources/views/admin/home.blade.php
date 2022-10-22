@@ -52,14 +52,14 @@
         <div class="col-lg-12">
             <div class="card white-block text-light border-none p-0">
                 <div class="card-body p-0 m-0">
-                    <div class="card-header border-0 bg-transparent p-3">
-                        <h4 class="card-title">Last Deposits</h4>
+                    <div class="card-header border-0 bg-transparent p-3 pb-1">
+                        <h4 class="card-title">Recent Users</h4>
                     </div>
 
                     <div class="table-responsive">
                         <table class="table table-hover table-secondary">
                             <thead>
-                                <tr class="users-table-info">
+                                <tr>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Status</th>
@@ -93,6 +93,7 @@
                                                     data-bs-target="#deleteUser{{ $user->id }}">
                                                     <i data-feather="trash-2" aria-hidden="true"></i>
                                                 </a>
+
                                                 <!-- Edit user Model -->
                                                 <div class="modal fade" id="editUser{{ $user->id }}" tabindex="-1"
                                                     role="dialog" aria-hidden="true">
