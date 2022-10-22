@@ -3,10 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="An investment platform">
-    <meta name="keywords" content="derivtraderx, dtx, trade, forex, crypto, investment">
+    <meta name="keywords" content="derivtraderx, dtx, trade, forex, crypto, investment, invest, bitcoin, ethereum">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:title" content="DTX">
+    <meta property="og:description" content="An investment platform">
+    <meta property="og:image" content="{{ asset('images/welcome_banner.jpg') }}">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="website">
+    <meta property="twitter:url" content="{{ url('/') }}">
+    <meta property="twitter:title" content="DTX">
+    <meta property="twitter:description" content="An investment platform">
+    <meta property="twitter:image" content="{{ asset('images/welcome_banner.jpg') }}">
 
     <title>{{ config('app.name', 'DTX') }}</title>
     <!-- Custom styles -->

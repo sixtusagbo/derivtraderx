@@ -30,7 +30,7 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $users = User::where('type', '0')->paginate();
-        $newuser = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
+        $newusers = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
         $admins = User::where('type', '1')->get();
         $ethPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('ETH'));
         $usdtPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('USDT'));
@@ -48,8 +48,8 @@ class HomeController extends Controller
         $data = [
             'users' => $users,
             'admins' => $admins,
-            'newusers' => $newuser,
-            'i' => 1
+            'pendingPayments' => UserPayments::where('status', 1)->count(),
+            'pendingWithdrawals' => UserPayments::where('status', 0)->count(),
         ];
 
         $user_data = [
@@ -66,7 +66,7 @@ class HomeController extends Controller
         ];
 
         if ($user->type == 1) {
-            return view('home')->with($data);
+            return view('admin.home')->with($data);
         } elseif ($user->type == 0) {
             return view('user.user_dash')->with($user_data);
         }
