@@ -30,29 +30,14 @@ class PlanController extends Controller
             return redirect('/')->with('error', 'Unauthorized Page');
         }
 
-        $user_id = Auth()->user()->id;
         $plans = Plan::all();
-        $users = User::where('type', '0')->paginate();
-        $admins = User::where('type', '1')->get();
 
         $data = [
             'plans' => $plans,
-            'user_id' => $user_id,
-            'users' => $users,
-            'admins' => $admins,
             "i" => 1
         ];
 
         return view('admin.Payment_plans')->with($data);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
     }
 
     /**
@@ -69,46 +54,23 @@ class PlanController extends Controller
         }
 
         $this->validate($request, [
-            'plan_name' => 'required|string|max:255',
-            'min_deposite' => 'required|integer',
-            'max_deposite' => 'required|integer',
-            'bonus' => 'required|string| max:255',
-            'payment_period' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'min_deposit' => 'required',
+            'max_deposit' => 'required',
+            'return' => 'required',
+            'payment_period' => 'required',
 
         ]);
 
         $plan = new Plan();
-        $plan->plan_name = $request->input('plan_name');
-        $plan->min_deposite = $request->input('min_deposite');
-        $plan->max_deposite = $request->input('max_deposite');
-        $plan->bonus = $request->input('bonus');
+        $plan->name = $request->input('name');
+        $plan->min_deposit = $request->input('min_deposit');
+        $plan->max_deposit = $request->input('max_deposit');
+        $plan->return = $request->input('return');
         $plan->payment_period = $request->input('payment_period');
-
         $plan->save();
 
-        return redirect('/admin/investment_plans')->with('success', 'Investment plan successfully Created');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return redirect()->route('plans.index')->with('success', 'Investment plan successfully Created');
     }
 
     /**
@@ -126,24 +88,23 @@ class PlanController extends Controller
         }
 
         $this->validate($request, [
-            'plan_name' => 'required|string|max:255',
-            'min_deposite' => 'required|integer',
-            'max_deposite' => 'required|integer',
-            'bonus' => 'required|string| max:255',
-            'payment_period' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'min_deposit' => 'required',
+            'max_deposit' => 'required',
+            'return' => 'required',
+            'payment_period' => 'required',
 
         ]);
 
         $plan = Plan::find($id);
-        $plan->plan_name = $request->input('plan_name');
-        $plan->min_deposite = $request->input('min_deposite');
-        $plan->max_deposite = $request->input('max_deposite');
-        $plan->bonus = $request->input('bonus');
+        $plan->name = $request->input('name');
+        $plan->min_deposit = $request->input('min_deposit');
+        $plan->max_deposit = $request->input('max_deposit');
+        $plan->return = $request->input('return');
         $plan->payment_period = $request->input('payment_period');
-
         $plan->update();
 
-        return redirect('/investment_plans')->with('success', 'Payment plan successfully updated');
+        return redirect()->route('plans.index')->with('success', 'Payment plan successfully updated');
     }
 
     /**
@@ -156,6 +117,7 @@ class PlanController extends Controller
     {
         $plan = Plan::find($id);
         $plan->delete();
-        return redirect('/investment_plans')->with('success', 'Plan deleted successfuly');
+
+        return redirect()->route('plans.index')->with('success', 'Plan deleted successfuly');
     }
 }

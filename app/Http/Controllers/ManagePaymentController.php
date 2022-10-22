@@ -68,7 +68,7 @@ class ManagePaymentController extends Controller
 
         //validat request details
         $this->validate($request, [
-            'amount' => 'required|integer',
+            'amount' => 'required',
         ]);
 
         $userPayment = new UserPayments();

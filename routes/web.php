@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ManagePaymentController;
 use App\Http\Controllers\PaymentAddController;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserWithdrawalController;
 use App\Http\Controllers\WithdrawalAddController;
@@ -48,10 +49,6 @@ Route::resource('withdrawal_addresses', WithdrawalAddController::class)->except(
 Route::resource('withdrawals', UserWithdrawalController::class)->except(['create', 'show', 'edit']);
 Route::resource('payments', ManagePaymentController::class)->except(['create', 'show', 'edit']);
 Route::resource('payment_addresses', PaymentAddController::class)->except(['create', 'show', 'edit']);
+Route::resource('plans', PlanController::class)->except(['create', 'show', 'edit']);
 
 Route::get('/admins', [App\Http\Controllers\UserController::class, 'admin_users'])->name('Admins_list');
-
-Route::get('/admin/investment_plans', [App\Http\Controllers\PlanController::class, 'index'])->name('plans_list');
-Route::put('/plan/update/{id}', [App\Http\Controllers\PlanController::class, 'update'])->name('update_plan');
-Route::delete('/plan/delete/{id}', [App\Http\Controllers\PlanController::class, 'destroy'])->name('delete_plan');
-Route::post('/plan/create', [App\Http\Controllers\PlanController::class, 'store'])->name('create_plan');

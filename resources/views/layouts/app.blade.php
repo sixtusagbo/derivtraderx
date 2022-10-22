@@ -109,7 +109,7 @@
                                     <a href="{{ route('payment_addresses.index') }}">Payment Address</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/admin/investment_plans') }}">Investment Plans</a>
+                                    <a href="{{ route('plans.index') }}">Investment Plans</a>
                                 </li>
                             </ul>
                         </li>

@@ -58,7 +58,6 @@
                                             <td><span class="badge-active">Active</span></td>
                                             <td>{{ $user->created_at->toFormattedDateString() }}</td>
                                             <td>
-
                                                 <a href="{{ route('users.show', $user->id) }}" class="link-primary">
                                                     <i data-feather="eye" aria-hidden="true"></i>
                                                 </a>

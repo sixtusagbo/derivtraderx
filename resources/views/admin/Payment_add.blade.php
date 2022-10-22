@@ -11,7 +11,7 @@
                     </div>
                     <div class="stat-cards-info">
                         <p class="stat-cards-info__num">{{ $paymentAdds->count() }}</p>
-                        <p class="stat-cards-info__title">Total address</p>
+                        <p class="stat-cards-info__title">Total addresses</p>
 
                     </div>
                 </div>
