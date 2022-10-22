@@ -39,7 +39,7 @@
                     </button>
                 </div>
                 <div class="sidebar-body">
-                    <span class="system-menu__title">navigation</span>
+                    <span class="system-menu__title">navigation menu</span>
                     <ul class="sidebar-body-menu">
                         <li>
                             <a class="active" href="{{ route('home') }}">
@@ -139,10 +139,6 @@
                                 </span>
                             </button>
                             <ul class="item-dropdown nav-user-dropdown dropdown">
-                                {{-- <li><a href="">
-                                        <i data-feather="user" aria-hidden="true"></i>
-                                        <span>Profile</span>
-                                    </a></li> --}}
                                 <li>
                                     <a href="{{ route('security') }}">
                                         <i data-feather="shield" aria-hidden="true"></i>

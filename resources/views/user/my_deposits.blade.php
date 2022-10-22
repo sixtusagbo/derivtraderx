@@ -1,8 +1,15 @@
 @extends('layouts.user_layout')
 
 @section('content')
+    @if ($currentUserPayments->where('status', 0)->count() > 0)
+        <div class="alert alert-info bg-light-info text-light-info" role="alert">
+            <h5>If you have made payment but it's yet to reflect, please contact <a href="https://t.me/derivtraderx_admin"
+                    target="_blank" class="link-info">admin</a> to update your account accordingly.
+            </h5>
+        </div>
+    @endif
     @forelse ($plans as $plan)
-        <div class="white-block card p-0">
+        <div class="white-block card p-0 mt-2">
             <div class="card-header p-4 pb-2">
                 <h5 class="card-title text-uppercase">{{ $plan->name }} PLAN</h5>
             </div>

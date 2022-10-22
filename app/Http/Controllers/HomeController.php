@@ -6,8 +6,6 @@ use App\Models\PaymentAdd;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Plan;
-use App\Models\UserPayments;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -102,6 +100,38 @@ class HomeController extends Controller
     }
 
     /**
+     * Save or cancel a deposit request process.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function confirm_deposit(Request $request)
+    {
+        $values = $request->validate([
+            'plan_id' => 'required',
+            'amount' => 'required',
+            'payment_address_id' => 'required',
+        ]);
+
+        $plan = Plan::find($values['plan_id']);
+        $paymentAddress = PaymentAdd::find($values['payment_address_id']);
+        $amount = $values['amount'];
+
+        if ($amount < $plan->min_deposit) {
+            $amount = $plan->min_deposit;
+        }
+
+        $data = [
+            'plan' => $plan,
+            'paymentAddress' => $paymentAddress,
+            'amount' => $amount,
+            'mainPaymentAddressSymbols' => collect(['BTC', 'ETH', 'USDT', 'TRX']),
+        ];
+
+        return view('user.confirm_deposit')->with($data);
+    }
+
+    /**
      * Place withdrawal
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -132,6 +162,19 @@ class HomeController extends Controller
     }
 
     /**
+     * Create payment
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function create_deposit()
+    {
+        // TODO: Create payment in db
+
+        return redirect()->route('my_deposits')->with('success', 'Deposit created and pending confirmation!');
+    }
+
+    /**
      * User Deposits list.
      * View all depposits made by a user
      *
@@ -154,6 +197,7 @@ class HomeController extends Controller
     /**
      * Add user wallet address
      *
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function user_addresses()
