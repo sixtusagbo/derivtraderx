@@ -127,6 +127,6 @@ class ManagePaymentController extends Controller
 
         $payment = UserPayments::find($id);
         $payment->delete();
-        return redirect('/admin/payment')->with('success', 'Payment deleted successfuly');
+        return redirect()->route('payments.index')->with('success', 'Payment deleted successfuly');
     }
 }

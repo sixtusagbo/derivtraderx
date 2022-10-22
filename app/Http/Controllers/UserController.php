@@ -101,7 +101,7 @@ class UserController extends Controller
         if ($request->input('type') != null) {
             return redirect('/admins')->with('success', 'Admin created successfully');
         } else {
-            return redirect('/users')->with('success', 'User successfully Created');
+            return redirect('/users')->with('success', 'User successfully created');
         }
     }
 

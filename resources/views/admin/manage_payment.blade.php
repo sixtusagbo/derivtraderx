@@ -85,7 +85,7 @@
                                                 <div class="modal fade" id="editPayment{{ $payment->id }}" tabindex="-1"
                                                     role="dialog" aria-hidden="true">
                                                     <div class="modal-dialog">
-                                                        <div class="modal-content">
+                                                        <div class="modal-content white-block">
                                                             <div class="modal-header">
                                                                 <h4 class="modal-title text-primary">Edit Payment</h4>
                                                                 <a class="close" type="button" data-dismiss="modal"
@@ -183,14 +183,14 @@
                                             <div class="modal fade" id="deletePayment{{ $payment->id }}" tabindex="-1"
                                                 role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content">
+                                                    <div class="modal-content white-block">
                                                         <div class="modal-header">
                                                             <h4 class="modal-title text-primary">Delete Payment</h4>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body" id="DeletePAddModalBody">
-                                                            <p class="text-black">
+                                                            <p class="text-white">
                                                                 Are you sure you wish to remove this payment?
                                                             </p>
                                                             <form method="POST"

@@ -127,6 +127,7 @@ class PaymentAddController extends Controller
     {
         $paymentAdd = PaymentAdd::find($id);
         $paymentAdd->delete();
-        return redirect('/admin/payment_address')->with('success', 'Address deleted successfuly');
+
+        return redirect()->route('payment_addresses.index')->with('success', 'Address deleted successfuly');
     }
 }

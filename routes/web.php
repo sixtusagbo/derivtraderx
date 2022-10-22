@@ -29,6 +29,7 @@ Route::get('/faq', [App\Http\Controllers\CoreController::class, 'faq'])->name('f
 Route::get('/contact', [App\Http\Controllers\CoreController::class, 'contact'])->name('contact');
 Route::get('/policy', [App\Http\Controllers\CoreController::class, 'policy'])->name('policy');
 
+// User dashboard routes
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/deposit', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit');
 Route::post('/deposit', [App\Http\Controllers\HomeController::class, 'confirm_deposit'])->name('confirm_deposit');
@@ -44,11 +45,11 @@ Route::post('/security', [App\Http\Controllers\HomeController::class, 'sec_setti
 
 Auth::routes(['verify' => true]);
 
+// Admin dashboard routes
 Route::resource('users', UserController::class)->except(['create', 'edit']);
 Route::resource('withdrawal_addresses', WithdrawalAddController::class)->except(['create', 'show', 'edit', 'store']);
 Route::resource('withdrawals', UserWithdrawalController::class)->except(['create', 'show', 'edit']);
 Route::resource('payments', ManagePaymentController::class)->except(['create', 'show', 'edit']);
 Route::resource('payment_addresses', PaymentAddController::class)->except(['create', 'show', 'edit']);
 Route::resource('plans', PlanController::class)->except(['create', 'show', 'edit']);
-
 Route::get('/admins', [App\Http\Controllers\UserController::class, 'admin_users'])->name('Admins_list');

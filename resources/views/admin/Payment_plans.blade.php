@@ -8,7 +8,7 @@
             <article class="stat-cards-item">
                 <div class="col-9 d-flex">
                     <div class="stat-cards-icon primary">
-                        <i data-feather="aperture" aria-hidden="true"></i>
+                        <i data-feather="cpu" aria-hidden="true"></i>
                     </div>
                     <div class="stat-cards-info">
                         <p class="stat-cards-info__num">{{ $plans->count() }}</p>
@@ -158,14 +158,14 @@
                                             <div class="modal fade" id="deletePlan{{ $plan->id }}" tabindex="-1"
                                                 role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content">
+                                                    <div class="modal-content white-block">
                                                         <div class="modal-header">
                                                             <h4 class="modal-title text-primary">Delete Plan</h4>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body" id="DeletePlanModalBody">
-                                                            <p class="text-black">
+                                                            <p class="text-white">
                                                                 Are you sure you wish to remove this plan?
                                                             </p>
                                                             <form method="POST"

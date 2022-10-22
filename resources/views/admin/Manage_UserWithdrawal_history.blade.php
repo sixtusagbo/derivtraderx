@@ -68,7 +68,7 @@
                                                 <div class="modal fade" id="editUserWith{{ $userWithdrawal->id }}"
                                                     tabindex="-1" role="dialog" aria-hidden="true">
                                                     <div class="modal-dialog">
-                                                        <div class="modal-content">
+                                                        <div class="modal-content white-block">
                                                             <div class="modal-header">
                                                                 <h4 class="modal-title text-primary">Update User Withdrawal
                                                                     request
@@ -155,7 +155,7 @@
                                             <div class="modal fade" id="deleteUserWith{{ $userWithdrawal->id }}"
                                                 tabindex="-1" role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content">
+                                                    <div class="modal-content white-block">
                                                         <div class="modal-header">
                                                             <h4 class="modal-title text-primary">Cancel User Withdrawal
                                                             </h4>
@@ -163,7 +163,7 @@
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body" id="DeletePAddModalBody">
-                                                            <p class="text-black">
+                                                            <p class="text-white">
                                                                 Are you sure you wish to remove this withdrawal?
                                                             </p>
                                                             <form method="POST"

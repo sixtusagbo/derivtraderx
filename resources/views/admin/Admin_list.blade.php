@@ -77,7 +77,7 @@
                                                 <div class="modal fade" id="editUser{{ $user->id }}" tabindex="-1"
                                                     role="dialog" aria-hidden="true">
                                                     <div class="modal-dialog">
-                                                        <div class="modal-content">
+                                                        <div class="modal-content white-block">
                                                             <div class="modal-header">
                                                                 <h4 class="modal-title text-primary">Edit Admin</h4>
                                                                 <a class="close" type="button" data-dismiss="modal"
@@ -138,14 +138,14 @@
                                             <div class="modal fade" id="deleteUser{{ $user->id }}" tabindex="-1"
                                                 role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content">
+                                                    <div class="modal-content white-block">
                                                         <div class="modal-header">
                                                             <h4 class="modal-title text-primary">Delete Admin</h4>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body" id="DeleteUserModalBody">
-                                                            <p class="text-black">
+                                                            <p class="text-white">
                                                                 Are you sure you wish to remove "{{ $user->name }}"?
                                                             </p>
                                                             <form method="POST"
@@ -186,7 +186,7 @@
                 <!-- Create Admin Model -->
                 <div class="modal fade" id="createAdmin" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content">
+                        <div class="modal-content white-block">
                             <div class="modal-header">
                                 <h4 class="modal-title text-primary">Create Admin</h4>
                                 <a class="close" type="button" data-dismiss="modal" aria-label="Close">

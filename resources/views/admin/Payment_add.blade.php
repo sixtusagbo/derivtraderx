@@ -140,7 +140,7 @@
                                             <div class="modal fade" id="deletePAdd{{ $pAdd->id }}" tabindex="-1"
                                                 role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content">
+                                                    <div class="modal-content white-block">
                                                         <div class="modal-header">
                                                             <h4 class="modal-title text-primary">Delete Payment Address
                                                             </h4>
@@ -148,7 +148,7 @@
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body" id="DeletePAddModalBody">
-                                                            <p class="text-black">
+                                                            <p class="text-light">
                                                                 Are you sure you wish to remove this wallet address?
                                                             </p>
                                                             <form method="POST"

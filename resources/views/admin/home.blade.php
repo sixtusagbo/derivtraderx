@@ -98,7 +98,7 @@
                                                 <div class="modal fade" id="editUser{{ $user->id }}" tabindex="-1"
                                                     role="dialog" aria-hidden="true">
                                                     <div class="modal-dialog">
-                                                        <div class="modal-content">
+                                                        <div class="modal-content white-block">
                                                             <div class="modal-header">
                                                                 <h4 class="modal-title text-primary">Edit User</h4>
                                                                 <a class="close" type="button" data-dismiss="modal"
@@ -112,7 +112,7 @@
                                                                     id="editUser">
                                                                     @csrf
 
-                                                                    <div class="form-group">
+                                                                    <div class="form-group mb-3">
                                                                         <input type="text"
                                                                             class="form-control text-capitalize"
                                                                             name="name"
@@ -120,7 +120,7 @@
                                                                             autocomplete="name"
                                                                             value="{{ $user->name }}">
                                                                     </div>
-                                                                    <div class="form-group">
+                                                                    <div class="form-group mb-3">
                                                                         <input type="email" class="form-control"
                                                                             name="email" placeholder="Email" required
                                                                             autocomplete="email"
@@ -155,15 +155,15 @@
                                             <div class="modal fade" id="deleteUser{{ $user->id }}" tabindex="-1"
                                                 role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content">
+                                                    <div class="modal-content white-block">
                                                         <div class="modal-header">
                                                             <h4 class="modal-title text-primary">Delete User</h4>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body" id="DeleteUserModalBody">
-                                                            <p class="text-black">
-                                                                Are you sure you wish to remove this "{{ $user->name }}"?
+                                                            <p class="text-white">
+                                                                Are you sure you wish to remove "{{ $user->name }}"?
                                                             </p>
                                                             <form method="POST"
                                                                 action="{{ route('users.destroy', $user->id) }}"
