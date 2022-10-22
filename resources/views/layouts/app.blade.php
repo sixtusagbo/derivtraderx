@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body class="darkmode">
     <div class="layer"></div>
     <!-- ! Body -->
     <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
@@ -36,7 +36,7 @@
         <aside class="sidebar">
             <div class="sidebar-start">
                 <div class="sidebar-head">
-                    <a href="/" class="logo-wrapper" title="Home">
+                    <a href="" class="logo-wrapper" title="Home">
                         <span class="sr-only">Home</span>
                         <img class="icon me-2" aria-hidden="true" src="{{ asset('images/logo_white.png') }}"
                             height="49" width="54">
@@ -54,8 +54,8 @@
                 <div class="sidebar-body">
                     <ul class="sidebar-body-menu">
                         <li>
-                            <a class="active" href="/home"><span class="icon home"
-                                    aria-hidden="true"></span>Dashboard</a>
+                            <a class="active" href="/home"><span class="icon home" aria-hidden="true"></span>Admin
+                                Dashboard</a>
                         </li>
                         <li>
                             <a class="show-cat-btn" href="">
@@ -103,15 +103,13 @@
                             </a>
                             <ul class="cat-sub-menu">
                                 <li>
-                                    <a href="{{ url('/admin/payment') }}">Manage Payment</a>
+                                    <a href="{{ route('payments.index') }}">Manage Payments</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/payment_address') }}">Payment Address</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/admin/payment/history') }}">Payment History</a>
-                                </li>
-                                <li><a href="{{ url('/admin/investment_plans') }}">Investment Plans</a>
+                                    <a href="{{ url('/admin/investment_plans') }}">Investment Plans</a>
                                 </li>
                             </ul>
                         </li>
@@ -220,6 +218,8 @@
     <script src="{{ asset('plugins/feather.min.js') }}"></script>
     <!-- Custom scripts -->
     <script src="{{ asset('js/dashboard.js') }}"></script>
+
+    @yield('script')
 
 </body>
 

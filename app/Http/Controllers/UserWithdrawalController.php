@@ -57,16 +57,6 @@ class UserWithdrawalController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Create withdrawal
      *
      * @param  \Illuminate\Http\Request  $request
@@ -106,7 +96,7 @@ class UserWithdrawalController extends Controller
 
         //validat request details
         $this->validate($request, [
-            'amount' => 'required|integer',
+            'amount' => 'required',
         ]);
 
         $userWithdrawal = UserWithdrawals::find($id);

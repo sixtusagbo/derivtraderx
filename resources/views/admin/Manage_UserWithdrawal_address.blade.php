@@ -20,6 +20,7 @@
                                     <th>Coin Name</th>
                                     <th>Symbol</th>
                                     <th>Network</th>
+                                    <th>User</th>
                                     <th>Added on</th>
                                     <th>Action</th>
                                 </tr>
@@ -42,6 +43,9 @@
                                             </td>
                                             <td>
                                                 {{ $allwithdrawalAdd->network }}
+                                            </td>
+                                            <td>
+                                                {{ $allwithdrawalAdd->user->username }}
                                             </td>
                                             <td>{{ $allwithdrawalAdd->created_at->toDayDateTimeString() }}</td>
                                             <td>

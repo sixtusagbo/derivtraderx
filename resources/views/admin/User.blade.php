@@ -35,6 +35,7 @@
                                 <tr>
                                     <th>S/N</th>
                                     <th>Name</th>
+                                    <th>Username</th>
                                     <th>Email</th>
                                     <th>Status</th>
                                     <th>Date Joined</th>
@@ -48,6 +49,9 @@
                                             <td>{{ $i++ }}</td>
                                             <td>
                                                 {{ $user->name }}
+                                            </td>
+                                            <td>
+                                                {{ $user->username }}
                                             </td>
                                             <td>
                                                 {{ $user->email }}

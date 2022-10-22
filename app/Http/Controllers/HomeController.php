@@ -37,7 +37,7 @@ class HomeController extends Controller
         $trxPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('TRX'));
         $btcPayments = $user->payments->whereNotIn('payment_add_id', [self::getCoinIdWithSymbol('ETH'), self::getCoinIdWithSymbol('USDT'), self::getCoinIdWithSymbol('TRX')]);
         $userPayments = $user->payments->where('status', 1);
-        $userWithdrawals = $user->withrawals->where('status', 1);
+        $userWithdrawals = $user->withdrawals->where('status', 1);
         $completedPlans = $user->payments->where('status', 2);
         $planEarnings = 0;
         foreach ($completedPlans as $payment) {
@@ -51,7 +51,7 @@ class HomeController extends Controller
         $data = [
             'users' => $users,
             'admins' => $admins,
-            'pendingPayments' => UserPayments::where('status', 1)->count(),
+            'pendingPayments' => UserPayments::where('status', 0)->count(),
             'pendingWithdrawals' => UserPayments::where('status', 0)->count(),
         ];
 

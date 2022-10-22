@@ -36,20 +36,50 @@ class ManagePaymentController extends Controller
         $user = User::find($user_id);
         $payments = UserPayments::all();
         $paymentAdds = PaymentAdd::all();
-        $Plan = Plan::all();
-        // $newuser = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
+        $plans = Plan::all();
+        $users = User::pluck('username', 'id');
         // $admins = User::where('type', '1')->get();
 
         $data = [
             'user' => $user,
             'payments' => $payments,
             'paymentAdds' => $paymentAdds,
-            'Plan' => $Plan,
+            'plans' => $plans,
+            'users' => $users,
             'i' => 1
         ];
 
 
         return view('admin.manage_payment')->with($data);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //check if user trying to access the page is admin
+        if (auth()->user()->type != 1) {
+            return redirect('/')->with('error', 'Unauthorized Page');
+        }
+
+        //validat request details
+        $this->validate($request, [
+            'amount' => 'required|integer',
+        ]);
+
+        $userPayment = new UserPayments();
+        $userPayment->user_id = $request->input('user_id');
+        $userPayment->payment_add_id = $request->input('paymentAdd_id');
+        $userPayment->plan_id = $request->input('plan_id');
+        $userPayment->amount = $request->input('amount');
+        $userPayment->status = $request->input('status');
+        $userPayment->save();
+
+        return redirect()->route('payments.index')->with('success', 'Payment successfully created');
     }
 
     /**
@@ -73,13 +103,13 @@ class ManagePaymentController extends Controller
 
         $userPayment = UserPayments::find($id);
         $userPayment->user_id = $request->input('user_id');
-        $userPayment->paymentAdd_id = $request->input('paymentAdd_id');
+        $userPayment->payment_add_id = $request->input('paymentAdd_id');
         $userPayment->Plan_id = $request->input('plan_id');
         $userPayment->amount = $request->input('amount');
         $userPayment->status = $request->input('status');
-
         $userPayment->update();
-        return redirect('/admin/payment')->with('success', 'Payment successfuly updated');
+
+        return redirect()->route('payments.index')->with('success', 'Payment successfuly updated');
     }
 
     /**

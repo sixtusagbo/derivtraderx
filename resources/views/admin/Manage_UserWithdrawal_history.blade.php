@@ -20,6 +20,7 @@
                                     <th>Coin Address</th>
                                     <th>Amount</th>
                                     <th>Status</th>
+                                    <th>User</th>
                                     <th>Created on</th>
                                     <th>Action</th>
                                 </tr>
@@ -48,6 +49,9 @@
                                                         <span class="badge-success">Confirmed</span>
                                                     @endif
                                                 </span>
+                                            </td>
+                                            <td>
+                                                {{ $userWithdrawal->user->username }}
                                             </td>
                                             <td>{{ $userWithdrawal->created_at->toDayDateTimeString() }}</td>
                                             <td>

@@ -144,7 +144,7 @@
                             </ul>
                         </div>
                         <div class="nav-user-wrapper">
-                            <button href="##" class="nav-user-btn dropdown-btn" title="My profile"
+                            <button href="" class="nav-user-btn dropdown-btn" title="My profile"
                                 type="button">
                                 <span class="sr-only">My profile</span>
                                 <span class="nav-user-img bg-success">
