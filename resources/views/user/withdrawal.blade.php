@@ -96,13 +96,13 @@
                                                 <td>
                                                     @if ($withdrawalAddresses->contains('symbol', 'BTC'))
                                                         <a class="badge rounded-pill bg-success p-1" data-bs-toggle="modal"
-                                                            role="button" href="#set-addresses-modal">
+                                                            role="button" href="#set-btc-address-modal">
                                                             <i data-feather="check" aria-hidden="true"></i>
                                                         </a>
                                                     @else
                                                         <a class="badge rounded-pill bg-light-secondary me-1"
                                                             data-bs-toggle="modal" role="button"
-                                                            href="#set-addresses-modal">
+                                                            href="#set-btc-address-modal">
                                                             <i>not set</i>
                                                         </a>
                                                         <div class="spinner-border spinner-border-sm text-danger"
@@ -131,13 +131,13 @@
                                                 <td>
                                                     @if ($withdrawalAddresses->contains('symbol', 'ETH'))
                                                         <a class="badge rounded-pill bg-success p-1" data-bs-toggle="modal"
-                                                            role="button" href="#set-addresses-modal">
+                                                            role="button" href="#set-eth-address-modal">
                                                             <i data-feather="check" aria-hidden="true"></i>
                                                         </a>
                                                     @else
                                                         <a class="badge rounded-pill bg-light-secondary me-1"
                                                             data-bs-toggle="modal" role="button"
-                                                            href="#set-addresses-modal">
+                                                            href="#set-eth-address-modal">
                                                             <i>not set</i>
                                                         </a>
                                                         <div class="spinner-border spinner-border-sm text-danger"
@@ -166,13 +166,13 @@
                                                 <td>
                                                     @if ($withdrawalAddresses->contains('symbol', 'USDT'))
                                                         <a class="badge rounded-pill bg-success p-1" data-bs-toggle="modal"
-                                                            role="button" href="#set-addresses-modal">
+                                                            role="button" href="#set-usdt-address-modal">
                                                             <i data-feather="check" aria-hidden="true"></i>
                                                         </a>
                                                     @else
                                                         <a class="badge rounded-pill bg-light-secondary me-1"
                                                             data-bs-toggle="modal" role="button"
-                                                            href="#set-addresses-modal">
+                                                            href="#set-usdt-address-modal">
                                                             <i>not set</i>
                                                         </a>
                                                         <div class="spinner-border spinner-border-sm text-danger"
@@ -201,13 +201,13 @@
                                                 <td>
                                                     @if ($withdrawalAddresses->contains('symbol', 'TRX'))
                                                         <a class="badge rounded-pill bg-success p-1" data-bs-toggle="modal"
-                                                            role="button" href="#set-addresses-modal">
+                                                            role="button" href="#set-trx-address-modal">
                                                             <i data-feather="check" aria-hidden="true"></i>
                                                         </a>
                                                     @else
                                                         <a class="badge rounded-pill bg-light-secondary me-1"
                                                             data-bs-toggle="modal" role="button"
-                                                            href="#set-addresses-modal">
+                                                            href="#set-trx-address-modal">
                                                             <i>not set</i>
                                                         </a>
                                                         <div class="spinner-border spinner-border-sm text-danger"
@@ -219,48 +219,142 @@
                                             </tr>
                                         </tbody>
 
-                                        <!------------------ Set Addresses Modal --------------------------------->
-                                        <div class="modal fade" id="set-addresses-modal" tabindex="-1"
-                                            aria-labelledby="setAddressModalLabel" aria-hidden="true">
+                                        <!------------------ Set BTC Addresses Modal --------------------------------->
+                                        <div class="modal fade" id="set-btc-address-modal" tabindex="-1"
+                                            aria-labelledby="setBtcAddressModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content white-block">
                                                     <div class="modal-body">
                                                         <div class="d-flex justify-content-between mb-3 pb-1">
                                                             <h5 class="modal-title text-primary fw-bold"
-                                                                id="setAddressModalLabel">
-                                                                Update your wallet addresses</h5>
+                                                                id="setBtcAddressModalLabel">
+                                                                Update your bitcoin address</h5>
                                                             <button type="button" class="btn-close bg-light"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
-                                                        <!-- Add product form -->
                                                         {!! Form::open(['route' => 'user_addresses']) !!}
+                                                        {!! Form::hidden('symbol', 'BTC') !!}
+                                                        {!! Form::hidden('name', 'Bitcoin') !!}
+                                                        {!! Form::hidden('network', 'BTC') !!}
                                                         <div class="row g-3">
                                                             <div class="col-12">
-                                                                <label for="btc" class="form-label">Bitcoin</label>
-                                                                <input type="text" name="btc" class="form-control"
-                                                                    id="btc" aria-label="btc">
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <label for="eth" class="form-label">Ethereum</label>
-                                                                <input type="text" name="eth" class="form-control"
-                                                                    id="eth" aria-label="eth">
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <label for="usdt" class="form-label">USDT
-                                                                    (BEP-20)</label>
-                                                                <input type="text" name="usdt" class="form-control"
-                                                                    id="usdt" aria-label="usdt">
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <label for="trx" class="form-label">TRONX</label>
-                                                                <input type="text" name="trx" class="form-control"
-                                                                    id="trx" aria-label="trx">
+                                                                <label for="address" class="form-label">Bitcoin</label>
+                                                                <input type="text" name="address" class="form-control"
+                                                                    id="address" aria-label="address"
+                                                                    @if ($withdrawalAddresses->contains('symbol', 'BTC')) value="{{ $withdrawalAddresses->where('symbol', 'BTC')->first()->address }}" @endif>
                                                             </div>
                                                         </div>
                                                         <div class="d-flex justify-content-end mt-3 pt-3">
                                                             <button type="button" class="btn btn-secondary me-3"
                                                                 data-bs-dismiss="modal">Cancel</button>
-                                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                            <button type="submit" class="btn btn-success">Save</button>
+                                                        </div>
+                                                        {!! Form::close() !!}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!------------------ Set ETH Addresses Modal --------------------------------->
+                                        <div class="modal fade" id="set-eth-address-modal" tabindex="-1"
+                                            aria-labelledby="setEthAddressModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content white-block">
+                                                    <div class="modal-body">
+                                                        <div class="d-flex justify-content-between mb-3 pb-1">
+                                                            <h5 class="modal-title text-primary fw-bold"
+                                                                id="setEthAddressModalLabel">
+                                                                Update your ethereum address</h5>
+                                                            <button type="button" class="btn-close bg-light"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        {!! Form::open(['route' => 'user_addresses']) !!}
+                                                        {!! Form::hidden('symbol', 'ETH') !!}
+                                                        {!! Form::hidden('name', 'Ethereum') !!}
+                                                        {!! Form::hidden('network', 'ETH') !!}
+                                                        <div class="row g-3">
+                                                            <div class="col-12">
+                                                                <label for="eth" class="form-label">Ethereum</label>
+                                                                <input type="text" name="address" class="form-control"
+                                                                    id="eth" aria-label="eth"
+                                                                    @if ($withdrawalAddresses->contains('symbol', 'ETH')) value="{{ $withdrawalAddresses->where('symbol', 'ETH')->first()->address }}" @endif>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-end mt-3 pt-3">
+                                                            <button type="button" class="btn btn-secondary me-3"
+                                                                data-bs-dismiss="modal">Cancel</button>
+                                                            <button type="submit" class="btn btn-success">Save</button>
+                                                        </div>
+                                                        {!! Form::close() !!}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!------------------ Set USDT Addresses Modal --------------------------------->
+                                        <div class="modal fade" id="set-usdt-address-modal" tabindex="-1"
+                                            aria-labelledby="setUsdtAddressModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content white-block">
+                                                    <div class="modal-body">
+                                                        <div class="d-flex justify-content-between mb-3 pb-1">
+                                                            <h5 class="modal-title text-primary fw-bold"
+                                                                id="setUsdtAddressModalLabel">
+                                                                Update your usdt address</h5>
+                                                            <button type="button" class="btn-close bg-light"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        {!! Form::open(['route' => 'user_addresses']) !!}
+                                                        {!! Form::hidden('symbol', 'USDT') !!}
+                                                        {!! Form::hidden('name', 'Tether USD') !!}
+                                                        {!! Form::hidden('network', 'BEP-20') !!}
+                                                        <div class="row g-3">
+                                                            <div class="col-12">
+                                                                <label for="usdt" class="form-label">USDT
+                                                                    (BEP-20)</label>
+                                                                <input type="text" name="address" class="form-control"
+                                                                    id="usdt" aria-label="usdt"
+                                                                    @if ($withdrawalAddresses->contains('symbol', 'USDT')) value="{{ $withdrawalAddresses->where('symbol', 'USDT')->first()->address }}" @endif>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-end mt-3 pt-3">
+                                                            <button type="button" class="btn btn-secondary me-3"
+                                                                data-bs-dismiss="modal">Cancel</button>
+                                                            <button type="submit" class="btn btn-success">Save</button>
+                                                        </div>
+                                                        {!! Form::close() !!}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!------------------ Set TRX Addresses Modal --------------------------------->
+                                        <div class="modal fade" id="set-trx-address-modal" tabindex="-1"
+                                            aria-labelledby="setTrxAddressModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content white-block">
+                                                    <div class="modal-body">
+                                                        <div class="d-flex justify-content-between mb-3 pb-1">
+                                                            <h5 class="modal-title text-primary fw-bold"
+                                                                id="setTrxAddressModalLabel">
+                                                                Update your tronx address</h5>
+                                                            <button type="button" class="btn-close bg-light"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        {!! Form::open(['route' => 'user_addresses']) !!}
+                                                        {!! Form::hidden('symbol', 'TRX') !!}
+                                                        {!! Form::hidden('name', 'Tronx') !!}
+                                                        {!! Form::hidden('network', 'TRC-20') !!}
+                                                        <div class="row g-3">
+                                                            <div class="col-12">
+                                                                <label for="trx" class="form-label">TRONX
+                                                                    (TRC-20)</label>
+                                                                <input type="text" name="address" class="form-control"
+                                                                    id="trx" aria-label="trx"
+                                                                    @if ($withdrawalAddresses->contains('symbol', 'TRX')) value="{{ $withdrawalAddresses->where('symbol', 'TRX')->first()->address }}" @endif>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-end mt-3 pt-3">
+                                                            <button type="button" class="btn btn-secondary me-3"
+                                                                data-bs-dismiss="modal">Cancel</button>
+                                                            <button type="submit" class="btn btn-success">Save</button>
                                                         </div>
                                                         {!! Form::close() !!}
                                                     </div>

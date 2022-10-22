@@ -14,6 +14,7 @@ class UserPayments extends Model
         'plan_id',
         'payment_add_id',
         'amount',
+        //? 0 - Pending, 1 - Approved(i.e running), 2 - Completed
         'status',
     ];
 

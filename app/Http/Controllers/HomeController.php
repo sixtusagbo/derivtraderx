@@ -6,6 +6,8 @@ use App\Models\PaymentAdd;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Plan;
+use App\Models\UserPayments;
+use App\Models\WithdrawalAdd;
 
 class HomeController extends Controller
 {
@@ -132,6 +134,30 @@ class HomeController extends Controller
     }
 
     /**
+     * Create payment
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function create_deposit(Request $request)
+    {
+        $values = $request->validate([
+            'plan_id' => 'required',
+            'amount' => 'required',
+            'payment_address_id' => 'required',
+        ]);
+
+        $payment = new UserPayments();
+        $payment->user_id = auth()->user()->id;
+        $payment->payment_add_id = $values['payment_address_id'];
+        $payment->plan_id = $values['plan_id'];
+        $payment->amount = $values['amount'];
+        $payment->save();
+
+        return redirect()->route('my_deposits')->with('success', 'Deposit created and pending confirmation!');
+    }
+
+    /**
      * Place withdrawal
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -162,19 +188,6 @@ class HomeController extends Controller
     }
 
     /**
-     * Create payment
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function create_deposit()
-    {
-        // TODO: Create payment in db
-
-        return redirect()->route('my_deposits')->with('success', 'Deposit created and pending confirmation!');
-    }
-
-    /**
      * User Deposits list.
      * View all depposits made by a user
      *
@@ -195,14 +208,38 @@ class HomeController extends Controller
     }
 
     /**
-     * Add user wallet address
+     * Add or update user wallet address
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function user_addresses()
+    public function user_addresses(Request $request)
     {
-        // TODO: Update user addresses
+        $values = $request->validate([
+            'symbol' => 'required',
+            'name' => 'required',
+            'network' => 'required',
+            'address' => 'required',
+        ]);
+
+        // following DRY principle
+        $user = auth()->user();
+        $symbol = $values['symbol'];
+        $newAddress = $values['address'];
+
+        if ($user->withdrawalAddresses->contains('symbol', $symbol)) {
+            $paymentAddress = WithdrawalAdd::where('symbol', $symbol)->first();
+            $paymentAddress->address = $newAddress;
+            $paymentAddress->update();
+        } else {
+            $paymentAddress = new WithdrawalAdd();
+            $paymentAddress->user_id = $user->id;
+            $paymentAddress->address = $newAddress;
+            $paymentAddress->name = $values['name'];
+            $paymentAddress->symbol = $symbol;
+            $paymentAddress->network = $values['network'];
+            $paymentAddress->save();
+        }
 
         return redirect()->route('withdraw')->with('success', 'Withdrawal addresses updated succesfully');
     }

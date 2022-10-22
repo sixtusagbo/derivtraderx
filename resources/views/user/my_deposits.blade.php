@@ -42,6 +42,10 @@
                                                 <span class="badge-success">Approved</span>
                                             @break
 
+                                            @case(2)
+                                                <span class="badge bg-light-success text-light-success p-2 ms-2">Completed</span>
+                                            @break
+
                                             @default
                                         @endswitch
                                     </td>
