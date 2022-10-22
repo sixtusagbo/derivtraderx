@@ -28,7 +28,6 @@
         <div class="col-lg-12">
             <div class="card white-block text-light border-none p-0">
                 <div class="card-body p-0 m-0">
-
                     <div class="table-responsive">
                         <table class="table table-hover table-secondary">
                             <thead>

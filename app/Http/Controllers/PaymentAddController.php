@@ -55,7 +55,7 @@ class PaymentAddController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function store(Request $request)
     {
         //check if user trying to access the page is admin
         if (auth()->user()->type != 1) {
@@ -64,23 +64,21 @@ class PaymentAddController extends Controller
 
         //validat request details
         $this->validate($request, [
-            'coin_name' => 'required|string|max:255',
-            'coin_address' => 'required|string|max:255',
-            'symbole' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'symbol' => 'required|string|max:255',
             'network' => 'required|string|max:255',
-            'exchange_platform' => 'required|string|max:255',
         ]);
 
         $paymentAdds = new PaymentAdd();
-        $paymentAdds->coin_name = $request->input('coin_name');
-        $paymentAdds->coin_address = $request->input('coin_address');
-        $paymentAdds->symbole = $request->input('symbole');
+        $paymentAdds->name = $request->input('name');
+        $paymentAdds->address = $request->input('address');
+        $paymentAdds->symbol = $request->input('symbol');
         $paymentAdds->network = $request->input('network');
-        $paymentAdds->exchange_platform = $request->input('exchange_platform');
-
         $paymentAdds->save();
 
-        return redirect('/admin/payment_address')->with('success', 'Payment Address successfully Created');
+
+        return redirect()->route('payment_addresses.index')->with('success', 'Payment address created successfully');
     }
 
 
@@ -102,23 +100,20 @@ class PaymentAddController extends Controller
 
         //validat request details
         $this->validate($request, [
-            'coin_name' => 'required|string|max:255',
-            'coin_address' => 'required|string|max:255',
-            'symbole' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'symbol' => 'required|string|max:255',
             'network' => 'required|string|max:255',
-            'exchange_platform' => 'required|string|max:255',
         ]);
 
         $paymentAdds = PaymentAdd::find($id);
-        $paymentAdds->coin_name = $request->input('coin_name');
-        $paymentAdds->coin_address = $request->input('coin_address');
-        $paymentAdds->symbole = $request->input('symbole');
+        $paymentAdds->name = $request->input('name');
+        $paymentAdds->address = $request->input('address');
+        $paymentAdds->symbol = $request->input('symbol');
         $paymentAdds->network = $request->input('network');
-        $paymentAdds->exchange_platform = $request->input('exchange_platform');
-
         $paymentAdds->update();
 
-        return redirect('/admin/payment_address')->with('success', 'Payment Address successfully updated');
+        return redirect()->route('payment_addresses.index')->with('success', 'Payment address successfully updated');
     }
 
 
