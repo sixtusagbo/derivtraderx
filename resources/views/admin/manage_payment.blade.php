@@ -124,7 +124,7 @@
                                                                             class="form-control text-light">
                                                                             @foreach ($plans as $plan)
                                                                                 <option value="{{ $plan->id }}"
-                                                                                    @if ($payment->plans_id == $plan->id) @selected(true) @endif>
+                                                                                    @if ($payment->plan_id == $plan->id) @selected(true) @endif>
                                                                                     {{ $plan->name }}</option>
                                                                             @endforeach
                                                                         </select>
