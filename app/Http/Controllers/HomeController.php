@@ -30,7 +30,6 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $users = User::where('type', '0')->paginate();
-        $newusers = User::where('type', '0')->orderBy('created_at', 'desc')->paginate();
         $admins = User::where('type', '1')->get();
         $ethPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('ETH'));
         $usdtPayments = $user->payments->where('payment_add_id', self::getCoinIdWithSymbol('USDT'));
@@ -57,10 +56,10 @@ class HomeController extends Controller
 
         $user_data = [
             'admins' => $admins,
-            'ethSum' => $ethPayments->where('status', 1)->sum->amount,
-            'trxSum' => $trxPayments->where('status', 1)->sum->amount,
-            'usdtSum' => $usdtPayments->where('status', 1)->sum->amount,
-            'btcSum' => $btcPayments->where('status', 1)->sum->amount,
+            'ethSum' => $ethPayments->whereIn('status', [1, 2])->sum->amount,
+            'trxSum' => $trxPayments->whereIn('status', [1, 2])->sum->amount,
+            'usdtSum' => $usdtPayments->whereIn('status', [1, 2])->sum->amount,
+            'btcSum' => $btcPayments->whereIn('status', [1, 2])->sum->amount,
             'userPayments' => $userPayments,
             'userWithdrawals' => $userWithdrawals,
             'totalDeposits' => $userPayments->sum->amount,
