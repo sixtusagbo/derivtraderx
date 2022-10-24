@@ -156,3 +156,11 @@
     color: $white-color;
   }
 }
+
+body:not(.darkmode) {
+  .card {
+    &-title {
+      color: #283046 !important;
+    }
+  }
+}

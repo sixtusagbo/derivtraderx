@@ -13925,4 +13925,8 @@ label {
   color: #ffffff;
 }
 
+body:not(.darkmode) .card-title {
+  color: #283046 !important;
+}
+
 /*# sourceMappingURL=dashboard.css.map*/

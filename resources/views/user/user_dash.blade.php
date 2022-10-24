@@ -329,7 +329,8 @@
                                 @forelse ($userWithdrawals->take(5) as $withdrawal)
                                     <tr>
                                         <td class="text-uppercase">
-                                            {{ $withdrawal->paymentAdd->name }} ({{ $withdrawal->paymentAdd->network }})
+                                            {{ $withdrawal->withdrawalAdd->name }}
+                                            ({{ $withdrawal->withdrawalAdd->network }})
                                         </td>
                                         <td>
                                             {{ $withdrawal->created_at->toDayDateTimeString() }}
