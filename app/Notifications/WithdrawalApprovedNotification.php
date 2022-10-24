@@ -47,7 +47,7 @@ class WithdrawalApprovedNotification extends Notification
         return (new MailMessage)
             ->greeting('Hello ' . $this->withdrawal->user->username . ',')
             ->subject('Congratulations, Withdrawal Successful✅')
-            ->line('Your withdrawal of $' . $this->withdrawal->amount . ' has been approved and has been sent to your trading wallet.')
+            ->line('Your withdrawal of $' . number_format($this->withdrawal->amount, 2) . ' has been approved and has been sent to your trading wallet.')
             ->line('Withdrawal address: ' . $this->withdrawal->withdrawalAdd->address)
             ->line('Thank you for investing with us 🚀');
     }

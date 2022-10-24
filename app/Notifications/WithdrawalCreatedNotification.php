@@ -47,7 +47,7 @@ class WithdrawalCreatedNotification extends Notification
         return (new MailMessage)
             ->greeting('Hello ' . $this->withdrawal->user->username . ',')
             ->subject('Withdrawal Created')
-            ->line('A pending withdrawal of $' . $this->withdrawal->amount . ' has been created for your account.')
+            ->line('A pending withdrawal of $' . number_format($this->withdrawal->amount, 2) . ' has been created for your account.')
             ->line('If you did not create this withdrawal, contact us: hi@derivtraderx.com')
             ->line('If you created this withdrawal, no further action is required.')
             ->line('Thank you for investing with us 🚀');

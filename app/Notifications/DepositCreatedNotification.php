@@ -49,7 +49,7 @@ class DepositCreatedNotification extends Notification
         return (new MailMessage)
             ->greeting('Hello ' . $this->payment->user->username . ',')
             ->subject('Deposit Created')
-            ->line('You have created a pending deposit of $' . $this->payment->amount . ' for the ' . $this->payment->plan->name . ' plan.')
+            ->line('You have created a pending deposit of $' . number_format($this->payment->amount, 2) . ' for the ' . $this->payment->plan->name . ' plan.')
             ->line('This payment is to be made to the ' . $this->payment->paymentAdd->name . ' address: ' . $this->payment->paymentAdd->address)
             ->line('Thank you for investing with us 🚀');
     }

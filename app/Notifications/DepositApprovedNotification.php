@@ -47,7 +47,7 @@ class DepositApprovedNotification extends Notification
         return (new MailMessage)
             ->greeting('Hello ' . $this->payment->user->username . ',')
             ->subject('Congratulations, Deposit Approved✅')
-            ->line('Your deposit of $' . $this->payment->amount . ' for the ' . $this->payment->plan->name . ' plan has been approved and the plan has started running.')
+            ->line('Your deposit of $' . number_format($this->payment->amount, 2) . ' for the ' . $this->payment->plan->name . ' plan has been approved and the plan has started running.')
             ->line('Thank you for investing with us 🚀');
     }
 
