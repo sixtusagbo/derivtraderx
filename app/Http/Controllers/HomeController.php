@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Plan;
 use App\Models\UserPayments;
 use App\Models\WithdrawalAdd;
+use App\Notifications\DepositCreatedNotification;
+use Illuminate\Support\Facades\Notification;
 
 class HomeController extends Controller
 {
@@ -149,12 +151,16 @@ class HomeController extends Controller
             'payment_address_id' => 'required',
         ]);
 
+        $user = auth()->user();
+
         $payment = new UserPayments();
-        $payment->user_id = auth()->user()->id;
+        $payment->user_id = $user->id;
         $payment->payment_add_id = $values['payment_address_id'];
         $payment->plan_id = $values['plan_id'];
         $payment->amount = $values['amount'];
         $payment->save();
+
+        Notification::send($user, new DepositCreatedNotification($payment));
 
         return redirect()->route('my_deposits')->with('success', 'Deposit created and pending confirmation!');
     }

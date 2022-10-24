@@ -7,6 +7,9 @@ use App\Models\User;
 use App\Models\PaymentAdd;
 use App\Models\UserPayments;
 use App\Models\Plan;
+use App\Notifications\DepositApprovedNotification;
+use App\Notifications\PlanCompletedNotification;
+use Illuminate\Support\Facades\Notification;
 
 class ManagePaymentController extends Controller
 {
@@ -101,13 +104,23 @@ class ManagePaymentController extends Controller
             'amount' => 'required|string|max:255',
         ]);
 
+        $user = User::find($request->input('user_id'));
+
         $userPayment = UserPayments::find($id);
-        $userPayment->user_id = $request->input('user_id');
+        $userPayment->user_id = $user->id;
         $userPayment->payment_add_id = $request->input('paymentAdd_id');
-        $userPayment->Plan_id = $request->input('plan_id');
+        $userPayment->plan_id = $request->input('plan_id');
         $userPayment->amount = $request->input('amount');
         $userPayment->status = $request->input('status');
         $userPayment->update();
+
+        if ($userPayment->status == 1) {
+            Notification::send($user, new DepositApprovedNotification($userPayment));
+        }
+
+        if ($userPayment->status == 2) {
+            Notification::send($user, new PlanCompletedNotification($userPayment));
+        }
 
         return redirect()->route('payments.index')->with('success', 'Payment successfuly updated');
     }

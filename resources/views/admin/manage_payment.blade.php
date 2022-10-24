@@ -49,7 +49,7 @@
                                                 {{ $payment->user->username }}
                                             </td>
                                             <td>
-                                                {{ $payment->amount }}
+                                                ${{ $payment->amount }}
                                             </td>
                                             <td>
                                                 @switch($payment->status)
@@ -194,7 +194,7 @@
                                                                 Are you sure you wish to remove this payment?
                                                             </p>
                                                             <form method="POST"
-                                                                action="{{ url('/admin/payment/delete/' . $payment->id) }}"
+                                                                action="{{ route('payments.destroy', $payment->id) }}"
                                                                 id="deletePayment">
                                                                 @csrf
                                                                 <input type="hidden" name="_method" value="DELETE">

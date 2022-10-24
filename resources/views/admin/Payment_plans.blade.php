@@ -169,7 +169,7 @@
                                                                 Are you sure you wish to remove this plan?
                                                             </p>
                                                             <form method="POST"
-                                                                action="{{ url('/plan/delete/' . $plan->id) }}"
+                                                                action="{{ route('plans.destroy', $plan->id) }}"
                                                                 id="deletePlan">
                                                                 @csrf
                                                                 <input type="hidden" name="_method" value="DELETE">

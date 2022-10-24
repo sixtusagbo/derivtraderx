@@ -167,7 +167,7 @@
                                                                 Are you sure you wish to remove this withdrawal?
                                                             </p>
                                                             <form method="POST"
-                                                                action="{{ url('/admin/withdrawal/delete/' . $userWithdrawal->id) }}"
+                                                                action="{{ route('withdrawals.destroy', $userWithdrawal->id) }}"
                                                                 id="deleteUserWith">
                                                                 @csrf
                                                                 <input type="hidden" name="_method" value="DELETE">

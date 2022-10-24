@@ -9,6 +9,9 @@ use App\Models\PaymentAdd;
 use App\Models\Plan;
 use App\Models\WithdrawalAdd;
 use App\Models\UserWithdrawals;
+use App\Notifications\WithdrawalApprovedNotification;
+use App\Notifications\WithdrawalCreatedNotification;
+use Illuminate\Support\Facades\Notification;
 
 class UserWithdrawalController extends Controller
 {
@@ -70,12 +73,16 @@ class UserWithdrawalController extends Controller
             'amount' => 'required',
         ]);
 
+        $user = auth()->user();
+
         $userWithdrawal = new UserWithdrawals();
-        $userWithdrawal->user_id = auth()->user()->id;
+        $userWithdrawal->user_id = $user->id;
         $userWithdrawal->withdrawal_add_id = $request->input('withdrawal_add_id');
         $userWithdrawal->amount = $request->input('amount');
         $userWithdrawal->status = 0;
         $userWithdrawal->save();
+
+        Notification::send($user, new WithdrawalCreatedNotification($userWithdrawal));
 
         return redirect()->route('withdraw')->with('success', 'Withdrawal request submitted successfully.');
     }
@@ -99,12 +106,16 @@ class UserWithdrawalController extends Controller
             'amount' => 'required',
         ]);
 
+        $user = User::find($request->input('user_id'));
+
         $userWithdrawal = UserWithdrawals::find($id);
-        $userWithdrawal->user_id = $request->input('user_id');
+        $userWithdrawal->user_id = $user->id;
         $userWithdrawal->withdrawal_add_id = $request->input('withdrawal_add_id');
         $userWithdrawal->amount = $request->input('amount');
         $userWithdrawal->status = $request->input('status');
         $userWithdrawal->save();
+
+        Notification::send($user, new WithdrawalApprovedNotification($userWithdrawal));
 
         return redirect()->route('withdrawals.index')->with('success', 'successfuly updated');
     }

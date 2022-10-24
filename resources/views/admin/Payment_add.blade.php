@@ -152,7 +152,7 @@
                                                                 Are you sure you wish to remove this wallet address?
                                                             </p>
                                                             <form method="POST"
-                                                                action="{{ url('/payment_address/delete/' . $pAdd->id) }}"
+                                                                action="{{ route('payment_addresses.destroy', $pAdd->id) }}"
                                                                 id="deletePAdd">
                                                                 @csrf
                                                                 <input type="hidden" name="_method" value="DELETE">
