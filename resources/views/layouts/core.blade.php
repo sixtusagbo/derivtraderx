@@ -5,23 +5,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="An investment platform">
-    <meta name="keywords" content="derivtraderx, dtx, trade, forex, crypto, investment, invest, bitcoin, ethereum">
+    {{-- <meta name="keywords" content="primetraderx, trade, forex, crypto, investment, invest, bitcoin, ethereum"> --}}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url('/') }}">
-    <meta property="og:title" content="DerivTraderx">
+    <meta property="og:title" content="PrimeTraderx">
     <meta property="og:description" content="An investment platform">
     <meta property="og:image" content="{{ asset('images/welcome_banner.jpg') }}">
     <!-- Twitter -->
     <meta property="twitter:card" content="website">
     <meta property="twitter:url" content="{{ url('/') }}">
-    <meta property="twitter:title" content="DerivTraderx">
+    <meta property="twitter:title" content="PrimeTraderx">
     <meta property="twitter:description" content="An investment platform">
     <meta property="twitter:image" content="{{ asset('images/welcome_banner.jpg') }}">
 
-    <title>{{ config('app.name', 'DerivTraderx') }}</title>
+    <title>{{ config('app.name', 'PrimeTraderx') }}</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -135,8 +135,8 @@
                                         class="material-icons fs-5">call</span> Whatsapp </a>
                             </li>
                             <li class="nav-item">
-                                <a href="mailto:support@derivtraderx.com" class="link-secondary text-decoration-none">
-                                    <span class="material-icons fs-5">email</span> support@derivtraderx.com </a>
+                                <a href="mailto:support@primetraderx.com" class="link-secondary text-decoration-none">
+                                    <span class="material-icons fs-5">email</span> support@primetraderx.com </a>
                             </li>
                             <li class="nav-item">
                                 <a href="https://goo.gl/maps/QUJyWa2A1KH5kQYR7" target="_blank"
@@ -193,7 +193,7 @@
                 <a href="{{ route('policy') }}" class="link-primary text-decoration-none">Terms & conditions</a>
 
                 <p>&copy; 2022 All Rights Reserved | <a href="{{ url('/') }}"
-                        class="link-primary text-decoration-none">DerivTraderx</a>
+                        class="link-primary text-decoration-none">PrimeTraderx</a>
                 </p>
             </div>
         </div>

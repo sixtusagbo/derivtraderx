@@ -3,7 +3,7 @@
 @section('content')
     @if ($currentUserPayments->where('status', 0)->count() > 0)
         <div class="alert alert-info bg-light-info text-light-info" role="alert">
-            <h5>If you have made payment but it's yet to reflect, please contact <a href="mailto:hi@derivtraderx.com"
+            <h5>If you have made payment but it's yet to reflect, please contact <a href="mailto:support@primetraderx.com"
                     target="_blank" class="link-info">admin</a> to update your account accordingly.
             </h5>
         </div>
@@ -66,7 +66,7 @@
                 </div>
             </div>
             @empty
-                <div class="text-info">No plans yet, contact <a class="link-warning" href="support@derivtraderx.com">support</a>.
+                <div class="text-info">No plans yet, contact <a class="link-warning" href="support@primetraderx.com">support</a>.
                 </div>
             @endforelse
 

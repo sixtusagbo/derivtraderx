@@ -18,7 +18,7 @@
                     <div class="investment">
                         <div class="investment-head">Investment<span>Plans</span></div>
                         <div class="investment-desc">
-                            <span class="fw-bold">Derivtraderx</span> provides high pofitable investment plans. Customers
+                            <span class="fw-bold">Primetraderx</span> provides high pofitable investment plans. Customers
                             can
                             choose
                             different investment

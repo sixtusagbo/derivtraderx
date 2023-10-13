@@ -3,7 +3,7 @@
         <a href="{{ url('/') }}"
             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <img src="{{ asset('images/logo.png') }}" alt="" width="35px">
-            <span class="fs-4 text-light ms-2 fw-bold">Deriv Traderx</span>
+            <span class="fs-4 text-light ms-2 fw-bold">Prime Traderx</span>
         </a>
 
         <ul class="nav nav-pills d-none d-lg-flex">

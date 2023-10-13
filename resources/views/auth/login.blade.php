@@ -40,7 +40,7 @@
         </label>
 
         <button class="form-btn primary-default-btn transparent-btn">Sign in</button>
-        <p class="mt-4 text-center text-light">New to derivtraderx? <a href="{{ route('register') }}"
+        <p class="mt-4 text-center text-light">New to primetraderx? <a href="{{ route('register') }}"
                 class="link-primary text-decoration-none">Create an account</a></p>
     </form>
 @endsection

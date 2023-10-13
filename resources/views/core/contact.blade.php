@@ -11,8 +11,8 @@
                         feedback
                         within 72hours.</p>
 
-                    <p class="fw-bold">Email: <a href="mailto:support@derivtraderx.com"
-                            class="text-decoration-none">support@derivtraderx.com</a></p>
+                    <p class="fw-bold">Email: <a href="mailto:support@primetraderx.com"
+                            class="text-decoration-none">support@primetraderx.com</a></p>
 
                 </div>
                 <div class="col-lg-7">

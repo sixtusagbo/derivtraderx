@@ -42,7 +42,7 @@
             </div>
         @empty
             <div class="text-info">No plans yet, contact <a class="link-warning"
-                    href="support@derivtraderx.com">support</a>.</div>
+                    href="support@primetraderx.com">support</a>.</div>
         @endforelse
     </div>
 
@@ -62,7 +62,7 @@
             </div>
         @empty
             <div class="text-info my-2 col">No coins yet, contact <a class="link-warning"
-                    href="support@derivtraderx.com">support</a>.</div>
+                    href="support@primetraderx.com">support</a>.</div>
         @endforelse
     </div>
 

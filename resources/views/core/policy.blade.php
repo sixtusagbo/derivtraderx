@@ -121,7 +121,7 @@
             <li>b) Service cookies that help us to make our website work as efficiently as possible; remember your
                 registration and login details; remember your settings preferences; to detect what device you are using and
                 adapt how we present our services according to the screen size of that device; and meter the number of pages
-                you view for the purpose of administering subscriptions to derivtraderx.com</li>
+                you view for the purpose of administering subscriptions to primetraderx.com</li>
             <li>c) Third party advertising and analytics cookies, which are placed by or on behalf of independent
                 advertisers who might advertising on our site. These cookies may be placed within the advertisement and
                 elsewhere on our site by us or by your browser. They are anonymous – they cannot be used to identify

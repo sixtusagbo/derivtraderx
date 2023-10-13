@@ -9,7 +9,7 @@
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        How do I open derivtraderx account?
+                        How do I open an account?
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
@@ -25,14 +25,14 @@
                 <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        How can I invest with derivtraderx.com?
+                        How can I invest with primetraderx.com?
                     </button>
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                     data-bs-parent="#faccordion">
                     <div class="accordion-body">
                         To make an investment you must first become a <a href="{{ route('register') }}"
-                            class="link-primary text-decoration-none">member</a> of derivtraderx.com. Once you are signed
+                            class="link-primary text-decoration-none">member</a> of primetraderx.com. Once you are signed
                         up,
                         you can make your first deposit. All deposits must be made through the Members Area. You can login
                         using
@@ -44,7 +44,7 @@
                 <h2 class="accordion-header" id="headingThree">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        I wish to invest with derivtraderx.com but I don't have any e-currency account. What
+                        I wish to invest but I don't have any e-currency account. What
                         should I do?
                     </button>
                 </h2>
@@ -144,7 +144,7 @@
                 <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9"
                     data-bs-parent="#faccordion">
                     <div class="accordion-body">
-                        No, profits are gathered on your derivtraderx.com account and you can withdraw them anytime.
+                        No, profits are gathered on your account and you can withdraw them anytime.
                     </div>
                 </div>
             </div>
@@ -173,7 +173,7 @@
                 <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11"
                     data-bs-parent="#faccordion">
                     <div class="accordion-body">
-                        Yes, you can make a deposit directly from your derivtraderx.com account balance.
+                        Yes, you can make a deposit directly from your account balance.
                     </div>
                 </div>
             </div>

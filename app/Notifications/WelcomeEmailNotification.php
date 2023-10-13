@@ -42,7 +42,7 @@ class WelcomeEmailNotification extends Notification
     {
         return (new MailMessage)
             ->greeting('Hello ' . auth()->user()->username . ',')
-            ->subject('Welcome to Derivtraderx')
+            ->subject('Welcome to Primetraderx')
             ->line('Congratulations! Your email is now verified.')
             ->action('Go to dashboard', route('login'))
             ->line('Thank you for registering on our platform!');
