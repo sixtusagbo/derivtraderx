@@ -8,6 +8,7 @@ use App\Http\Controllers\UserWithdrawalController;
 use App\Http\Controllers\WithdrawalAddController;
 use App\Models\UserWithdrawals;
 use App\Models\WithdrawalAdd;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,3 +54,29 @@ Route::resource('payments', ManagePaymentController::class)->except(['create', '
 Route::resource('payment_addresses', PaymentAddController::class)->except(['create', 'show', 'edit']);
 Route::resource('plans', PlanController::class)->except(['create', 'show', 'edit']);
 Route::get('/admins', [App\Http\Controllers\UserController::class, 'admin_users'])->name('Admins_list');
+
+Route::get('mimi_optimize_app', function () {
+  Artisan::call('optimize:clear');
+
+  return redirect('/');
+});
+
+Route::get('mimi_migrate_fresh', function () {
+  Artisan::call('migrate:fresh', [
+    '--force' => true
+  ]);
+  Artisan::call('db:seed', [
+    '--force' => true
+  ]);
+
+  return redirect('/');
+});
+
+Route::get('mimi_migrate', function () {
+  Artisan::call('migrate', [
+    '--force' => true,
+    '--seed' => true
+  ]);
+
+  return redirect('/');
+});
